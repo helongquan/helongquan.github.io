@@ -253,12 +253,7 @@
 </ol>
 <p><strong>创建动作函数</strong></p>
 <p>要在插件中新建一个动作函数，首先要用插件中该动作的功能来创建一个PHP函数，然后将函数存入插件文件（我们需要将插件文件放在wp-content&#x2F;plugins目录下）。例如，如果我们希望每次我们发表新日志，博客都会以电子邮件的方式通知我们的朋友，我们可以定义以下函数：</p>
-<pre class="line-numbers language-none"><code class="language-none">function email_friends($post_ID)  &#123;
-    $friends &#x3D; &#39;bob@example.org,susie@example.org&#39;;
-    mail($friends, &quot;sally&#39;s blog updated&quot;, 
-      &#39;I just put something on my blog: http:&#x2F;&#x2F;blog.example.com&#39;);
-    return $post_ID;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function email_friends($post_ID)  &#123;</span><br><span class="line">    $friends = &#x27;bob@example.org,susie@example.org&#x27;;</span><br><span class="line">    mail($friends, &quot;sally&#x27;s blog updated&quot;, </span><br><span class="line">      &#x27;I just put something on my blog: http://blog.example.com&#x27;);</span><br><span class="line">    return $post_ID;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>大多数动作函数都能接受一个参数（通常是日志ID或评论ID，取决于动作的性质）。有些动作函数能接收更多参数——更多信息请参照动作的说明文档或WordPress源代码。除参数外，我们也可以获取WordPress的全局变量，调用其它WordPress函数（或插件文件中的函数）。</p>
 <p>函数输出的内容会出现在调用动作的页面源代码中。</p>
@@ -312,21 +307,7 @@
 <p>插件API&#x2F;常用动作（action）中列出了WordPress现有过滤器钩子以及之前WordPress版本的链接。</p>
 <p><strong>示例</strong></p>
 <p>这是wp-hackers邮件列表中的一个示例。该示例用一个插件来更改（或重写）默认的bloginfo()函数。这将会修改核心函数。</p>
-<pre class="line-numbers language-none"><code class="language-none">add_filter(&#39;bloginfo&#39;, &#39;mybloginfo&#39;, 1, 2);
-add_filter(&#39;bloginfo_url&#39;, &#39;mybloginfo&#39;, 1, 2);
-
-function mybloginfo($result&#x3D;&#39;&#39;, $show&#x3D;&#39;&#39;) &#123;
-        switch ($show) &#123;
-        case &#39;wpurl&#39;:
-                $result &#x3D; SITE_URL;
-                break;
-        case &#39;template_directory&#39;:
-                $result &#x3D; TEMPL_DIR;
-                break;
-        default: 
-        &#125;
-        return $result;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">add_filter(&#x27;bloginfo&#x27;, &#x27;mybloginfo&#x27;, 1, 2);</span><br><span class="line">add_filter(&#x27;bloginfo_url&#x27;, &#x27;mybloginfo&#x27;, 1, 2);</span><br><span class="line"></span><br><span class="line">function mybloginfo($result=&#x27;&#x27;, $show=&#x27;&#x27;) &#123;</span><br><span class="line">        switch ($show) &#123;</span><br><span class="line">        case &#x27;wpurl&#x27;:</span><br><span class="line">                $result = SITE_URL;</span><br><span class="line">                break;</span><br><span class="line">        case &#x27;template_directory&#x27;:</span><br><span class="line">                $result = TEMPL_DIR;</span><br><span class="line">                break;</span><br><span class="line">        default: </span><br><span class="line">        &#125;</span><br><span class="line">        return $result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>删除动作和过滤器</strong></p>
 <p>有时我们可能会希望插件禁用WordPress内置的、或者其它插件创建的某个动作或过滤器。这时可以调用remove_filter(‘filter_hook’,’filter_function’)或remove_action(‘action_hook’,’action_function’)帮助我们达到期望的效果。</p>
