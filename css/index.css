@@ -1535,10 +1535,8 @@ blockquote footer cite:before {
 blockquote > :last-child {
   margin-bottom: 0 !important;
 }
-@media screen and (max-width: 768px) {
-  #recent-posts > .recent-post-item .post_cover.right {
-    display: none false;
-  }
+#recent-posts > .recent-post-item .post_cover.right {
+  display: none !important;
 }
 :root {
   --hl-color: #90a4ae;
