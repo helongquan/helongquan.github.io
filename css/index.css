@@ -1485,16 +1485,16 @@ a:hover {
   text-align: center;
 }
 .post_cover.left {
-  display: none;
+  display: none !important;
 }
 .aside-list-item .thumbnail {
-  display: none;
+  display: none !important;
 }
 .aside-list-item .content {
   padding-left: 0px;
 }
 .framework-info {
-  display: none;
+  display: none false;
 }
 .copy-true {
   -webkit-user-select: all;
