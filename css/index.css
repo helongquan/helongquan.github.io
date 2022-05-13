@@ -1484,6 +1484,18 @@ a:hover {
 .is-center {
   text-align: center;
 }
+.post_cover.left {
+  display: none;
+}
+.aside-list-item .thumbnail {
+  display: none;
+}
+.aside-list-item .content {
+  padding-left: 0px;
+}
+.framework-info {
+  display: none;
+}
 .copy-true {
   -webkit-user-select: all;
   -moz-user-select: all;
