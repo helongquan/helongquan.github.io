@@ -1538,6 +1538,10 @@ blockquote > :last-child {
 #recent-posts > .recent-post-item .post_cover.right {
   display: none !important;
 }
+ul,
+ol {
+  padding-left: 15px !important;
+}
 :root {
   --hl-color: #90a4ae;
   --hl-bg: #f6f8fa;
