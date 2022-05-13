@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>wordpress高级动作函数</title>
+      <link href="/2022/05/13/wordpress%E9%AB%98%E7%BA%A7%E5%8A%A8%E4%BD%9C%E5%87%BD%E6%95%B0/"/>
+      <url>/2022/05/13/wordpress%E9%AB%98%E7%BA%A7%E5%8A%A8%E4%BD%9C%E5%87%BD%E6%95%B0/</url>
+      
+        <content type="html"><![CDATA[<p>部分介绍的都是与WordPress查询（决定该显示哪一篇日志）、WordPress主循环、激活插件以及WordPress基础代码相关的动作函数。</p><p><strong>admin_menu</strong></p><p>控制板中的菜单结构显示无误后，执行此动作函数。</p><p><strong>admin_notices</strong></p><p>管理菜单显示在页面上时执行此动作函数。</p><p><strong>blog_privacy_selector</strong></p><p>博客默认隐私选项显示在页面上时，执行此动作函数。</p><p><strong>check_admin_referer</strong></p><p>系统出于安全考虑检查随机数后在默认函数check_admin_referrer中执行check_admin_referer动作钩子，使插件因安全原因而强制WordPress停止运行。注意：check_admin_referrer也是一个“插入式”函数，即插件可以改写该函数；参见插件API。</p><p><strong>check_ajax_referer</strong></p><p>系统从cookies中成功验证用户的登录名和密码后，在默认函数 check_ajax_referer（这是在有AJAX请求进入wp-admin&#x2F;admin-ajax.php脚本时所调用的函数）中执行此动作函数，使插件能够因安全原因强制WordPress停止运行。注意： check_ajax_referer函数也是一个“插入式”函数，即插件可以改写该函数；参见插件API。</p><p><strong>generate_rewrite_rules</strong></p><p>重写规则生成后，执行此动作函数。函数接收的参数：WP_Rewrite类变量列表。注意：在修改重写规则时，使用rewrite_rules_array过滤器函数比使用该动作函数更加方便。</p><p><strong>init</strong></p><p>WordPress加载完毕但尚未发送页眉信息时执行该动作函数。函数适用于解析$_GET or $_POST 触发器。</p><p><strong>oop_end</strong></p><p>WordPress主循环最后一篇日志执行完毕后，执行此动作函数。</p><p><strong>loop_start</strong></p><p>执行WordPress主循环第一篇日志前，执行此动作函数。</p><p><strong>parse_query</strong></p><p>在主查询或WP_Query 的任何实例（如 query_posts，get_posts或get_children）中查询解析结束时，执行此动作函数。函数接收的参数：$wp_query 对象内容列表。</p><p><strong>parse_request</strong></p><p>在主WordPress函数wp中解析查询请求后，执行该动作函数。函数接收的参数：引用全局变量$wp对象的数组。</p><p><strong>pre_get_posts</strong></p><p>在get_posts函数开始操作查询前执行此动作函数。函数接收的参数：$wp_query对象的内容列表。</p><p><strong>sanitize_comment_cookies</strong></p><p>HTTP请求读取cookies后执行此动作函数。</p><p><strong>send_headers</strong></p><p>在WordPress主函数wp中发送基本HTTP页眉后执行此动作函数。函数接收的参数：引用全局变量$wp对象的数组。</p><p><strong>shutdown</strong></p><p>页面内容输出完毕后执行此动作函数。</p><p><strong>wp</strong></p><p>在WordPress主函数wp中解析查询、页面加载完毕后，执行模板前，执行此动作函数。函数接收的参数：引用全局变量$wp对象的数组。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> wordpress专栏 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 动作 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>使用hexo theme Butterfly 报错</title>
       <link href="/2022/05/13/%E4%BD%BF%E7%94%A8hexo-theme-Butterfly-%E6%8A%A5%E9%94%99/"/>
       <url>/2022/05/13/%E4%BD%BF%E7%94%A8hexo-theme-Butterfly-%E6%8A%A5%E9%94%99/</url>
