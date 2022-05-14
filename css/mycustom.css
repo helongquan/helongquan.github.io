@@ -23,17 +23,14 @@ ul,ol{
 .aside-content .card-widget>ul.card-category-list,.aside-content .card-widget>ol.card-category-list{
 	padding-left:0px !important;
 }
-.aside-content .card-widget>ul.card-category-list>ul.card-category-list.child li>a.card-category-list-link{
+.aside-content .card-widget ul.card-category-list.child li>a.card-category-list-link .card-category-list-name{
 	position: relative;
 }
-.aside-content .card-widget>ul>ul.card-category-list.child li>a.card-category-list-link:before{
+.aside-content .card-widget ul.card-category-list.child li>a.card-category-list-link .card-category-list-name:before{
 	content: ">";
 	position: absolute;
 	left: 0px;
 	display: inline-block;
 	margin-right: 5px;
 	font-size: 18px;
-}
-#aside-content .card-archives ul.card-archive-list > .card-archive-list-item a, #aside-content .card-categories ul.card-category-list > .card-category-list-item a{
-	padding: 3px 0px !important;
 }
