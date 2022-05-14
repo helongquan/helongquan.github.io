@@ -20,6 +20,6 @@ ul,ol{
 .framework-info{
   display:none !improtant;
 }
-.aside-content .card-widget ul.card-category-list,.aside-content .card-widget ol.card-category-list{
+.aside-content .card-widget>ul.card-category-list,.aside-content .card-widget>ol.card-category-list{
 	padding-left:0px !important;
 }
