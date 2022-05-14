@@ -27,10 +27,9 @@ ul,ol{
 	position: relative;
 }
 .aside-content .card-widget ul.card-category-list.child li>a.card-category-list-link .card-category-list-name:before{
-	content: "\f105";
+	content: "- ";
 	position: absolute;
 	left: 0px;
 	display: inline-block;
-	margin-right: 5px;
-	font-size: 18px;
+	margin-right: 8px;
 }
