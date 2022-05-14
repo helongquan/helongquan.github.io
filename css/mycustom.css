@@ -23,10 +23,10 @@ ul,ol{
 .aside-content .card-widget>ul.card-category-list,.aside-content .card-widget>ol.card-category-list{
 	padding-left:0px !important;
 }
-.aside-content .card-widget>ul>ul.card-category-list.child li{
+.aside-content .card-widget>ul.card-category-list>ul.card-category-list.child li>a.card-category-list-link{
 	position: relative;
 }
-.aside-content .card-widget>ul>ul.card-category-list.child li:before{
+.aside-content .card-widget>ul>ul.card-category-list.child li>a.card-category-list-link:before{
 	content: ">";
 	position: absolute;
 	left: 0px;
