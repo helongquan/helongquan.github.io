@@ -1,0 +1,22 @@
+#recent-posts > .recent-post-item .post_cover.right{
+	display:none !important;
+}
+ul,ol{
+	padding-left:15px !important;
+}
+
+.post_cover.left{
+  display: none !important;
+}
+
+.aside-list-item .thumbnail{
+  display: none !important;
+}
+
+.aside-list-item .content{
+  padding-left: 0px !important;
+}
+
+.framework-info{
+  display:none !improtant;
+}
