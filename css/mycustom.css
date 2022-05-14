@@ -27,7 +27,7 @@ ul,ol{
 	position: relative;
 }
 .aside-content .card-widget ul.card-category-list.child li>a.card-category-list-link .card-category-list-name:before{
-	content: ">";
+	content: "\f105";
 	position: absolute;
 	left: 0px;
 	display: inline-block;
