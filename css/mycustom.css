@@ -34,3 +34,10 @@ ul,ol{
 	margin-right: 10px;
 	padding-left: 3px;
 }
+#article-container .flink .flink-list > .flink-list-item {
+    border: 1px solid #7fc8f8;
+    padding: 0px 15px;
+}
+#article-container .flink .flink-list > .flink-list-item a .flink-item-icon{
+	display: none;
+}
