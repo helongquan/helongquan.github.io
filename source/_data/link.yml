@@ -1,0 +1,39 @@
+YAMLclass:
+  class_name: 技术类友链
+  link_list:
+    1:
+      name: 阮一峰的个人网站
+      link: https://www.ruanyifeng.com/
+      # avatar: https://img.antmoe.com/avatar.png
+      descr: 大佬的博客
+    2:
+      name: BootCDN
+      link: https://www.bootcdn.cn/
+      # avatar: https://xxxxx/avatar.png
+      descr: 常用的CDN 
+    3:
+      name: Ansible中文权威指南
+      link: http://www.ansible.com.cn/docs/playbooks.html
+      # avatar: https://xxxxx/avatar.png
+      descr: 自动化运维
+    4:
+      name: huataihuang.gitbooks.io
+      link: https://huataihuang.gitbooks.io/cloud-atlas/content/virtual/
+      # avatar: https://xxxxx/avatar.png
+      descr: 非常不错的知识分享网站
+
+
+class2:
+   class_name: 人文类友链
+   link_list:
+     1:
+       name: butterfly安装文档
+       link: https://butterfly.js.org/posts/21cfbf15/#%E5%8D%87%E7%B4%9A%E5%BB%BA%E8%AD%B0
+       # avatar: https://img.antmoe.com/avatar.png
+       descr: hexo博客系统butterfly主题
+
+     2:
+       name: hexo-butterfly主题配置
+       link: https://blog.csdn.net/sunxiaobai1/article/details/122863031
+       # avatar: https://img.antmoe.com/avatar.png
+       descr: hexo博客系统butterfly主题配置
