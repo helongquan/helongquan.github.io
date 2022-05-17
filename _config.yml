@@ -130,6 +130,6 @@ jsonContent:
     tags: true
 deploy:
   type: git
-  repo: https://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@github.com/helongquan/helongquan.github.io.git
-  # repo: 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@github.com:helongquan/helongquan.github.io.git
+  # repo: https://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@github.com/helongquan/helongquan.github.io.git
+  repo: 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@github.com:helongquan/helongquan.github.io.git
   branch: master
