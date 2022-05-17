@@ -48,3 +48,6 @@ ul,ol{
 #pagination .prev-post a:hover img, #pagination .next-post a:hover img{
 	opacity: 0 !important;
 }
+#recent-posts > .recent-post-item >.recent-post-info{
+	width: 100% !important;
+}

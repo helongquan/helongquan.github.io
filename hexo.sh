@@ -1,10 +1,8 @@
 #!/bin/bash
 # 先删除站点根目录下的.deploy_git文件夹
 rm -rf .deploy_git/
-
 ##执行
 git config --global core.autocrlf false
-
 hexo clean
 echo "清理缓存文件..."
 echo "添加更新内容"
