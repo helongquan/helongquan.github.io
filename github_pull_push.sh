@@ -1,5 +1,5 @@
 #!/bin/bash
-riqi=`date "+%Y-%m-%d-%H:%M:%S+update"`
+riqi=`date "+%Y-%m-%d-%H:%M:%S有提交更新"`
 echo "不同设备之间,先从远程pull一下..."
 git pull
 echo "拉取完毕..."
