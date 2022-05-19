@@ -829,11 +829,15 @@ css_prefix: true
 # 插入代码到头部 </head> 之前 和 底部 </body> 之前
 inject:
   head:
+    - <link rel="stylesheet" href="/css/all.min.css">
+    - <link rel="stylesheet" href="/css/fancybox.css">
     - <link rel="stylesheet" href="/css/mycustom.css">
-    
+
   bottom:
-    - <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-    # - <script src="/js/mermaid.min.js"></script>     #离线加载
+    - <script src="/js/fancybox.umd.js"></script>     #离线加载
+    - <script src="/js/mermaid.min.js"></script>
+    - <script src="/js/utils.js"></script>
+    # - <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 
 # CDN
 # Don't modify the following settings unless you know how they work
