@@ -829,14 +829,18 @@ css_prefix: true
 # 插入代码到头部 </head> 之前 和 底部 </body> 之前
 inject:
   head:
+    - <link rel="stylesheet" href="/css/font-awesome.min.css">
     - <link rel="stylesheet" href="/css/all.min.css">
     - <link rel="stylesheet" href="/css/fancybox.css">
     - <link rel="stylesheet" href="/css/mycustom.css">
-
-  bottom:
     - <script src="/js/fancybox.umd.js"></script>     #离线加载
     - <script src="/js/mermaid.min.js"></script>
     - <script src="/js/utils.js"></script>
+
+  bottom:
+    # - <script src="/js/fancybox.umd.js"></script>     #离线加载
+    # - <script src="/js/mermaid.min.js"></script>
+    # - <script src="/js/utils.js"></script>
     # - <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 
 # CDN
@@ -850,7 +854,7 @@ CDN:
   # The CDN provider of third party scripts (第三方 js 的 cdn 配置)
   # option: local/jsdelivr
   # when set it to local, you need to install hexo-butterfly-extjs
-  third_party_provider: jsdelivr
+  # third_party_provider: jsdelivr
   option:
     # main_css:
     # main:
