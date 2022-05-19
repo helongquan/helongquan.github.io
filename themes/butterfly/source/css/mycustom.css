@@ -42,12 +42,12 @@ ul,ol{
 #article-container .flink .flink-list > .flink-list-item a .flink-item-icon{
 	display: none;
 }
-.postImgHover img, #pagination .prev-post img, #pagination .next-post img, .relatedPosts > .relatedPosts-list > div img{
+/*.postImgHover img, #pagination .prev-post img, #pagination .next-post img, .relatedPosts > .relatedPosts-list > div img{
 	opacity: 0 !important;
 }
 #pagination .prev-post a:hover img, #pagination .next-post a:hover img{
 	opacity: 0 !important;
-}
+}*/
 #recent-posts > .recent-post-item >.recent-post-info{
 	width: 100% !important;
 }
