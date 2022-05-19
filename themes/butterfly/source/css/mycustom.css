@@ -51,3 +51,6 @@ ul,ol{
 #recent-posts > .recent-post-item >.recent-post-info{
 	width: 100% !important;
 }
+#nav .site-page {
+    padding: 10px 20px;
+}
