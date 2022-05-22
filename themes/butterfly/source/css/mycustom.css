@@ -69,3 +69,6 @@ ul,ol{
 .fa-brands, .fab {
     display: none;
 }
+.scroll-down .fa{
+	display: none;
+}
