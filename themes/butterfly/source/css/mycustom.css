@@ -51,3 +51,21 @@ ul,ol{
 #recent-posts > .recent-post-item >.recent-post-info{
 	width: 100% !important;
 }
+#menus .fas {
+    display: none;
+}
+#nav .site-page {
+    padding: 10px 15px;
+}
+.search-wrap hr{
+	display: none;
+}
+#local-search-input{
+	margin-bottom: 15px;
+}
+#local-search-input input{
+	padding: 12px 15px;
+}
+.fa-brands, .fab {
+    display: none;
+}
