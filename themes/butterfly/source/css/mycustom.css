@@ -67,8 +67,26 @@ ul,ol{
 	padding: 12px 15px;
 }
 .fa-brands, .fab {
-    display: none;
+    display: none !important;
 }
 .scroll-down .fa{
-	display: none;
+	display: none !important;
+}
+.aside-content .card-info-btn span{
+	padding-left: 0px !important;
+}
+.card-widget .item-headline>span{
+	margin-left: 0px !important;
+}
+.flink-list-item:hover{
+	border: 0px solid #000 !important;
+}
+#aside-content .card-info #card-info-btn span {
+    padding-left: 0px !important;
+}
+.card-widget ul, .card-widget ol {
+    padding-left: 0px !important;
+}
+#aside-content .item-headline {
+    font-weight: 600 !important;
 }
