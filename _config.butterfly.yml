@@ -6,10 +6,13 @@ menu:
   首页: / || fas fa-home
   归档: /archives/ || fas fa-archive
   标签: /tags/ || fas fa-tags
-  分类: /categories/ || fas fa-folder-open
-  List||fas fa-list:
-    CMS系列: /cms/ || fas fa-music
-    前端框架: /qianduankuanjia/ || fas fa-video
+  分类||fas fa-list: 
+    总分类: /categories/ || fas fa-folder-open
+    CMS系列: /categories/cms/ || fas fa-wordpress
+    HEXO: /categories/hexo/ || fas fa-music
+    前端框架: /categories/qianduankuanjia/ || fas fa-gears
+    服务器: /categories/server/ || fas fa-cloud
+    H5: /categories/h5/
   友链: /links/ || fas fa-link
   关于: /about/ || fas fa-heart
 
