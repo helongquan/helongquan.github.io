@@ -8,11 +8,11 @@ menu:
   标签: /tags/ || fas fa-tags
   分类||fas fa-list: 
     总分类: /categories/ || fas fa-folder-open
-    CMS系列: /categories/cms/ || fas fa-wordpress
+    CMS系列: /categories/cms/ || fas fa-folder
     HEXO: /categories/hexo/ || fas fa-music
     前端框架: /categories/qianduankuanjia/ || fas fa-gears
     服务器: /categories/server/ || fas fa-cloud
-    H5: /categories/h5/
+    H5: /categories/h5/  || fas fa-globe
   友链: /links/ || fas fa-link
   关于: /about/ || fas fa-heart
 
