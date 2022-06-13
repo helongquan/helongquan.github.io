@@ -21,6 +21,11 @@ YAMLclass:
       link: https://huataihuang.gitbooks.io/cloud-atlas/content/virtual/
       # avatar: https://xxxxx/avatar.png
       descr: 非常不错的知识分享网站
+    5:
+      name: Cordova
+      link: https://www.w3cschool.cn/cordova/cordova_overview.html
+      # avatar: https://xxxxx/avatar.png
+      descr: 混合移动应用程序的平台  
 
 
 class2:

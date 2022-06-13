@@ -6,15 +6,14 @@ menu:
   首页: / || fas fa-home
   归档: /archives/ || fas fa-archive
   标签: /tags/ || fas fa-tags
-  分类||fas fa-list: 
-    总分类: /categories/ || fas fa-folder-open
-    WEB端: /categories/web/ || fas fa-folder
-    移动端: /categories/yidongduan/ || fas fa-music
-    小程序: /categories/xiaochengxu/ || fas fa-gears
-    桌面应用: /categories/desktop/ || fas fa-globe
-    服务器: /categories/server/ || fas fa-cloud
-    游戏开发: /categories/game/ || fas fa-cloud
-    网络端: /categories/internet/ || fas fa-cloud
+  大前端||fas fa-list: 
+    WEB端: /categories/大前端/WEB端/ || fas fa-folder
+    移动端: /categories/大前端/移动端/ || fas fa-music
+    小程序: /categories/大前端/小程序/ || fas fa-gears
+    桌面应用: /categories/大前端/桌面应用/ || fas fa-globe
+    游戏开发: /categories/大前端/游戏开发/ || fas fa-gamepad
+  服务器: /categories/服务器/ || fas fa-server
+  网络: /categories/网络/ || fas fa-cloud
   友链: /links/ || fas fa-link
   关于: /about/ || fas fa-heart
 

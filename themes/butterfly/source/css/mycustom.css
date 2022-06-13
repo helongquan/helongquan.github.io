@@ -66,3 +66,19 @@ ul,ol{
 #menus .menus_item .menus_item_child{
 	padding-left: 0px !important;
 }
+#article-container .flink .flink-list > .flink-list-item:before{
+	display: none !important;
+}
+.flink-list-item{
+	transition: 0.5s ease;
+}
+.flink-list-item:hover{
+	background: #49b1f5;
+}
+.flink-list-item:hover *{
+	color: #fff !important;
+}
+table th, table td{
+	text-align: left !important;
+	vertical-align: middle;
+}
