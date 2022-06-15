@@ -6,6 +6,7 @@ wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.
 wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.
 date: 2022-05-14 15:30:36
 categories:
+- Hexo
 tags: hexo
 password: 
 ---
