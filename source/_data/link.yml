@@ -4,30 +4,48 @@ YAMLclass:
     1:
       name: 阮一峰的个人网站
       link: https://www.ruanyifeng.com/
-      # avatar: https://img.antmoe.com/avatar.png
       descr: 大佬的博客
     2:
       name: BootCDN
       link: https://www.bootcdn.cn/
-      # avatar: https://xxxxx/avatar.png
       descr: 常用的CDN 
     3:
       name: Ansible中文权威指南
       link: http://www.ansible.com.cn/docs/playbooks.html
-      # avatar: https://xxxxx/avatar.png
       descr: 自动化运维
     4:
       name: huataihuang.gitbooks.io
       link: https://huataihuang.gitbooks.io/cloud-atlas/content/virtual/
-      # avatar: https://xxxxx/avatar.png
       descr: 非常不错的知识分享网站
     5:
       name: Cordova
       link: https://www.w3cschool.cn/cordova/cordova_overview.html
-      # avatar: https://xxxxx/avatar.png
-      descr: 混合移动应用程序的平台  
-
-
+      descr: 混合移动应用程序的平台
+    6:
+      name: JavaScript
+      link: https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/JavaScript_basics
+      descr: JavaScript学习
+    7:
+      name: Podman官网
+      link: https://podman.io/
+      descr: 一个无守护进程的容器引擎
+    8:
+      name: Podman初探
+      link: https://zhuanlan.zhihu.com/p/460219997
+      descr: 辅助学习Podman
+    9:
+      name: Gitee
+      link: https://gitee.com/
+      descr: 国内代码托管仓库平台
+    10:
+      name: HTTP
+      link: https://developer.mozilla.org/zh-CN/docs/Web/HTTP
+      descr: http学习网站
+    11:
+      name: WebSocket原理
+      link: https://zhuanlan.zhihu.com/p/465734412
+      descr: http学习网站
+      
 class2:
    class_name: 人文类友链
    link_list:
