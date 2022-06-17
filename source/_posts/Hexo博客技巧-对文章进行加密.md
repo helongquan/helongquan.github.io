@@ -226,3 +226,6 @@ B -->独立配置
 B -->全局配置
 ```
 
+
+
+{% pdf https://cdnlighting.cc/wp-content/uploads/2021/09/RECESSED-DOWNLIGHT-DATA-SHEET-CED6051C.pdf %}
