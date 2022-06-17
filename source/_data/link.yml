@@ -45,6 +45,10 @@ YAMLclass:
       name: WebSocket原理
       link: https://zhuanlan.zhihu.com/p/465734412
       descr: http学习网站
+    11:
+      name: CSS3球体设计
+      link: https://www.w3cplus.com/css3/spheres.html
+      descr: 值得参考的设计方法 
       
 class2:
    class_name: 人文类友链
