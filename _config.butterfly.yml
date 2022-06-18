@@ -97,11 +97,11 @@ index_img: /img/2022.webp
 default_top_img: /img/2022.webp
 
 # The banner image of archive page
-archive_img: /img/banner24.webp
+archive_img: /img/wenmins.webp
 
 # If the banner of tag page not setting, it will show the top_img
 # note: tag page, not tags page (子標籤頁面的 top_img)
-tag_img: /img/banner24.webp
+tag_img: /img/wenmins.webp
 
 # The banner image of tag page
 # format:
@@ -110,7 +110,7 @@ tag_per_img:
 
 # If the banner of category page not setting, it will show the top_img
 # note: category page, not categories page (子分類頁面的 top_img)
-category_img: /img/banner24.webp
+category_img: /img/wenmins.webp
 
 # The banner image of category page
 # format:
