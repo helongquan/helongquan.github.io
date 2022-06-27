@@ -292,7 +292,10 @@ listening on websocketServer
 
 我们在客户端启动一个本地http服务，然后访问一下这个客户端页面，然后设置一个值传送给服务端就行。
 
-![image-20220623142422028](image-20220623142422028.png)
+```shell
+12:01:50.416 {"id":"0001","name":"你好吗？我是鸟蛋"} at websocket/index2.html:18
+14:17:04.464 Connection closed. at websocket/index2.html:31
+```
 
 这样就把前端的消息发送到服务端了。服务端就可以收到来自前端的消息，如果通信是正常的话，会看这样的消息：
 
@@ -303,9 +306,27 @@ listening on websocketServer
 你好吗？我是鸟蛋 接收客户端传过来的值
 ```
 
-![image-20220623142821669](image-20220623142821669.png)
+```json
+Request URL: ws://192.168.100.22:2002/
+Request Method: GET
+Status Code: 101 Switching Protocols
+Connection: Upgrade
+Sec-WebSocket-Accept: 9EhTkREsL6mP2wc+sHQpt3ZYLqk=
+Upgrade: websocket
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Cache-Control: no-cache
+Connection: Upgrade
+Host: 192.168.100.22:2002
+Origin: http://192.168.100.8:8848
+Pragma: no-cache
+```
 
 很明显这里使用的就是websocket那边的协议进行通信的。
 
 原文链接：https://blog.csdn.net/qq_35779070/article/details/109531390
+
+
+
+值得补充的内容，我们可以测试从服务端如何获取来自客户端的消息进行显示出来，然后从服务端符合发消息给客户端等等，本文后续补充，敬请期待。
 
