@@ -48,7 +48,11 @@ YAMLclass:
     12:
       name: CSS3球体设计
       link: https://www.w3cplus.com/css3/spheres.html
-      descr: 值得参考的设计方法 
+      descr: 值得参考的设计方法
+    13:
+      name: 廖雪峰的官方网站
+      link: https://www.liaoxuefeng.com/
+      descr: 大佬的网站，值得好好学习   
       
 class2:
    class_name: 人文类友链
