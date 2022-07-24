@@ -52,7 +52,11 @@ YAMLclass:
     13:
       name: 廖雪峰的官方网站
       link: https://www.liaoxuefeng.com/
-      descr: 大佬的网站，值得好好学习   
+      descr: 大佬的网站，值得好好学习
+    14:
+      name: Jquery下载所有版本(实时更新)
+      link: https://www.jb51.net/zt/jquerydown.htm
+      descr: 常用的Jquery镜像   
       
 class2:
    class_name: 人文类友链
