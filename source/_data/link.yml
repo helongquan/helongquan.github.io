@@ -54,6 +54,10 @@ YAMLclass:
       link: https://www.liaoxuefeng.com/
       descr: 大佬的网站，值得好好学习
     14:
+      name: SVG教程
+      link: https://www.w3.org/TR/SVG/
+      descr: SVG教程链接，想要学习SVG可以好好研究
+    15:
       name: Jquery下载所有版本(实时更新)
       link: https://www.jb51.net/zt/jquerydown.htm
       descr: 常用的Jquery镜像   
