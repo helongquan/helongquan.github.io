@@ -60,11 +60,15 @@ YAMLclass:
     15:
       name: Jquery下载所有版本(实时更新)
       link: https://www.jb51.net/zt/jquerydown.htm
-<<<<<<< HEAD
       descr: 常用的Jquery镜像
-=======
-      descr: 常用的Jquery镜像   
->>>>>>> 3206af2ae00a4de8de3f78d2560a2e0094dfe8ef
+    16:
+      name: PHP
+      link: https://windows.php.net/download#php-8.1
+      descr: 为windows桌面系统配置PHP环境
+    17:
+      name: Electron
+      link: https://www.electronjs.org/
+      descr: 使用JavaScript，HTML和CSS构建跨平台的桌面应用程序
       
 class2:
    class_name: 人文类友链
