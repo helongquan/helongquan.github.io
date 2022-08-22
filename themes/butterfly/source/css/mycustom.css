@@ -82,3 +82,10 @@ table th, table td{
 	text-align: left !important;
 	vertical-align: middle;
 }
+.post-content img{
+	box-shadow: 1px 0px 8px 3px rgb(0 0 0 / 15%);
+}
+#article-container.post-content h5 {
+    padding-left: 24px;
+    font-size: 14px !important;
+}
