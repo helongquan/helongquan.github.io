@@ -16,6 +16,34 @@ password:
 
 为了提供对静态资源文件(`图片、csss文件、javascript文件`)的服务，请使用Express内置的中间函数 `express.static` 。
 
+本文的测试的项目结构如下：
+
+```mysql
+D:\project\node.js>tree /f
+D:.
+│  gulpfile.js
+│  package.json
+│  package-lock.json
+│
+├─app
+│      index.html
+│
+├─server
+│      test.js
+│
+├─public
+│  │  db.json
+│  │
+│  ├─css
+│  │      style.css
+│  │
+│  ├─js
+│  └─fonts
+├─routes
+├─models
+└─views
+```
+
 
 传递一个包含静态资源的目录给 `express.static` 中间件用于立刻开始提供文件。比如用以下代码来提供public目录下的图片、css文件和javascript文件：
 
@@ -23,6 +51,11 @@ password:
 app.use(express.static('public'));
 ```
 
+**注意！~~如果按照上面那样使用是不对的~~，public那个相对地址是相对你要开启的那个js服务器文件来说的，这里也就是笔者的test.js文件,所以在静态资源端要这样使用**：
+
+```javascript
+app.use(express.static('../public'));
+```
 
 现在，你可以加载 public目录下的文件了：
 
@@ -52,9 +85,8 @@ Express 将会按照你设置静态资源目录的顺序来查找静态资源文
 为了给静态资源文件创建一个虚拟的文件前缀(实际上文件系统中并不存在) ，可以使用 `express.static` 函数指定一个虚拟的静态目录，就像下面这样：
 
 ```javascript
-app.use('/static', express.static('public'));
+app.use('/static', express.static('../public'));
 ```
-
 
 现在你可以使用 `/static` 作为前缀来加载 public 文件夹下的文件了。
 
