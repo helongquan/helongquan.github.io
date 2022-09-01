@@ -69,6 +69,18 @@ YAMLclass:
       name: Electron
       link: https://www.electronjs.org/
       descr: 使用JavaScript，HTML和CSS构建跨平台的桌面应用程序
+    18:
+      name: Express
+      link: https://www.expressjs.com.cn/
+      descr: 基于Node.js平台,快速、开放、极简的Web开发框架
+    19:
+      name: Nodemailer
+      link: https://nodemailer.com/about/
+      descr: 基于Node.js的电邮发送包
+    20:
+      name: Magento
+      link: https://marketplace.magento.com/customer/account/login/referer/aHR0cHM6Ly9tYXJrZXRwbGFjZS5tYWdlbnRvLmNvbS9leHRlbnNpb25zL2NvbnRlbnQtY3VzdG9taXphdGlvbnMvdHJhbnNsYXRpb25zLWxvY2FsaXphdGlvbi5odG1s/_c_timestamp/1661977982163654742/
+      descr: Magento用户中心登录地址
       
 class2:
    class_name: 人文类友链
@@ -84,3 +96,12 @@ class2:
        link: https://blog.csdn.net/sunxiaobai1/article/details/122863031
        # avatar: https://img.antmoe.com/avatar.png
        descr: hexo博客系统butterfly主题配置
+
+class3:
+   class_name: 运营工具类
+   link_list:
+     1:
+       name: DNS检查工具
+       link: https://dnschecker.org/
+       # avatar: https://img.antmoe.com/avatar.png
+       descr: 根据位于全球多个地区的选定 DNS 服务器列表检查域名系统记录
