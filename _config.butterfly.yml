@@ -7,7 +7,7 @@ menu:
   归档: /archives/ || fas fa-archive
   标签: /tags/ || fas fa-tags
   大前端||fas fa-list: 
-    WEB端: /categories/大前端/WEB端/ || fas fa-folder
+    WEB端: /categories/web%E7%AB%AF/ || fas fa-folder
     移动端: /categories/大前端/移动端/ || fas fa-music
     小程序: /categories/大前端/小程序/ || fas fa-gears
     桌面应用: /categories/大前端/桌面应用/ || fas fa-globe
