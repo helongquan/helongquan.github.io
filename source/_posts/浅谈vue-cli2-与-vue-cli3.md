@@ -62,7 +62,7 @@ npm run dev  //2.0启动
 
 `vue-cli3`比`vue-cli2`少了build、config、[static](https://so.csdn.net/so/search?q=static&spm=1001.2101.3001.7020)目录，多了public目录。
 
-![](watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3lpZ3VhbmdfODIw,size_16,color_FFFFFF,t_70.png)
+![](https://img-blog.csdnimg.cn/20210623132743455.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3lpZ3VhbmdfODIw,size_16,color_FFFFFF,t_70)
 
 vue-cli3移除了static文件夹，新增了public文件夹，并且将index.html移动到public中。
 
