@@ -58,22 +58,32 @@ var express = require('express');
 var router = express.Router();/* GET mplat page. */
 router.get('/', function(req, res, next) {
     res.render('mplat/index.html', { title: 'DisCloudDisk' });
-});router.get('/console',function (req,res,next) {
+});
+
+router.get('/console',function (req,res,next) {
     res.render('mplat/pages/console.html', { title: 'Console' });
 })module.exports = router;
 ```
 
 在`app.js`中引入文件路由
 
-```
+```javascript
 app.use('/mplat',require('./routes/mplat'));
+```
+
+温馨提示：当时测试好像有点不对，笔者这样编写是可以的，如下：
+
+```javascript
+var mplatRouter = require('./routes/mplat');
+
+app.use('/mplat',mplatRouter);
 ```
 
 这样子配置完成后，只需要访问 `http://$host/mplat`即可返回`index.html`
 
 #### 修改静态文件引入
 
-在`app.js`中定义静态文件目录
+在`app.js`中定义静态文件目录，这个就是针对引入外部文件，比如图片，css样式表，前端交互需要的文件。
 
 ```javascript
 app.use(express.static(path.join(__dirname, 'public')));
@@ -94,3 +104,25 @@ app.use(express.static(path.join(__dirname, 'public')));
 ```html
 <iframe src="/mplat/console" frameborder="0" scrolling="yes" width="100%" height="100%"></iframe>
 ```
+
+这里简单的说就是我们访问console.html这个页面的时候是这样访问的：
+
+http://localhost/mplat/console
+
+为什么呢？是因为我们我们的主路由口是/mplat，这个由app.js里面的这个决定：
+
+```
+app.use('/mplat',mplatRouter);
+```
+
+然后，进入这里之后再相对主目录作为当前路由的/console，所以这里需要注意。
+
+那么就是：
+
+```
+router.get('/console',function (req,res,next) {
+    res.render('mplat/pages/console.html', { title: 'Console' });
+})
+```
+
+也就是`/mplat`+`/console`
