@@ -24,7 +24,8 @@ npm install ejs
 
 ```javascript
 var ejs = require('ejs');
-// 配置Express 视图引擎app.engine('html', ejs.__express);
+// 配置Express 视图引擎
+app.engine('html', ejs.__express);
 app.set('view engine', 'html');
 ```
 
@@ -62,7 +63,9 @@ router.get('/', function(req, res, next) {
 
 router.get('/console',function (req,res,next) {
     res.render('mplat/pages/console.html', { title: 'Console' });
-})module.exports = router;
+})
+
+module.exports = router;
 ```
 
 在`app.js`中引入文件路由
@@ -111,7 +114,7 @@ http://localhost/mplat/console
 
 为什么呢？是因为我们我们的主路由口是/mplat，这个由app.js里面的这个决定：
 
-```
+```javascript
 app.use('/mplat',mplatRouter);
 ```
 
@@ -119,7 +122,7 @@ app.use('/mplat',mplatRouter);
 
 那么就是：
 
-```
+```javascript
 router.get('/console',function (req,res,next) {
     res.render('mplat/pages/console.html', { title: 'Console' });
 })
