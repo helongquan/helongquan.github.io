@@ -1,5 +1,5 @@
 ---
-title: express添加mysql配置
+title: express添加mysql数据库配置和数据的增删改查
 abstract: 该部分被加密了, 请输入密码查看.
 message: 您好, 这里需要密码.
 wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.
