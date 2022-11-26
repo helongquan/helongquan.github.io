@@ -26,3 +26,33 @@ e.target就等价于 `$('target1')`，故e.target.value就等价于`$('target1')
 
 #### 实践一下
 
+这里写一个react里面的一个受控表单进行说明：
+
+```javascript
+import * as React from 'react'
+
+class Shoukongzujian extends React.Component {
+
+    state = {
+        txt: ''
+    }
+
+    Handleclickws = e =>{
+        this.setState ({
+            txt:e.target.value
+        })
+    }
+
+    render () {
+        return (
+            <div>
+                <input type="text" value={this.state.txt} onChange={this.Handleclickws}/>
+            </div>
+        )
+    }
+}
+
+export default Shoukongzujian;
+```
+
+这个里面的`e.target.value`就是输入框里面的输入的值，相当于jquery里面的`$('input[type="text"]').val()`。
