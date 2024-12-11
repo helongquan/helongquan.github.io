@@ -1,0 +1,182 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>startsWith()方法 | 仰观苍穹思环宇</title><meta name="keywords" content="jquery,startsWith,以给定字符串作为开头"><meta name="author" content="鸢尾花序"><meta name="copyright" content="鸢尾花序"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="该部分被加密了, 请输入密码查看.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="startsWith()方法">
+<meta property="og:url" content="http://youdomain.com/2023/02/23/startsWith-%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="仰观苍穹思环宇">
+<meta property="og:description" content="该部分被加密了, 请输入密码查看.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2023-02-23T13:10:26.000Z">
+<meta property="article:modified_time" content="2024-11-07T10:59:17.721Z">
+<meta property="article:author" content="鸢尾花序">
+<meta property="article:tag" content="jquery">
+<meta property="article:tag" content="startsWith">
+<meta property="article:tag" content="以给定字符串作为开头">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/logo.png"><link rel="canonical" href="http://youdomain.com/2023/02/23/startsWith-%E6%96%B9%E6%B3%95/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: '/',
+      css: '/'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'startsWith()方法',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-11-07 18:59:17'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/mycustom.css"><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/dino2.svg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">291</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">863</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">134</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 开发</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/"><i class="fa-fw fas fa-music"></i><span> 大前端</span></a></li><li><a class="site-page child" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><i class="fa-fw fas fa-cogs"></i><span> 人工智能</span></a></li><li><a class="site-page child" href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><i class="fa-fw fas fa-gears"></i><span> 小程序</span></a></li><li><a class="site-page child" href="/categories/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8/"><i class="fa-fw fas fa-globe"></i><span> 桌面应用</span></a></li><li><a class="site-page child" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏开发</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 服务器&amp;网络</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"><i class="fa-fw fas fa-server"></i><span> 服务器</span></a></li><li><a class="site-page child" href="/categories/%E7%BD%91%E7%BB%9C/"><i class="fa-fw fas fa-cloud"></i><span> 网络</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">仰观苍穹思环宇</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 开发</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/"><i class="fa-fw fas fa-music"></i><span> 大前端</span></a></li><li><a class="site-page child" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><i class="fa-fw fas fa-cogs"></i><span> 人工智能</span></a></li><li><a class="site-page child" href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><i class="fa-fw fas fa-gears"></i><span> 小程序</span></a></li><li><a class="site-page child" href="/categories/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8/"><i class="fa-fw fas fa-globe"></i><span> 桌面应用</span></a></li><li><a class="site-page child" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏开发</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 服务器&amp;网络</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"><i class="fa-fw fas fa-server"></i><span> 服务器</span></a></li><li><a class="site-page child" href="/categories/%E7%BD%91%E7%BB%9C/"><i class="fa-fw fas fa-cloud"></i><span> 网络</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">startsWith()方法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-02-23T13:10:26.000Z" title="发表于 2023-02-23 21:10:26">2023-02-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-07T10:59:17.721Z" title="更新于 2024-11-07 18:59:17">2024-11-07</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="55399ee62d42a7e716d57241ce8a248b0a3b0437d10f435a9aec473f7fbcf4c9">628c584cc0ca60eede7bfc6fe7f8cd07b35612362518ba2f22b02e43e268bc75c724af9e366060dfc876398a97599ee1b91a7a10cfd557699f8d6306d9f828adcd99e8ee1885b79085bd2ac8e1528190e20eb4bfd1a6238b518fa03e5527e3c5aef35cd1af2b7a5f71b414413fb6c77b6ebc8b35ae5d6bc60f4dc57dc6cf5cd14bb16261ba626d0b674b548ee13fb82f2ba2b65e710c9366d722bd607b4839fe2709a089ba9ff5b71841bb525e0ccb0dede52a5e6ad9b85984c7d7598a36d27cf7fdcb46ced6221828c1c7ac9f4f49689e6f4c9ae94ece8926045f0e6c2221560397d07e9d8bbb82fcec64b9d4b7f2d3cea5e0e1b0b3319ae6f97ee9ea7ac27de4a82ffc4260b06685df3ee8752ab83835d2b37c1e5323716aaa3b47b47bdf59ec0365d85ea8c7003a49cfa5c9e48e157266cdd65d4951f2d1999f8c36c03ad20208c0ea0c0a0ae59fc34beb74dcbe3a817db9e44293a819eff32f10447da5f401f15a8c70a5b05e7ad60def30174e67bba7bd255f32e387c4b9aef82ba28303aa4e3c2c7db317f2bca4b5af7d75a36583bb2756ef0a5560e7a1d7943769d00d127f9e61e4c85bbc8478a283caa6876ce1d5e05ee1d0df9abb911264c8e6d065c572011551f2bfec22e581c055168abd8da839d5495892c1ae913eec625d743d4b859d84d0a23b76df7ebdf39cdd175a18bb7b9d0e2b9897bc6823786ba0f37500a9d9e5bcad54aae2ef39e6070ec5851b92694aab6777c4b610530650ae0f6b3097c725c3522f2d71cd5ca2d5fbc7eb603ca200c47332d642b1f3c320dea8d4ccc2faf97064c49abf6094e4676eceba1bf3028779b8a76aacd7e1522a6d2becb09f63936bd9f22b4ad497b1a1c6cee88e2e0e94b445927e9a012b1058e2a0b646feba3f5b0819e7e8e5ccab7f408707c66e0c443713755a1bd77748a173e64d807f71db7e77ead613b03b592536794ebbfe8220c64b73a51b6a20c02f5f0564f4f7576b6e31d6e2152c64ab7b5c1c7a59edf3490f78c821a2588ed36f22be94cd6d13c7a5e5ab8df6ead5f7db1e8343aebc36ee0839de1b2b080d9c3603d3b9f6e690be8830233a387fca06cb3966420225001fadbe3ce189b6d9a1b36a15862faf70964c3749c8575514fa4845c8a57b5fcd5f6d7f8a47c78fe9cc53d589dc2008d5aae7e0736df65b0377cc35d84e1c2e17bd38987b0e1e6301aa36295439e9e203628fd0a56335372b112dc7b5a1577329967a6b161d41ce027373fd44a21e6951d7c6c06ab35c10d0ef03650b0f220bcbc14c6e6836fdd91dcee0e41760c0b7c8d1b6401c317b7749061f64ffc8f54653bff43e92483003f1e7000d18e3969ac8a44cafb8c546e38cb089bfde6ddd3e085fafe9e4c308d79038e3aa672a5cf2d34698a86652cefd755d0d03fc1991eaa4a7d4a05695f2de2a8b82814287b0141ca311d8695280cdd814a50f78498dbbe9fb4a15b39747dfc014e3ce9155c95f7d11336e5d45ffb82f399c38e223cd1fe9d6d98d25310139ef67e74ec546e5b8bd8c3984111cfefa2ea4f3eb4451ccb9684b94a342253f72bc80c00609597ff6f1888433c66e59635e7fb823a5643d52de53812799227157192094588b55e41aa24fdf28b3f44591246c7642698481b35547e7871b6d9d022f16f5196cbc0e93768f838e0cb384c1e01dc4aaf48bf3b8b7b294c8e0f012018aabd99864889663ca2a32430e4c7022e3179280a8ec3681bdf643bd7f17ed8fbbfb3fcef2f7fb16cdacf490c9460971bd7880679e6f7cae4b5836db966b5d70625a302cba7b4f1b50c44a19f3b5e3ba1524afbf6e6d48426aef2481601bf39f6674c27545bf981b32c577fc2ed0a4de11a8decdbb2ccefdeaa7fdbbd14838dd301327087ecf639eb8fb859d86f9167c93d8469d0fc861fd3fe57acf8a528406a6a55c267e96fdc799ab6fd29ec576fd6683bcd2432063d69157ec95c89ba00ba81cc6ec3c2f6fcae105ddf06d38282c38541ce4cc11126f2812022e27517d73bae7ae2abf1544d37d11c12b30dd7cec774dd95ed7908bb63b6f2efa1dcf4814d78096b433be45a848b3be2e673c9683fbcf4f49f612fafade236331f620ca1656f3f53cd8a817292ee616f95a3bc6fed17e596402b6a3316f43464703f693d1fc58c441b1ab88f5a471a8b69a7c5191fca334e4808c2b82320268015360db3427c3abdf4d763a6e05de44784da54ac8b88300a72737069599fee35723e424f04ae75416607f5db8698ab348bb78fcbc442b326e4e725166f6b58f24683c88c8d3e0a3f3683279d97a685ac0d26cfe50b141c57896ef008c47da28ef43358e4345db9efef4937e6257ba491deddd0cd303d8d3fc99c942b39c2c56a31efc09c7e2652bc65d14bcb1cc65c778e514814f17e92410bd52ed0e9453f2abf3d94b17f18761ac129d992db05ecc4e5570e4f07e124baab4ae34a2fddd1bda36243e96947aa3a00fafa6d6779b8cfa2ef18cdc8eeb00b6fa6a66b838f5c34c16690af983ddc3283c79</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css"></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/jquery/">jquery</a><a class="post-meta__tags" href="/tags/startsWith/">startsWith</a><a class="post-meta__tags" href="/tags/%E4%BB%A5%E7%BB%99%E5%AE%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BD%9C%E4%B8%BA%E5%BC%80%E5%A4%B4/">以给定字符串作为开头</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/02/23/jQuery%E4%B8%AD%E5%A6%82%E4%BD%95%E6%A3%80%E6%9F%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BB%A5%E7%89%B9%E5%AE%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%BC%80%E5%A4%B4-%E7%BB%93%E5%B0%BE%EF%BC%88%EF%BC%89/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">jQuery中如何检查字符串以特定字符串开头/结尾（）</div></div></a></div><div class="next-post pull-right"><a href="/2023/02/07/express-%E5%AE%9E%E7%8E%B0%E9%A1%B9%E7%9B%AE%E5%90%AF%E5%8A%A8%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">express 实现项目启动打开浏览器</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/05/05/Jeditable%E5%8D%B3%E6%97%B6%E7%BC%96%E8%BE%91jQuery%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/" title="Jeditable即时编辑jQuery插件使用"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-05</div><div class="title">Jeditable即时编辑jQuery插件使用</div></div></a></div><div><a href="/2024/05/08/Uncaught-TypeError-Cannot-read-property-msie-of-undefined-jQuery-tools/" title="Uncaught TypeError: Cannot read property &#39;msie&#39; of undefined - jQuery tools"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-08</div><div class="title">Uncaught TypeError: Cannot read property &#39;msie&#39; of undefined - jQuery tools</div></div></a></div><div><a href="/2024/04/12/%E4%BB%8Ejquery%E5%81%9A%E7%BD%91%E7%AB%99%E7%9A%84%E6%80%9D%E7%BB%B4%E8%B7%B3%E8%BD%AC%E5%88%B0vue/" title="从jquery做网站的思维跳转到vue"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-12</div><div class="title">从jquery做网站的思维跳转到vue</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/dino2.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">鸢尾花序</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">291</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">863</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">134</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="//h5.m.taobao.com/awp/core/detail.htm?id=680626195748"><i class="fab fa-github"></i><span>关注我们</span></a></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content toc-div-class is-expand" style="display:none"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">参数:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">2.</span> <span class="toc-text">示例:</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%89%93%E5%AD%97%E4%B8%8E%E6%97%8B%E8%BD%AC%E9%A3%9E%E5%85%A5%E6%95%88%E6%9E%9C%EF%BC%9A%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E6%8C%87%E5%AF%BC/" title="如何实现打字与旋转飞入效果：一步一步指导"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何实现打字与旋转飞入效果：一步一步指导"/></a><div class="content"><a class="title" href="/2024/12/06/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%89%93%E5%AD%97%E4%B8%8E%E6%97%8B%E8%BD%AC%E9%A3%9E%E5%85%A5%E6%95%88%E6%9E%9C%EF%BC%9A%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E6%8C%87%E5%AF%BC/" title="如何实现打字与旋转飞入效果：一步一步指导">如何实现打字与旋转飞入效果：一步一步指导</a><time datetime="2024-12-06T08:03:59.000Z" title="发表于 2024-12-06 16:03:59">2024-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E9%80%90%E5%AD%97%E6%98%BE%E7%A4%BA%E7%9A%84%E5%8A%A8%E6%80%81%E6%89%93%E5%AD%97%E6%95%88%E6%9E%9C%EF%BC%8C%E5%B9%B6%E4%BF%9D%E6%8C%81%E5%8E%9F%E5%A7%8B%E6%96%87%E5%AD%97%E4%B8%8D%E5%8F%97%E5%BD%B1%E5%93%8D/" title="如何实现一个逐字显示的动态打字效果，并保持原始文字不受影响"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何实现一个逐字显示的动态打字效果，并保持原始文字不受影响"/></a><div class="content"><a class="title" href="/2024/12/06/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E9%80%90%E5%AD%97%E6%98%BE%E7%A4%BA%E7%9A%84%E5%8A%A8%E6%80%81%E6%89%93%E5%AD%97%E6%95%88%E6%9E%9C%EF%BC%8C%E5%B9%B6%E4%BF%9D%E6%8C%81%E5%8E%9F%E5%A7%8B%E6%96%87%E5%AD%97%E4%B8%8D%E5%8F%97%E5%BD%B1%E5%93%8D/" title="如何实现一个逐字显示的动态打字效果，并保持原始文字不受影响">如何实现一个逐字显示的动态打字效果，并保持原始文字不受影响</a><time datetime="2024-12-06T06:15:55.000Z" title="发表于 2024-12-06 14:15:55">2024-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/04/%E5%A6%82%E4%BD%95%E5%9C%A8WordPress%E4%BD%BF%E7%94%A8WooCommerce%E6%B7%BB%E5%8A%A0Buy-Now%E6%8C%89%E9%92%AE%E5%B9%B6%E7%9B%B4%E6%8E%A5%E8%B7%B3%E8%BD%AC%E5%88%B0%E7%BB%93%E7%AE%97%E9%A1%B5%E9%9D%A2/" title="如何在WordPress使用WooCommerce添加Buy Now按钮并直接跳转到结算页面"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何在WordPress使用WooCommerce添加Buy Now按钮并直接跳转到结算页面"/></a><div class="content"><a class="title" href="/2024/12/04/%E5%A6%82%E4%BD%95%E5%9C%A8WordPress%E4%BD%BF%E7%94%A8WooCommerce%E6%B7%BB%E5%8A%A0Buy-Now%E6%8C%89%E9%92%AE%E5%B9%B6%E7%9B%B4%E6%8E%A5%E8%B7%B3%E8%BD%AC%E5%88%B0%E7%BB%93%E7%AE%97%E9%A1%B5%E9%9D%A2/" title="如何在WordPress使用WooCommerce添加Buy Now按钮并直接跳转到结算页面">如何在WordPress使用WooCommerce添加Buy Now按钮并直接跳转到结算页面</a><time datetime="2024-12-04T09:13:32.000Z" title="发表于 2024-12-04 17:13:32">2024-12-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/SVG-%E5%8A%A8%E6%80%81%E7%8E%AF%E5%BD%A2%E8%83%8C%E6%99%AF%E6%95%88%E6%9E%9C%E5%AE%9E%E7%8E%B0%E4%B8%8E%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E5%88%86%E6%9E%90/" title="SVG 动态环形背景效果实现与应用场景分析"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SVG 动态环形背景效果实现与应用场景分析"/></a><div class="content"><a class="title" href="/2024/12/03/SVG-%E5%8A%A8%E6%80%81%E7%8E%AF%E5%BD%A2%E8%83%8C%E6%99%AF%E6%95%88%E6%9E%9C%E5%AE%9E%E7%8E%B0%E4%B8%8E%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E5%88%86%E6%9E%90/" title="SVG 动态环形背景效果实现与应用场景分析">SVG 动态环形背景效果实现与应用场景分析</a><time datetime="2024-12-03T09:14:09.000Z" title="发表于 2024-12-03 17:14:09">2024-12-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E4%B8%8E%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B1%95%E7%A4%BA%E7%9A%84%E5%AE%8C%E6%95%B4%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-Vis-Network%E5%92%8CNetworks%E7%9A%84%E9%80%89%E6%8B%A9/" title="前端开发与后端数据分析展示的完整解决方案(Vis-Network和Networks的选择)"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="前端开发与后端数据分析展示的完整解决方案(Vis-Network和Networks的选择)"/></a><div class="content"><a class="title" href="/2024/12/03/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E4%B8%8E%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B1%95%E7%A4%BA%E7%9A%84%E5%AE%8C%E6%95%B4%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-Vis-Network%E5%92%8CNetworks%E7%9A%84%E9%80%89%E6%8B%A9/" title="前端开发与后端数据分析展示的完整解决方案(Vis-Network和Networks的选择)">前端开发与后端数据分析展示的完整解决方案(Vis-Network和Networks的选择)</a><time datetime="2024-12-03T04:17:06.000Z" title="发表于 2024-12-03 12:17:06">2024-12-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/%E9%A2%9C%E8%89%B2%E5%88%87%E6%8D%A2%E6%95%88%E6%9E%9C%E5%AE%9E%E7%8E%B0%E2%80%94%E2%80%94CMYK%E8%83%8C%E6%99%AF%E8%89%B2%E5%88%87%E6%8D%A2%E6%80%9D%E8%B7%AF/" title="颜色切换效果实现——CMYK背景色切换思路"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="颜色切换效果实现——CMYK背景色切换思路"/></a><div class="content"><a class="title" href="/2024/12/03/%E9%A2%9C%E8%89%B2%E5%88%87%E6%8D%A2%E6%95%88%E6%9E%9C%E5%AE%9E%E7%8E%B0%E2%80%94%E2%80%94CMYK%E8%83%8C%E6%99%AF%E8%89%B2%E5%88%87%E6%8D%A2%E6%80%9D%E8%B7%AF/" title="颜色切换效果实现——CMYK背景色切换思路">颜色切换效果实现——CMYK背景色切换思路</a><time datetime="2024-12-03T03:58:20.000Z" title="发表于 2024-12-03 11:58:20">2024-12-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/%E5%AE%9E%E7%8E%B0%E5%91%A8%E6%9C%9F%E6%80%A7%E8%83%8C%E6%99%AF%E6%B8%90%E5%8F%98%E6%BB%9A%E5%8A%A8%E6%95%88%E6%9E%9C%E7%9A%84HTML%E5%92%8CCSS%E4%BB%A3%E7%A0%81/" title="实现周期性背景渐变滚动效果的HTML和CSS代码"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="实现周期性背景渐变滚动效果的HTML和CSS代码"/></a><div class="content"><a class="title" href="/2024/12/03/%E5%AE%9E%E7%8E%B0%E5%91%A8%E6%9C%9F%E6%80%A7%E8%83%8C%E6%99%AF%E6%B8%90%E5%8F%98%E6%BB%9A%E5%8A%A8%E6%95%88%E6%9E%9C%E7%9A%84HTML%E5%92%8CCSS%E4%BB%A3%E7%A0%81/" title="实现周期性背景渐变滚动效果的HTML和CSS代码">实现周期性背景渐变滚动效果的HTML和CSS代码</a><time datetime="2024-12-03T03:35:27.000Z" title="发表于 2024-12-03 11:35:27">2024-12-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/%E8%AE%BE%E7%BD%AEwordpress%E7%BD%91%E7%AB%99%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E6%9D%83%E9%99%90/" title="设置wordpress网站文件和文件夹的权限"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设置wordpress网站文件和文件夹的权限"/></a><div class="content"><a class="title" href="/2024/12/03/%E8%AE%BE%E7%BD%AEwordpress%E7%BD%91%E7%AB%99%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E6%9D%83%E9%99%90/" title="设置wordpress网站文件和文件夹的权限">设置wordpress网站文件和文件夹的权限</a><time datetime="2024-12-03T03:20:24.000Z" title="发表于 2024-12-03 11:20:24">2024-12-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By 鸢尾花序</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script></div><script src="/js/custom.js"></script><script src="/js/mermaid.min.js"></script></div></body></html>

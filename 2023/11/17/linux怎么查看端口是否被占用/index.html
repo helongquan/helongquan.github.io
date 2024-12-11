@@ -1,0 +1,182 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>linux怎么查看端口是否被占用 | 仰观苍穹思环宇</title><meta name="keywords" content="端口,服务器端口,端口占用"><meta name="author" content="鸢尾花序"><meta name="copyright" content="鸢尾花序"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="该部分被加密了, 请输入密码查看.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux怎么查看端口是否被占用">
+<meta property="og:url" content="http://youdomain.com/2023/11/17/linux%E6%80%8E%E4%B9%88%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E6%98%AF%E5%90%A6%E8%A2%AB%E5%8D%A0%E7%94%A8/index.html">
+<meta property="og:site_name" content="仰观苍穹思环宇">
+<meta property="og:description" content="该部分被加密了, 请输入密码查看.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2023-11-17T04:23:33.000Z">
+<meta property="article:modified_time" content="2024-11-07T10:59:17.701Z">
+<meta property="article:author" content="鸢尾花序">
+<meta property="article:tag" content="端口">
+<meta property="article:tag" content="服务器端口">
+<meta property="article:tag" content="端口占用">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/logo.png"><link rel="canonical" href="http://youdomain.com/2023/11/17/linux%E6%80%8E%E4%B9%88%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E6%98%AF%E5%90%A6%E8%A2%AB%E5%8D%A0%E7%94%A8/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: '/',
+      css: '/'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'linux怎么查看端口是否被占用',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-11-07 18:59:17'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/mycustom.css"><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/dino2.svg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">291</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">863</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">134</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 开发</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/"><i class="fa-fw fas fa-music"></i><span> 大前端</span></a></li><li><a class="site-page child" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><i class="fa-fw fas fa-cogs"></i><span> 人工智能</span></a></li><li><a class="site-page child" href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><i class="fa-fw fas fa-gears"></i><span> 小程序</span></a></li><li><a class="site-page child" href="/categories/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8/"><i class="fa-fw fas fa-globe"></i><span> 桌面应用</span></a></li><li><a class="site-page child" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏开发</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 服务器&amp;网络</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"><i class="fa-fw fas fa-server"></i><span> 服务器</span></a></li><li><a class="site-page child" href="/categories/%E7%BD%91%E7%BB%9C/"><i class="fa-fw fas fa-cloud"></i><span> 网络</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">仰观苍穹思环宇</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 开发</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/"><i class="fa-fw fas fa-music"></i><span> 大前端</span></a></li><li><a class="site-page child" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><i class="fa-fw fas fa-cogs"></i><span> 人工智能</span></a></li><li><a class="site-page child" href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><i class="fa-fw fas fa-gears"></i><span> 小程序</span></a></li><li><a class="site-page child" href="/categories/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8/"><i class="fa-fw fas fa-globe"></i><span> 桌面应用</span></a></li><li><a class="site-page child" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏开发</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 服务器&amp;网络</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"><i class="fa-fw fas fa-server"></i><span> 服务器</span></a></li><li><a class="site-page child" href="/categories/%E7%BD%91%E7%BB%9C/"><i class="fa-fw fas fa-cloud"></i><span> 网络</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">linux怎么查看端口是否被占用</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-11-17T04:23:33.000Z" title="发表于 2023-11-17 12:23:33">2023-11-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-07T10:59:17.701Z" title="更新于 2024-11-07 18:59:17">2024-11-07</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E7%AB%AF%E5%8F%A3/">端口</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="d440ba89106655dd732a144798163252bb585af3c9ad6584627cd67ae5abd751">628c584cc0ca60eede7bfc6fe7f8cd077b3782e91c1b34200297cb733275e7caeb0be03203972fe8b1fbef54b6957861951d593fa8684d28d7afa0fe3f18d0407171a6530add978e53cb6ed3ee63e6ed4421c1f731ca9182cb3b6b5852fb5bbf6260e95678d2f97d837d2a5579a27914ef1f09b3c4f81d3a1b42888237a2e874eb3a45b16a3ffe11942210445854ddf5b0e28d901a3208b01f40cef1db57cbdec4d725a2ddd510e4791a5d788da8f4d6439e01528dd0e28766bd21a4dabafec4ed157c6777db4535ea43712afdac0ae7fb49047f0b95f7b09ed8b3764b1b24fbb2bdd08e1c29d183460354315b8ef98fa00ad0f9bc00568048ebb2c7cf41cd90d6054077f7cdca7ad44e9f45a2cb92fd2fbb8615945a6f91eda51e22a289ab9d64bac8030ec78d46cdf51b0a1ec3c01c09177b811a635edb89d7e8a752e36cff7d2f4e3ed5a578dfbba92ed95b4c974f4a9ee46bce88195ca359bcd0c8222c9e48cb956f46a14f98e5407781645ca71b93fa628a6518b9b26fd8e170efeb6a98a0a772732e685e98641cc3063fe56e1971489b302c9fe465177a7c9148eb6d204226d19be52ba1ab0baa91989c4f888da5160ba939b9b1b37683bea7b835a19b496c28992dc5718790f99e085122d691c7f1fd2969e7b59d82663c4b8c851059b9ab45b366d89f0e7579657be3331c86fb1fdaac2d35ac044c0a8da195fda719999be846db3af77d6f1b89d05a37c9ae805222309a1e108518dbc9f14b7ac48632f7d0a7e83f8f154a480413c08a9ebe525804d8c9f9c62c98c03448b711e11708d4322f03826d8b898e87683cf1964f04bc654ecf82d286155473e588d84542dbc789337ec62f2200745dbbdb3465ee2be6e724a63f87f3cb73cea92a77022f3ce4b301ffb505a69aba1b49cf6eb63383ab64bdea03bc90c49a49933f98982d0df6e3279a21d987516b564dbc97a64209b0e260d1bb9a71c7e0b08c85ed4ea153e3861b928728e0bc97d3d79c7ab9a03f89582baa1d29976f54a93f86d0a68ce83d62adab7f2773c3077ed89e384b3eed1310c499729f9eb2a632bb3466378b9d77afe7ed44a904d069771501aa162492801b11ccc59b7ce9c532f8fb008707c2fcf70e5c35188db7f53f1b1f72215a09c8580d4298622b2e7baa995ef2d2955f1eade69b7a45b2cce7a61193a2bc1eb1bb4455caa264e37d51d3c8fd5efa0dcca6e7be77bb5c2f2f23e2b7bcab9a85bbd11121a42b76ca38058a8875763f76a9c0e94ce93a7e58be3b7fcdf9ea2e92c13613fb90e7559e19fa190b0af20f9d985c39436ff82dd221239ce7d9642a5e4bd0905f38ab9a12415b56df6ddeb1bc57a076f2f4e076aa13143a4869664b93405d3f46b3006f2611f7e1186763b2479ceaed93da384a5e1289df0b3e6075b303b1857cc896f054dc6c0e3bb1a7660cf780b41a30a526e87fe5cde36d7886619f5ea443394eb6c6e3a7eb9a5c87545ffaa4f4f97be26939d18a93b56d8d400e5289c1737d1c392491c9e7c0f1911916762673669f9259c1bf5a93c5ce9dfcb4193498625358feef905c7c263041b9f8ffc90637b99c54faf1e569ab998c8aec7d9b29351572da7c98c3888d7f6e2ec70200385db69920d79f03275ef8fe7e8687641b35d4db78df82c21e40f10eb20a36ec95803a4b6ec603afd0c979256e6e66d8a2ad3d5ead14ce4c51e65b2de0d25f082a4eb250c284d47f2ff91113355fed5ee001ae9e1fdc439399f9c3369ace5f627aa6fd83c155d572533567e0ce231c5603401742e6357137f1de30cad66789ae4211e021e16636d9ad0d25180f7f31a10051b76711c8100d73011aa4a8ed0ce1fc9a85f816bec5cf666ffcab50495397df8ed1d0a687d16192ebc93e61bb066bdb1ee7573bec1d863f2b57a342edc2a2418282bee6ad31b5186eba2ce8017874bc2f41f0d35c05667c7e257cd2c5011844d910ea5434c896818185bc6c9667a6ff3e8da4bb8d375d135094ca92db000b28392fbfde8c4d6c5ff4d09e88014fb800220fb708e37052b2dd7b460d0dc11c31f2d00292819a521572c10adad8bd4ce7174baf168029690ec65f26dfa66f4318140937f75780e01a10a64c090c144ef4246a35e94b13c8129a66ab7e355a8c25e53da22c7a8d35718f0416642621dfb79ab0283cfc584eaedff58d34561d995afbe118e8d2e4e6fc1e5fa39e49b13f3fbf2f015a4ea0254a263229eab034931b6ed8b7297477ef8faf712465f4152a6b3b45b1ded22e6c97cd18d9e9b3c9f15e15733f6fa94c417106d7ec65d31f42f6f3e9c493c6944784cd0029d457afb8c62f267bae194da8a561aaf024a88f59952c8038e654fd8279a5429374f7313d3ef877436e44619d020e602768dd137338e085b8770923cd92fa6831a262dd6770db81be5e8f943c2320ce9c6c99426f4532b38099802bf42dca173c8aac14f78d9081300cfb3ce346d86beb19f938c8c6c8893fbc9ff1c1c9545ab612eac6362d128930e4ffde7c4dfad2cded7436dec04e419f0aa42d8f3d54fa06cac55294c6e1c48399d93c4f010439b42b04b0b1d039d1405abeb5999180809c653906a4a1464eb62e728de8af9ce58092d1bb6bf4cecdb3dffb2ba132fc589a90372e099f9a3cf62926c3129266e9dde20e52ca1e4a1b051aab86f2ba0c579aee5c06fb3c51b976476a56effcd44f2bc1d0748ab1d40b1247dd289688d42c192162e67d964982cf34ee8c60bbcb46102446aeb6d7110cdef4d25930319a8958cec20c27a93ccb5dd11f4129cfc97e8ad9e710e0ad159765a4323f89e14a8331566877b38d07796d58363e82bcbc87c6535a18160176412eabc2742a751fb0f6bc3a2ee7d6a3988e89ff5d1a2a562286c0edcef9538a3ae3991da031d6fb19d1768a02911a4453e7e290dd8351baf2f50819b522cd35ef5f5a9a8c85bae202bd82948393b42d6565396b232a00c9b85bc67d182c691498ca56314918a222b1930801196295acfaefd72d6cfec4d5d18c98cba697e2f59e7a5a06257485f346633f2b11343b892975abf980551a8c302d92641ebb7ff3d3a2a46f889485f5a0a3175bbc365e31742ef035c8209b4715be24c7ffdd2bdce8855a4abfbb76967934fcc81bd6f231b7dd65c400a8a7ece16e489948c9282427ab04310fd8ceac2996d89397a3da000d328dc8b180971fec24023ff0bffa591ba0244a1ca7ed193ab93d403a415ca5067d89f87d159916dc2d4c6001b14391ef6ac37e45c7c26bab885de23b997c33e2f27e90fabf50c66677cb43bfa058ed19e4464c1d2a9c49a8eab6a70adb976a1aca5ebfcd628d08b83de1b4f01dd4412645c5c49010b4371051f0959791850db133cc818595d8d72d56621a905ba841c710d7f269300b26b511f0b53c7d27622faf60a9ed1cfd0b853f1fb0451d87d117333657039a6fe5986808245cb8e289d1b83229f1321f30a59bee55396a843cf79196ff6e9461f9e4806303468a939fbdab33027b67b3bdb65a1cd1c1af316a9dc84ebf1dcec85799d7cc99aa4393834a2bc4ce631f279d4c8caf5b096b5f00cfe715eefed93fcf0df150c9603e151f51f575876c25da10d73e54e866db93027d5a577fbfb5fa537ac6f8ec7efb6b51b8b6e968a6a82af9ad7259bc8e4a36c441f99110815dfea5a334baae94e04ad9823c4dcf60cae264bcafb5e914d0961d80ec4e083ecbc41db229e14178c847a93b18c38392e3815726778639c857b5f896f86804f9eb26d77996368434ec4ba4f160ee05ecd5ab0d902b9903498faa7680858d11cf3e845012c470ae0ad41db4b2414de0b96ab4ccaf33b9b93152271698ae51a067aafb25b43de95a</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css"></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AB%AF%E5%8F%A3/">端口</a><a class="post-meta__tags" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E5%8F%A3/">服务器端口</a><a class="post-meta__tags" href="/tags/%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8/">端口占用</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/12/12/HTML5%E4%B8%AD%E7%9A%84picture%E5%85%83%E7%B4%A0%E5%9F%BA%E4%BA%8E%E4%B8%8D%E5%90%8C%E5%B0%BA%E5%AF%B8%E5%92%8C%E4%B8%8D%E5%90%8C%E5%9B%BE%E7%89%87%E7%B1%BB%E5%9E%8B%E6%9D%A5%E5%93%8D%E5%BA%94%E5%BC%8F%E5%A4%84%E7%90%86%E5%9B%BE%E7%89%87/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">HTML5中的picture元素基于不同尺寸和不同图片类型来响应式处理图片</div></div></a></div><div class="next-post pull-right"><a href="/2023/11/14/cmd%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">cmd常用命令大全</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/08/16/docker%E6%80%8E%E4%B9%88%E4%BF%AE%E6%94%B9%E5%B7%B2%E5%88%9B%E5%BB%BA%E7%9A%84%E5%AE%B9%E5%99%A8%E7%AB%AF%E5%8F%A3/" title="docker怎么修改已创建的容器端口"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-16</div><div class="title">docker怎么修改已创建的容器端口</div></div></a></div><div><a href="/2024/10/16/%E4%BD%BF%E7%94%A8PowerShell%E7%BB%88%E6%AD%A2%E7%89%B9%E5%AE%9A%E7%AB%AF%E5%8F%A3%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%B9%B6%E5%88%97%E5%87%BA%E6%9C%AC%E6%9C%BA%E6%89%80%E6%9C%89IP%E5%9C%B0%E5%9D%80/" title="使用PowerShell终止特定端口的服务并列出本机所有IP地址"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-16</div><div class="title">使用PowerShell终止特定端口的服务并列出本机所有IP地址</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/dino2.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">鸢尾花序</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">291</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">863</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">134</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="//h5.m.taobao.com/awp/core/detail.htm?id=680626195748"><i class="fab fa-github"></i><span>关注我们</span></a></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content toc-div-class is-expand" style="display:none"></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%89%93%E5%AD%97%E4%B8%8E%E6%97%8B%E8%BD%AC%E9%A3%9E%E5%85%A5%E6%95%88%E6%9E%9C%EF%BC%9A%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E6%8C%87%E5%AF%BC/" title="如何实现打字与旋转飞入效果：一步一步指导"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何实现打字与旋转飞入效果：一步一步指导"/></a><div class="content"><a class="title" href="/2024/12/06/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%89%93%E5%AD%97%E4%B8%8E%E6%97%8B%E8%BD%AC%E9%A3%9E%E5%85%A5%E6%95%88%E6%9E%9C%EF%BC%9A%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E6%8C%87%E5%AF%BC/" title="如何实现打字与旋转飞入效果：一步一步指导">如何实现打字与旋转飞入效果：一步一步指导</a><time datetime="2024-12-06T08:03:59.000Z" title="发表于 2024-12-06 16:03:59">2024-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/06/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E9%80%90%E5%AD%97%E6%98%BE%E7%A4%BA%E7%9A%84%E5%8A%A8%E6%80%81%E6%89%93%E5%AD%97%E6%95%88%E6%9E%9C%EF%BC%8C%E5%B9%B6%E4%BF%9D%E6%8C%81%E5%8E%9F%E5%A7%8B%E6%96%87%E5%AD%97%E4%B8%8D%E5%8F%97%E5%BD%B1%E5%93%8D/" title="如何实现一个逐字显示的动态打字效果，并保持原始文字不受影响"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何实现一个逐字显示的动态打字效果，并保持原始文字不受影响"/></a><div class="content"><a class="title" href="/2024/12/06/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E9%80%90%E5%AD%97%E6%98%BE%E7%A4%BA%E7%9A%84%E5%8A%A8%E6%80%81%E6%89%93%E5%AD%97%E6%95%88%E6%9E%9C%EF%BC%8C%E5%B9%B6%E4%BF%9D%E6%8C%81%E5%8E%9F%E5%A7%8B%E6%96%87%E5%AD%97%E4%B8%8D%E5%8F%97%E5%BD%B1%E5%93%8D/" title="如何实现一个逐字显示的动态打字效果，并保持原始文字不受影响">如何实现一个逐字显示的动态打字效果，并保持原始文字不受影响</a><time datetime="2024-12-06T06:15:55.000Z" title="发表于 2024-12-06 14:15:55">2024-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/04/%E5%A6%82%E4%BD%95%E5%9C%A8WordPress%E4%BD%BF%E7%94%A8WooCommerce%E6%B7%BB%E5%8A%A0Buy-Now%E6%8C%89%E9%92%AE%E5%B9%B6%E7%9B%B4%E6%8E%A5%E8%B7%B3%E8%BD%AC%E5%88%B0%E7%BB%93%E7%AE%97%E9%A1%B5%E9%9D%A2/" title="如何在WordPress使用WooCommerce添加Buy Now按钮并直接跳转到结算页面"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何在WordPress使用WooCommerce添加Buy Now按钮并直接跳转到结算页面"/></a><div class="content"><a class="title" href="/2024/12/04/%E5%A6%82%E4%BD%95%E5%9C%A8WordPress%E4%BD%BF%E7%94%A8WooCommerce%E6%B7%BB%E5%8A%A0Buy-Now%E6%8C%89%E9%92%AE%E5%B9%B6%E7%9B%B4%E6%8E%A5%E8%B7%B3%E8%BD%AC%E5%88%B0%E7%BB%93%E7%AE%97%E9%A1%B5%E9%9D%A2/" title="如何在WordPress使用WooCommerce添加Buy Now按钮并直接跳转到结算页面">如何在WordPress使用WooCommerce添加Buy Now按钮并直接跳转到结算页面</a><time datetime="2024-12-04T09:13:32.000Z" title="发表于 2024-12-04 17:13:32">2024-12-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/SVG-%E5%8A%A8%E6%80%81%E7%8E%AF%E5%BD%A2%E8%83%8C%E6%99%AF%E6%95%88%E6%9E%9C%E5%AE%9E%E7%8E%B0%E4%B8%8E%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E5%88%86%E6%9E%90/" title="SVG 动态环形背景效果实现与应用场景分析"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SVG 动态环形背景效果实现与应用场景分析"/></a><div class="content"><a class="title" href="/2024/12/03/SVG-%E5%8A%A8%E6%80%81%E7%8E%AF%E5%BD%A2%E8%83%8C%E6%99%AF%E6%95%88%E6%9E%9C%E5%AE%9E%E7%8E%B0%E4%B8%8E%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E5%88%86%E6%9E%90/" title="SVG 动态环形背景效果实现与应用场景分析">SVG 动态环形背景效果实现与应用场景分析</a><time datetime="2024-12-03T09:14:09.000Z" title="发表于 2024-12-03 17:14:09">2024-12-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E4%B8%8E%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B1%95%E7%A4%BA%E7%9A%84%E5%AE%8C%E6%95%B4%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-Vis-Network%E5%92%8CNetworks%E7%9A%84%E9%80%89%E6%8B%A9/" title="前端开发与后端数据分析展示的完整解决方案(Vis-Network和Networks的选择)"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="前端开发与后端数据分析展示的完整解决方案(Vis-Network和Networks的选择)"/></a><div class="content"><a class="title" href="/2024/12/03/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E4%B8%8E%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B1%95%E7%A4%BA%E7%9A%84%E5%AE%8C%E6%95%B4%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-Vis-Network%E5%92%8CNetworks%E7%9A%84%E9%80%89%E6%8B%A9/" title="前端开发与后端数据分析展示的完整解决方案(Vis-Network和Networks的选择)">前端开发与后端数据分析展示的完整解决方案(Vis-Network和Networks的选择)</a><time datetime="2024-12-03T04:17:06.000Z" title="发表于 2024-12-03 12:17:06">2024-12-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/%E9%A2%9C%E8%89%B2%E5%88%87%E6%8D%A2%E6%95%88%E6%9E%9C%E5%AE%9E%E7%8E%B0%E2%80%94%E2%80%94CMYK%E8%83%8C%E6%99%AF%E8%89%B2%E5%88%87%E6%8D%A2%E6%80%9D%E8%B7%AF/" title="颜色切换效果实现——CMYK背景色切换思路"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="颜色切换效果实现——CMYK背景色切换思路"/></a><div class="content"><a class="title" href="/2024/12/03/%E9%A2%9C%E8%89%B2%E5%88%87%E6%8D%A2%E6%95%88%E6%9E%9C%E5%AE%9E%E7%8E%B0%E2%80%94%E2%80%94CMYK%E8%83%8C%E6%99%AF%E8%89%B2%E5%88%87%E6%8D%A2%E6%80%9D%E8%B7%AF/" title="颜色切换效果实现——CMYK背景色切换思路">颜色切换效果实现——CMYK背景色切换思路</a><time datetime="2024-12-03T03:58:20.000Z" title="发表于 2024-12-03 11:58:20">2024-12-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/%E5%AE%9E%E7%8E%B0%E5%91%A8%E6%9C%9F%E6%80%A7%E8%83%8C%E6%99%AF%E6%B8%90%E5%8F%98%E6%BB%9A%E5%8A%A8%E6%95%88%E6%9E%9C%E7%9A%84HTML%E5%92%8CCSS%E4%BB%A3%E7%A0%81/" title="实现周期性背景渐变滚动效果的HTML和CSS代码"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="实现周期性背景渐变滚动效果的HTML和CSS代码"/></a><div class="content"><a class="title" href="/2024/12/03/%E5%AE%9E%E7%8E%B0%E5%91%A8%E6%9C%9F%E6%80%A7%E8%83%8C%E6%99%AF%E6%B8%90%E5%8F%98%E6%BB%9A%E5%8A%A8%E6%95%88%E6%9E%9C%E7%9A%84HTML%E5%92%8CCSS%E4%BB%A3%E7%A0%81/" title="实现周期性背景渐变滚动效果的HTML和CSS代码">实现周期性背景渐变滚动效果的HTML和CSS代码</a><time datetime="2024-12-03T03:35:27.000Z" title="发表于 2024-12-03 11:35:27">2024-12-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/%E8%AE%BE%E7%BD%AEwordpress%E7%BD%91%E7%AB%99%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E6%9D%83%E9%99%90/" title="设置wordpress网站文件和文件夹的权限"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设置wordpress网站文件和文件夹的权限"/></a><div class="content"><a class="title" href="/2024/12/03/%E8%AE%BE%E7%BD%AEwordpress%E7%BD%91%E7%AB%99%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E6%9D%83%E9%99%90/" title="设置wordpress网站文件和文件夹的权限">设置wordpress网站文件和文件夹的权限</a><time datetime="2024-12-03T03:20:24.000Z" title="发表于 2024-12-03 11:20:24">2024-12-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By 鸢尾花序</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script></div><script src="/js/custom.js"></script><script src="/js/mermaid.min.js"></script></div></body></html>
