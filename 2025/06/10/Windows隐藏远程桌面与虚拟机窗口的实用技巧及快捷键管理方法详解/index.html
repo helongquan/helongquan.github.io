@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Windows隐藏远程桌面与虚拟机窗口的实用技巧及快捷键管理方法详解 | 仰观苍穹思环宇</title><meta name="keywords" content="Windows虚拟桌面隔离,远程桌面任务栏管理,AutoHotkey快捷键脚本,虚拟机连接窗口隐藏"><meta name="author" content="鸢尾花序"><meta name="copyright" content="鸢尾花序"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="同时开着远程桌面和虚拟机连接窗口时，任务栏容易显得杂乱，也担心被人一眼看到。这里整理了三种应对方式：用PowerShell调用WinAPI把窗口藏起来、靠AutoHotkey脚本一键切换窗口显隐并处理热键冲突，以及直接借助Win+Ctrl+D新建虚拟桌面把程序挪到另一个桌面运行，再配合Win+Ctr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows隐藏远程桌面与虚拟机窗口的实用技巧及快捷键管理方法详解">
+<meta property="og:url" content="https://feeding-engineer.com/2025/06/10/Windows%E9%9A%90%E8%97%8F%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E4%B8%8E%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AA%97%E5%8F%A3%E7%9A%84%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7%E5%8F%8A%E5%BF%AB%E6%8D%B7%E9%94%AE%E7%AE%A1%E7%90%86%E6%96%B9%E6%B3%95%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="仰观苍穹思环宇">
+<meta property="og:description" content="同时开着远程桌面和虚拟机连接窗口时，任务栏容易显得杂乱，也担心被人一眼看到。这里整理了三种应对方式：用PowerShell调用WinAPI把窗口藏起来、靠AutoHotkey脚本一键切换窗口显隐并处理热键冲突，以及直接借助Win+Ctrl+D新建虚拟桌面把程序挪到另一个桌面运行，再配合Win+Ctr">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2025-06-10T04:14:33.000Z">
+<meta property="article:modified_time" content="2026-09-11T16:15:22.107Z">
+<meta property="article:author" content="鸢尾花序">
+<meta property="article:tag" content="Windows窗口隐藏技巧">
+<meta property="article:tag" content="远程桌面任务栏管理">
+<meta property="article:tag" content="虚拟机连接窗口隐藏">
+<meta property="article:tag" content="AutoHotkey快捷键脚本">
+<meta property="article:tag" content="Windows虚拟桌面隔离">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/logo.png"><link rel="canonical" href="https://feeding-engineer.com/2025/06/10/Windows%E9%9A%90%E8%97%8F%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E4%B8%8E%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AA%97%E5%8F%A3%E7%9A%84%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7%E5%8F%8A%E5%BF%AB%E6%8D%B7%E9%94%AE%E7%AE%A1%E7%90%86%E6%96%B9%E6%B3%95%E8%AF%A6%E8%A7%A3/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-Q4WSLTQE49"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Q4WSLTQE49');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: '/',
+      css: '/'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Windows隐藏远程桌面与虚拟机窗口的实用技巧及快捷键管理方法详解',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-09-12 00:15:22'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/all.min.css"><link rel="stylesheet" href="/css/mycustom.css"><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/dino2.svg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">603</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2005</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">174</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 开发</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/"><i class="fa-fw fas fa-music"></i><span> 大前端</span></a></li><li><a class="site-page child" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><i class="fa-fw fas fa-cogs"></i><span> 人工智能</span></a></li><li><a class="site-page child" href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><i class="fa-fw fas fa-gears"></i><span> 小程序</span></a></li><li><a class="site-page child" href="/categories/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8/"><i class="fa-fw fas fa-globe"></i><span> 桌面应用</span></a></li><li><a class="site-page child" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏开发</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 服务器&amp;网络</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"><i class="fa-fw fas fa-server"></i><span> 服务器</span></a></li><li><a class="site-page child" href="/categories/%E7%BD%91%E7%BB%9C/"><i class="fa-fw fas fa-cloud"></i><span> 网络</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">仰观苍穹思环宇</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 开发</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/"><i class="fa-fw fas fa-music"></i><span> 大前端</span></a></li><li><a class="site-page child" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><i class="fa-fw fas fa-cogs"></i><span> 人工智能</span></a></li><li><a class="site-page child" href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><i class="fa-fw fas fa-gears"></i><span> 小程序</span></a></li><li><a class="site-page child" href="/categories/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8/"><i class="fa-fw fas fa-globe"></i><span> 桌面应用</span></a></li><li><a class="site-page child" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏开发</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 服务器&amp;网络</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"><i class="fa-fw fas fa-server"></i><span> 服务器</span></a></li><li><a class="site-page child" href="/categories/%E7%BD%91%E7%BB%9C/"><i class="fa-fw fas fa-cloud"></i><span> 网络</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Windows隐藏远程桌面与虚拟机窗口的实用技巧及快捷键管理方法详解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-06-10T04:14:33.000Z" title="发表于 2025-06-10 12:14:33">2025-06-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-11T16:15:22.107Z" title="更新于 2026-09-12 00:15:22">2026-09-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/windows/">windows</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="665cfc460d58b4ce688073de162ed54ebd689e532f56ab27cac7ac2e25330ec1">628c584cc0ca60eede7bfc6fe7f8cd071c954b98a4e8847fe70f3a1b959404384e746cd718998ac70e744acd4112193af7ad62e1d5c8ec7bbb084d91cbd38443a1a5579295d5f86e4f6785f41658ab850b02281790b69aef12617348a351071d78788d32d516c4a30a0f51d7f18e13666b89b6592783b9f719bfa6cd6c3c4f52c1cf05ba194a1d30c51baa669cf462c5b725861f1c99c151708aec08b08d01269ded743caa7fafd1ce065d464f2b42de43d9252747023536c42dd69f6d23a3325e34365f762874a142e9e53f3f9add81866091156940cbb05273f80444971f246d55edc8999c95a7e612f58ec09e3e976c170d95178e9f26587442230cf222710371b0d9dece42ca09eddcedf9526f17e0f06671087969aaaa5165847c7b5124c49807e596be62dc28177d72f7af7dc889023a6fdcd22b55a9ba576a7e256e9af46341740f23191619ffb9b009641d08aa61af9344d53c7e52139a206ef4279131a1c7303056d20ee34b8ec3d15a113110564dd14964216f65b3270c7b1ad518793b02cebbb6a0cecead974f2bac64cf68d7ce9bc875e0d2a8e012eb57e74d4092f66282a137f439e94f05c483e32540c576c93a999abd434e0c78f97d16cb8c33540c7afb429e5ba20561adfc85c4e6d7f08883237ff7a729bc1669b9847ce4c427bff22c6bb03d2f8d239f4019cc13d9d56222649c164e7aa1e6f48222997f2a857514d5dc3b452918fab0eee66aeb67af0b561fbd7e57b2a6752211be5fdabd19b2859cfc89e5197af3a4e10c5713f158f22925bed85a81a0fb5cad312e695effa3045d5fee0974dad47dc2fb22b39a1e7b4aaef40c218ccaffbf3842ec99daa9d9d0544b58d38857613e91bebb90ba155373bfa6ab569f19a09a8881848ed98e7266233dff91ad0820d7e56c5a2f2a8f3a0838f80604cc4e93694cba5b34f4f3aac6a92d1b517383fb4c70d5d4eabe1d3cbe23d8c48f94094f8f05dacb841652804c8c48be5c697150ccb0c060f6b5a66fdb923885947a061ad888569aa521d88aa6686a645040587d56032f807ea8bf548f1de29c29cb708c03ab549b6f4bdd7e464208a7809bd18d3945207e810ca9782b454febf3a83536581f148e226a284c73cf60d01e5982e56e763c73a54b92953cd70e35aca3ad3c20354111e1f42b35b8fa5b91ac36abb15469d7b196826996f196da477951b86f0f98fc0bf914c666cf240a58b867b928c518b5b8dbb289fd298cad368da73b95f6d27292e0aa6c6d8e44db75c4c7d2390397ff5824ad74390fa654f64884abf0b9d0143f73348243923f07325b9ed47ca82bcfa0f0148cfbf8ee79e8430561c8342cc2c85fd6d9dbf90f782fcdff74a217c745155046e876d16886205459839b6907cbd4d88f5ee3be6650461f81199f72fabfa3432fd43d3745883061ec2380746eac0f01257a1af725a0108da158b4344895654a25ecc4f24f527ef9ec7fd83ed01406c0d7dccac1af8b0af42e75d463c1e30054c60dfab7a81c777df9b4cbd1abc9671a0d0d2ea8622275d963a5a66243edacdaa2450ba2c54c8bf3a0b0f3207a3bdbf9d5d47fbdfe1d347e2685a87191631e42032eecb3501ec76cf2a2a728340d4874372ea0ae48607c8a98c41e5e16bd2ab963fdb3bf3038f45fd95ecd011672ee52a7486fb30612618a5333286b37298028b07fffa4dd17ab0cd5bcc5d69a26a2f15e13c05f9b7bcc64197556f523226bfd83a08a7a4ad09be63509e9332da82887f50dffd96e992abaebff285de77237bd696cfc3c72b2d7caf138ffde90638524ccd37678351ff562a14fd97522e7c60853d4e7bdb2f7fa9655ade47accb8a7a9e7d42345fa217d1dcd631f8612c07c2893b582de1b725f926be28ebd0382ef22bdc599149eef5ad803822d87cc745c6c8f7e0c2bd698d6528ba3b7a35117df21248556a638c246a97c3311c3eb2ac0312886edb1341687d885c1f4cf1ff15b54ebaa6a83e5782c35bfe199b51a7f5e20704396b821e8cd160019dbf2ebbccae862b4bc8ecfa3c528267b86300ef14331b19736e563a1f3f3449b838cb8efe70bac7b9b058af1a5186a04747f6473203fdccfff453b72aa5468d2e289b894158ca9dc11a1f47f9e3fe3f4804ed60209aa05e83157631cea61b075d3eeb3e8062819120eb438ce26010f9b04fcbf5f2048d70dd3361615c953341896d94a502d6457aae358a78745a842e29563ccbfe1d69054b0c80abc2accf98681377e71d9d6d631a949b0a64ba3a636424133c4cc215d6c747af08c46dab30aaeaf427fddb03e2a3cec62b492bd1eef6829f42851a5d731bc23fd47c3eb09e6aa34c108b4fa2e8e132eb4b825fcef2c7ab61a9dafd50311a43d9f10ad4ec48f03b226841b016de1f0191f40fbf4524bc853059e651032d7fd36137a11e9730babdf001661fadd6ca908ce28e4a263e69564526149f2fd796bb01df6499ab187b738c20c761698a0974146d6dda2a036525ac91590a64b1ea3174c287dc9f4a73ba7320632fe635c7a554398b364e780fc6fa698d0270087a353d6c17d9c2e58e7b5aa9f05c40a0c669ae513d9a6973e742016f95ef07b8582d80b7e25104d5a7224396115bc1718879150e08d4aff0f921486b5f74aa3abe5cd2f4b7fd86779ef818ab91f2caa40a1a4669f951e5da4f6179dbbc915322ab4e7b9e19872d019170eb43676f4ce8cbda15ce98219e7e244df91870ba44270b26a528e19fe9c9fd3304a24161bc0c60c24f05f38ea238d2a8d0c4be878fae0dd7e468251bc7d50543bdf37971b5ece92c7e23702a2ae82841a95974208e94b1c57a76c12cc13a14c2b64750b8abc3b3b966a44ee0fac354212cf1c38e1983530f4da705572d53bd5110700cd32711851bb14c98a2018a9b2599d69d572a14824eb06f8d01c5a532c94f806c3593939d3b533e0ab9dabb03a556360424c07ace53eb3345fbc4b2d4759cbcca96f513302e9d7f3acad6e0e8c7e61eb12d7e1c2f4a360b6d8c0cf5434a40f32e1ac176eddcaf9d14df9c210a10c2c754b48a2bfdd9aef7bfc41b00ae896aee240ae695b8472bfb39849fc4a74c514acfca517f4450d13e313718280f1784ef838f6bea55172eb4057a31f61854c4efb46b7af8c325620c0cfd8a2039dd2682bd34ca195eacd2d60d9c72e15c84a3b15c29944b2dc44135cf78f7d13d254a43c44f0c9611fb1ded25622ba93fe2b82ea2fc4bd727874f31c506c69c393ae6c508711e8651f6ee82ac03e2ac55ba52ef3242e4c9c621b508ede9c00d7c6d55fa7545b1726e5ae6282b040f6942181657ba1e037a8419f477ac52f6e3d24af7e29ecde589329b3e7b7280f698be99e97fc649adb38fbbcb6c09a46e48eab04317a76c91013781d603ab291484615bdfcdf5f2438cce0503c76008227182940140b2b39c19cf52dedf8255a197c71e857ab84bc59fcaccf637f10cb9d442f8058b0b6c00916c2a8e105b80f07d5ea30d89cc0fe32f1ab57ed51f7a9d6b05c4a04a548e54107a6da048af7a65aaa8b0b1082b25171a7acdf8a8afde26647422b20cc1bc6bdc9ffaf698462fb4e30881dbd5cc76a529dc8c6e1f7194a126acab9b1e5d384ec162836395dc3b3d3c600ac3f071e199098feea22d4479ea2a2e5adc7ef09b6851e8d5d44fad031f2b4869563c903d7766017364113a31f4555204978ddc6735fbaf971ec9a59d41d4375b39005f2b76ccd7391abd7fe22fdbedee9ecc5e5fd80394f5657d48918a50476d48c80700ab451b718c13b6905c1a1a7bb647050cab7c2e91ca5654d44c03b21f13f590b72f2fbe5bc8a382c9fd1df2f76c14ec4355cff2dbc382996f8e4b46b3050e8fed6461f4e9d99208462f8ea22b395c40aefcc7318eb76cd0661aac24aa63bc832ea3673071917bcd5c7a12ccf94cde647116fc4c2d96fc404ad8bebc884a2befe767bb83ddba19c9dcdd92bb61b838dcc206ea016e0698106875b323c65db19c880e7d63be7410e6af20641628048ac58fef959fa98e6e9110db315339650740e69bdccda5adf2c7c92d675e1b3f5965aa03738ecae9ab372687e0c2a573eb6cd1fcd8012b2bf710736be1fcd6b401dc5536bfd6db3f115df4879d65180e2278e75b786e9de58f8da57901df8b68fd767da8009e6ebcd2807fb00473809e1b83b6eba3ce0cc0a15c9cc84354eb8d40b0bc8b87b2b792f97c0cc4ff236287a9bded1155411a49a1fc724f9448a244dabdcb92fa682e72704e085d4247c81d2795421ace264eb1d880fbec44cd5e6ac3e03cbcaee20e45633b3059ecaea52427b2294550e5a0a411f021bf599f5e92d70efa4fb9ad2b59c050cd9fd5520b15c1e44402a720d4dd17c7db49e2266da0d5bf93d80946e58e2d352985e3062e035047140bcf5034088e2a37a61faaf1faf9a7c773c92d5f31af6ebc65de9c68acb4ec09e045d2252ad917db1a8ec00365bed87369992965fb941a9d9492b67ab3815ad01d854778849a19173d712837cceee7d013a562eb418bddedab94d38ccd12554dd5f72be06b41d8c3e8f87636857321777f7afed79a4b6de223bbdecbd9d97cabd19df2951062ce4367e1fa7180f2c7e407315b13e8181e2c73d0f0d34b6b5dcb45acbd236158394e2df023d2aa45b8602f8fe13944e8984b1d7f420a640927f253d3ba92e50ee6138601bc57ee25fbc43f927e9589072d7a92e805a4a79ab8aa8b2ace6369258bd292532d7fc8bc43a899201a8b5e21e08fc16f673da30891a96a5cde0ba8fa1a2eb117debd6454f8b2b1dccca08fc6e446bc9a417babd8e73e72eb9e4903419175c8f83540554e1f1135abade862a99edc7cbe039feddeef373ed270d09193ca330e00bbbae38c079eb</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css"></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Windows%E7%AA%97%E5%8F%A3%E9%9A%90%E8%97%8F%E6%8A%80%E5%B7%A7/">Windows窗口隐藏技巧</a><a class="post-meta__tags" href="/tags/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E4%BB%BB%E5%8A%A1%E6%A0%8F%E7%AE%A1%E7%90%86/">远程桌面任务栏管理</a><a class="post-meta__tags" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BF%9E%E6%8E%A5%E7%AA%97%E5%8F%A3%E9%9A%90%E8%97%8F/">虚拟机连接窗口隐藏</a><a class="post-meta__tags" href="/tags/AutoHotkey%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%84%9A%E6%9C%AC/">AutoHotkey快捷键脚本</a><a class="post-meta__tags" href="/tags/Windows%E8%99%9A%E6%8B%9F%E6%A1%8C%E9%9D%A2%E9%9A%94%E7%A6%BB/">Windows虚拟桌面隔离</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/06/11/%E5%BF%99%E7%A2%8C%E7%88%B6%E6%AF%8D%E7%9A%84%E8%87%AA%E6%88%91%E6%88%90%E9%95%BF%E4%B8%8E%E4%BA%B2%E5%AD%90%E9%99%AA%E4%BC%B4%E6%8C%87%E5%8D%97-%E5%9C%A8%E6%B7%B7%E4%B9%B1%E4%B8%AD%E6%89%BE%E5%9B%9E%E8%8A%82%E5%A5%8F%E4%B8%8E%E5%B9%B8%E7%A6%8F%E6%84%9F/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">忙碌父母的自我成长与亲子陪伴指南:在混乱中找回节奏与幸福感</div></div></a></div><div class="next-post pull-right"><a href="/2025/06/10/LocalWP%E6%9C%AC%E5%9C%B0WordPress%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97-%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5%E3%80%81%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96%E4%B8%8E%E8%BD%BB%E9%87%8F%E5%8C%96%E5%AF%B9%E6%AF%94%E5%88%86%E6%9E%90/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">LocalWP本地WordPress开发环境实用指南:故障排查、配置优化与轻量化对比分析</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/dino2.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">鸢尾花序</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">603</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2005</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">174</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="//h5.m.taobao.com/awp/core/detail.htm?id=680626195748"><i class="fab fa-github"></i><span>关注我们</span></a></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content toc-div-class is-expand" style="display:none"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E8%A8%80%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">引言：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E2%80%9C%E8%99%9A%E6%8B%9F%E6%A1%8C%E9%9D%A2%E2%80%9D%E9%9A%94%E7%A6%BB%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.</span> <span class="toc-text">使用“虚拟桌面”隔离程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%99%E4%B8%AA%E6%96%B9%E6%B3%95%E7%9A%84%E4%BC%98%E7%82%B9%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">这个方法的优点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">快捷键总结：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%A0%E7%9A%84%E4%BD%BF%E7%94%A8%E5%BB%BA%E8%AE%AE"><span class="toc-number">5.</span> <span class="toc-text">你的使用建议</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/Duplicator%E5%85%A8%E9%87%8F%E8%BF%81%E7%A7%BBWordPress%E5%90%8EHTTPS%E6%8C%82%E4%BA%86%E6%AD%A3%E7%A1%AE%E5%81%9A%E6%B3%95%E6%98%AF%E5%8F%AA%E6%8D%A2wp-content%E5%B9%B6%E5%9C%A8duplicator%E9%83%A8%E7%BD%B2%E7%BD%91%E7%AB%99%E7%9A%84%E6%97%B6%E5%80%991Panel%E9%87%8C%E6%8A%8A%E6%95%B0%E6%8D%AE%E5%BA%93host%E5%A1%AB%E6%88%90mysql%E8%80%8C%E4%B8%8D%E6%98%AFlocalhost/" title="Duplicator全量迁移WordPress后HTTPS挂了正确做法是只换wp-content并在duplicator部署网站的时候1Panel里把数据库host填成mysql而不是localhost"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Duplicator全量迁移WordPress后HTTPS挂了正确做法是只换wp-content并在duplicator部署网站的时候1Panel里把数据库host填成mysql而不是localhost"/></a><div class="content"><a class="title" href="/2026/09/15/Duplicator%E5%85%A8%E9%87%8F%E8%BF%81%E7%A7%BBWordPress%E5%90%8EHTTPS%E6%8C%82%E4%BA%86%E6%AD%A3%E7%A1%AE%E5%81%9A%E6%B3%95%E6%98%AF%E5%8F%AA%E6%8D%A2wp-content%E5%B9%B6%E5%9C%A8duplicator%E9%83%A8%E7%BD%B2%E7%BD%91%E7%AB%99%E7%9A%84%E6%97%B6%E5%80%991Panel%E9%87%8C%E6%8A%8A%E6%95%B0%E6%8D%AE%E5%BA%93host%E5%A1%AB%E6%88%90mysql%E8%80%8C%E4%B8%8D%E6%98%AFlocalhost/" title="Duplicator全量迁移WordPress后HTTPS挂了正确做法是只换wp-content并在duplicator部署网站的时候1Panel里把数据库host填成mysql而不是localhost">Duplicator全量迁移WordPress后HTTPS挂了正确做法是只换wp-content并在duplicator部署网站的时候1Panel里把数据库host填成mysql而不是localhost</a><time datetime="2026-09-15T10:04:24.000Z" title="发表于 2026-09-15 18:04:24">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/14/%E5%A4%9A%E8%AE%BE%E5%A4%87Hexo%E5%AE%89%E8%A3%85Butterfly%E4%B8%BB%E9%A2%98%E9%87%8C%E9%9D%A2%E5%8D%9A%E5%AE%A2search-xml%E8%BF%87%E5%A4%A7%E5%AF%BC%E8%87%B4GitHub%E6%8E%A8%E9%80%81%E5%A4%B1%E8%B4%A5%E7%9A%84%E5%AE%8C%E6%95%B4%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E5%90%AB%E4%BA%A4%E4%BA%92%E5%BC%8F%E6%B8%85%E7%90%86%E8%84%9A%E6%9C%AC/" title="多设备Hexo安装Butterfly主题里面博客search.xml过大导致GitHub推送失败的完整解决方案(含交互式清理脚本)"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="多设备Hexo安装Butterfly主题里面博客search.xml过大导致GitHub推送失败的完整解决方案(含交互式清理脚本)"/></a><div class="content"><a class="title" href="/2026/09/14/%E5%A4%9A%E8%AE%BE%E5%A4%87Hexo%E5%AE%89%E8%A3%85Butterfly%E4%B8%BB%E9%A2%98%E9%87%8C%E9%9D%A2%E5%8D%9A%E5%AE%A2search-xml%E8%BF%87%E5%A4%A7%E5%AF%BC%E8%87%B4GitHub%E6%8E%A8%E9%80%81%E5%A4%B1%E8%B4%A5%E7%9A%84%E5%AE%8C%E6%95%B4%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E5%90%AB%E4%BA%A4%E4%BA%92%E5%BC%8F%E6%B8%85%E7%90%86%E8%84%9A%E6%9C%AC/" title="多设备Hexo安装Butterfly主题里面博客search.xml过大导致GitHub推送失败的完整解决方案(含交互式清理脚本)">多设备Hexo安装Butterfly主题里面博客search.xml过大导致GitHub推送失败的完整解决方案(含交互式清理脚本)</a><time datetime="2026-09-14T15:13:01.000Z" title="发表于 2026-09-14 23:13:01">2026-09-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/14/%E5%91%8A%E5%88%AB%E9%80%90%E4%B8%AA%E8%BD%AC%E6%8D%A2%E7%94%A8md2pdf%E4%B8%80%E9%94%AE%E6%89%B9%E9%87%8F%E6%8A%8AMarkdown%E5%8F%98%E6%88%90PDF/" title="告别逐个转换用md2pdf一键批量把Markdown变成PDF"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="告别逐个转换用md2pdf一键批量把Markdown变成PDF"/></a><div class="content"><a class="title" href="/2026/09/14/%E5%91%8A%E5%88%AB%E9%80%90%E4%B8%AA%E8%BD%AC%E6%8D%A2%E7%94%A8md2pdf%E4%B8%80%E9%94%AE%E6%89%B9%E9%87%8F%E6%8A%8AMarkdown%E5%8F%98%E6%88%90PDF/" title="告别逐个转换用md2pdf一键批量把Markdown变成PDF">告别逐个转换用md2pdf一键批量把Markdown变成PDF</a><time datetime="2026-09-14T14:31:38.000Z" title="发表于 2026-09-14 22:31:38">2026-09-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/12/%E7%94%A8Python%E6%89%B9%E9%87%8F%E7%BB%99Hexo%E6%96%87%E7%AB%A0%E8%87%AA%E5%8A%A8%E8%A1%A5%E9%BD%90TDK%EF%BC%9ADeepSeek%E9%A9%B1%E5%8A%A8%E3%80%81%E4%B8%A5%E6%A0%BCYAML%E3%80%81%E5%8A%A8%E6%80%81%E5%A4%87%E4%BB%BD%E7%9A%84%E5%AE%8C%E6%95%B4%E5%AE%9E%E8%B7%B5/" title="用Python批量给Hexo文章自动补齐TDK：DeepSeek驱动、严格YAML、动态备份的完整实践"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="用Python批量给Hexo文章自动补齐TDK：DeepSeek驱动、严格YAML、动态备份的完整实践"/></a><div class="content"><a class="title" href="/2026/09/12/%E7%94%A8Python%E6%89%B9%E9%87%8F%E7%BB%99Hexo%E6%96%87%E7%AB%A0%E8%87%AA%E5%8A%A8%E8%A1%A5%E9%BD%90TDK%EF%BC%9ADeepSeek%E9%A9%B1%E5%8A%A8%E3%80%81%E4%B8%A5%E6%A0%BCYAML%E3%80%81%E5%8A%A8%E6%80%81%E5%A4%87%E4%BB%BD%E7%9A%84%E5%AE%8C%E6%95%B4%E5%AE%9E%E8%B7%B5/" title="用Python批量给Hexo文章自动补齐TDK：DeepSeek驱动、严格YAML、动态备份的完整实践">用Python批量给Hexo文章自动补齐TDK：DeepSeek驱动、严格YAML、动态备份的完整实践</a><time datetime="2026-09-12T01:14:41.000Z" title="发表于 2026-09-12 09:14:41">2026-09-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/30/wordpress%E7%8B%AC%E7%AB%8B%E7%AB%99%E8%BF%90%E8%90%A5%E4%B9%8B%E5%B9%BF%E5%91%8A%E9%A1%B5%E9%9D%A2-%E7%9D%80%E9%99%86%E9%A1%B5%E8%AE%BE%E8%AE%A1/" title="wordpress独立站运营之广告页面&amp;着陆页设计"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="wordpress独立站运营之广告页面&amp;着陆页设计"/></a><div class="content"><a class="title" href="/2026/06/30/wordpress%E7%8B%AC%E7%AB%8B%E7%AB%99%E8%BF%90%E8%90%A5%E4%B9%8B%E5%B9%BF%E5%91%8A%E9%A1%B5%E9%9D%A2-%E7%9D%80%E9%99%86%E9%A1%B5%E8%AE%BE%E8%AE%A1/" title="wordpress独立站运营之广告页面&amp;着陆页设计">wordpress独立站运营之广告页面&amp;着陆页设计</a><time datetime="2026-06-30T13:35:49.000Z" title="发表于 2026-06-30 21:35:49">2026-06-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/29/Wiki-js-%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E5%88%B0%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E8%BF%81%E7%A7%BB%E5%85%A8%E6%94%BB%E7%95%A5/" title="Wiki.js 从零搭建到远程访问迁移全攻略"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Wiki.js 从零搭建到远程访问迁移全攻略"/></a><div class="content"><a class="title" href="/2026/06/29/Wiki-js-%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E5%88%B0%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E8%BF%81%E7%A7%BB%E5%85%A8%E6%94%BB%E7%95%A5/" title="Wiki.js 从零搭建到远程访问迁移全攻略">Wiki.js 从零搭建到远程访问迁移全攻略</a><time datetime="2026-06-29T06:39:44.000Z" title="发表于 2026-06-29 14:39:44">2026-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/12/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8BFFmpeg%E5%AE%8C%E6%95%B4%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE%E7%9A%84%E8%AF%A6%E7%BB%86%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/" title="Windows系统下FFmpeg完整安装配置与环境变量设置的详细操作指南"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows系统下FFmpeg完整安装配置与环境变量设置的详细操作指南"/></a><div class="content"><a class="title" href="/2026/06/12/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8BFFmpeg%E5%AE%8C%E6%95%B4%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE%E7%9A%84%E8%AF%A6%E7%BB%86%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/" title="Windows系统下FFmpeg完整安装配置与环境变量设置的详细操作指南">Windows系统下FFmpeg完整安装配置与环境变量设置的详细操作指南</a><time datetime="2026-06-12T09:50:53.000Z" title="发表于 2026-06-12 17:50:53">2026-06-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/11/WordPress%E7%94%A8%E6%88%B7%E8%AF%84%E8%AE%BA%E5%A4%B4%E5%83%8F%E6%9C%AC%E5%9C%B0%E5%8C%96%E4%B9%8B%E5%AE%8C%E5%85%A8%E6%9B%BF%E4%BB%A3Gravatar%E5%B9%B6%E6%94%AF%E6%8C%81%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%8A%E4%BC%A0/" title="WordPress用户评论头像本地化之完全替代Gravatar并支持自定义上传"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WordPress用户评论头像本地化之完全替代Gravatar并支持自定义上传"/></a><div class="content"><a class="title" href="/2026/06/11/WordPress%E7%94%A8%E6%88%B7%E8%AF%84%E8%AE%BA%E5%A4%B4%E5%83%8F%E6%9C%AC%E5%9C%B0%E5%8C%96%E4%B9%8B%E5%AE%8C%E5%85%A8%E6%9B%BF%E4%BB%A3Gravatar%E5%B9%B6%E6%94%AF%E6%8C%81%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%8A%E4%BC%A0/" title="WordPress用户评论头像本地化之完全替代Gravatar并支持自定义上传">WordPress用户评论头像本地化之完全替代Gravatar并支持自定义上传</a><time datetime="2026-06-11T03:24:31.000Z" title="发表于 2026-06-11 11:24:31">2026-06-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2026 By 鸢尾花序</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script></div><script src="/js/custom.js"></script><script src="/js/mermaid.min.js"></script></div></body></html>
