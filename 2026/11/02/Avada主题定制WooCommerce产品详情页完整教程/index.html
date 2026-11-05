@@ -1,0 +1,210 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Avada主题定制WooCommerce产品详情页完整教程 | 仰观苍穹思环宇</title><meta name="keywords" content="产品详情页,Avada Layouts,电商建站"><meta name="author" content="鸢尾花序"><meta name="copyright" content="鸢尾花序"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="基于Avada主题的WooCommerce产品详情页深度定制指南，涵盖模板创建、条件分配、缓存清理与冲突排查，帮助实现更灵活的电商页面布局。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Avada主题定制WooCommerce产品详情页完整教程">
+<meta property="og:url" content="https://feeding-engineer.com/2026/11/02/Avada%E4%B8%BB%E9%A2%98%E5%AE%9A%E5%88%B6WooCommerce%E4%BA%A7%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5%E5%AE%8C%E6%95%B4%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="仰观苍穹思环宇">
+<meta property="og:description" content="基于Avada主题的WooCommerce产品详情页深度定制指南，涵盖模板创建、条件分配、缓存清理与冲突排查，帮助实现更灵活的电商页面布局。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2026-11-02T01:30:34.000Z">
+<meta property="article:modified_time" content="2026-11-02T01:31:32.765Z">
+<meta property="article:author" content="鸢尾花序">
+<meta property="article:tag" content="Avada">
+<meta property="article:tag" content="WordPress">
+<meta property="article:tag" content="WooCommerce">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/logo.png"><link rel="canonical" href="https://feeding-engineer.com/2026/11/02/Avada%E4%B8%BB%E9%A2%98%E5%AE%9A%E5%88%B6WooCommerce%E4%BA%A7%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5%E5%AE%8C%E6%95%B4%E6%95%99%E7%A8%8B/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-Q4WSLTQE49"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Q4WSLTQE49');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Avada主题定制WooCommerce产品详情页完整教程',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-11-02 09:31:32'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/mycustom.css"><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/dino2.svg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">665</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2147</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">181</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 开发</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/"><i class="fa-fw fas fa-music"></i><span> 大前端</span></a></li><li><a class="site-page child" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><i class="fa-fw fas fa-cogs"></i><span> 人工智能</span></a></li><li><a class="site-page child" href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><i class="fa-fw fas fa-gears"></i><span> 小程序</span></a></li><li><a class="site-page child" href="/categories/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8/"><i class="fa-fw fas fa-globe"></i><span> 桌面应用</span></a></li><li><a class="site-page child" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏开发</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 服务器&amp;网络</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"><i class="fa-fw fas fa-server"></i><span> 服务器</span></a></li><li><a class="site-page child" href="/categories/%E7%BD%91%E7%BB%9C/"><i class="fa-fw fas fa-cloud"></i><span> 网络</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/contact/"><i class="fa-fw fas fa-envelope"></i><span> 联系我们</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">仰观苍穹思环宇</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 开发</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/"><i class="fa-fw fas fa-music"></i><span> 大前端</span></a></li><li><a class="site-page child" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><i class="fa-fw fas fa-cogs"></i><span> 人工智能</span></a></li><li><a class="site-page child" href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><i class="fa-fw fas fa-gears"></i><span> 小程序</span></a></li><li><a class="site-page child" href="/categories/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8/"><i class="fa-fw fas fa-globe"></i><span> 桌面应用</span></a></li><li><a class="site-page child" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏开发</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 服务器&amp;网络</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"><i class="fa-fw fas fa-server"></i><span> 服务器</span></a></li><li><a class="site-page child" href="/categories/%E7%BD%91%E7%BB%9C/"><i class="fa-fw fas fa-cloud"></i><span> 网络</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/contact/"><i class="fa-fw fas fa-envelope"></i><span> 联系我们</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Avada主题定制WooCommerce产品详情页完整教程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-11-02T01:30:34.000Z" title="发表于 2026-11-02 09:30:34">2026-11-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-11-02T01:31:32.765Z" title="更新于 2026-11-02 09:31:32">2026-11-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/wordpress/">wordpress</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>对于使用 WooCommerce 的站长来说，默认的产品详情页往往无法满足个性化的展示需求。Avada 主题自带的 <strong>Layouts（布局）</strong> 功能，可以让我们像搭积木一样，自由定制产品页的每一个版块。本文将详细介绍如何通过 Avada 搭建专属的产品详情页，并正确应用给全站或指定分类。</p>
+<h2 id="第一步：创建产品内容区块-Layout-Section"><a href="#第一步：创建产品内容区块-Layout-Section" class="headerlink" title="第一步：创建产品内容区块 Layout Section"></a>第一步：创建产品内容区块 Layout Section</h2><p>我们需要先设计出产品页的主体内容，这是实现自由定制的核心。</p>
+<ol>
+<li>进入 WordPress 后台，在左侧菜单找到 <strong>Avada</strong> &gt; <strong>Layouts</strong>。</li>
+<li>点击顶部的 <strong>Layout Section Builder</strong> 选项卡。</li>
+<li>点击 <strong>Create New Layout Section</strong>（创建新区块）。</li>
+<li><strong>命名建议</strong>：建议采用“分类名 + Section”的格式，例如 <code>Ice Machines - Serial Section</code>。如果你打算全站通用，可以命名为 <code>Global Product Content</code>。清晰的命名方便以后复用和修改。</li>
+<li>创建后，点击页面左上角的 <strong>Back-end Builder</strong> 进入 Avada 可视化编辑器。</li>
+</ol>
+<h3 id="设置动态预览与搭建页面"><a href="#设置动态预览与搭建页面" class="headerlink" title="设置动态预览与搭建页面"></a>设置动态预览与搭建页面</h3><ol>
+<li>在编辑器左下角的 <strong>Layout Section Options</strong> 中，找到 <strong>View Dynamic Data As</strong>，将其设置为 <strong>Product</strong>，并选择一个现有产品，以便在编辑时实时看到真实的图片和价格数据。</li>
+<li>点击中间的 <code>+ Container</code> 按钮。你可以选择自己拖拽排版（例如左侧放 <code>Woo Product Images</code>，右侧放标题、价格和 <code>Woo Add To Cart</code>），或者直接点击绿色的 <strong>Avada Studio</strong> 按钮，在模板库中导入现成的设计。</li>
+<li>设计完成后，点击右上角的 <strong>Save</strong> 保存。</li>
+</ol>
+<h2 id="第二步：创建外层布局-Layout-并绑定条件"><a href="#第二步：创建外层布局-Layout-并绑定条件" class="headerlink" title="第二步：创建外层布局 Layout 并绑定条件"></a>第二步：创建外层布局 Layout 并绑定条件</h2><p>内容设计好后，需要一个“容器”来承载它，并告诉系统将它应用到哪些页面。</p>
+<ol>
+<li>回到 <strong>Avada</strong> &gt; <strong>Layouts</strong> 页面，点击 <strong>Layout Builder</strong> 选项卡。</li>
+<li>在输入框输入名称（建议命名为 <code>Global Product Template</code>），点击 <strong>Create New Layout</strong>。</li>
+<li>在生成的布局卡片中，找到 <strong>Content</strong> 区域，点击 <code>+</code> 号，选中你在第一步创建的 Section（如 <code>Ice Machines - Serial Section</code>）。</li>
+<li>卡片下方的 Header、Page Title Bar 和 Footer 可以留空，系统会自动调用全局默认设置。</li>
+</ol>
+<h3 id="设置生效条件"><a href="#设置生效条件" class="headerlink" title="设置生效条件"></a>设置生效条件</h3><p>这是最关键的一步，只有正确设置条件，前台才会真正变化。</p>
+<ol>
+<li>点击布局卡片底部的 <strong>No condition selected</strong>（未选择条件）。</li>
+<li>在左侧选择 <strong>Products</strong> 选项卡。</li>
+<li>如果你想先局部测试，点击展开 <strong>Products with Specific Product categories</strong>，勾选对应的产品分类；如果你想全站应用，直接勾选最上方的 <strong>All Products</strong>。</li>
+<li><strong>务必注意</strong>：勾选后，右侧面板会显示你的选择。只有看到绿色的 ✅ 勾选号，才代表条件已被系统识别。之后关闭弹窗，点击 <strong>Save Layout Order</strong> 保存布局顺序。</li>
+</ol>
+<blockquote>
+<p><strong>排错提示</strong>：如果你在设置 <code>All Products</code> 时看到提示说该条件已分配给另一个布局，说明你的站点里已经有其他模板正在接管全站产品页。此时你可以点击 <code>Assign Here</code> 强制覆盖，或者取消勾选，改为只针对特定分类生效，以免产生冲突。</p>
+</blockquote>
+<h2 id="第三步：排查模板是否生效及清理缓存"><a href="#第三步：排查模板是否生效及清理缓存" class="headerlink" title="第三步：排查模板是否生效及清理缓存"></a>第三步：排查模板是否生效及清理缓存</h2><p>设置完成后，打开前台的产品详情页，如果发现页面并没有变成你设计的样子，请按以下顺序排查：</p>
+<h3 id="1-检查是否被其他模板覆盖"><a href="#1-检查是否被其他模板覆盖" class="headerlink" title="1. 检查是否被其他模板覆盖"></a>1. 检查是否被其他模板覆盖</h3><p>回到 <code>/wp-admin/admin.php?page=avada-layouts</code> 页面，查看列表中各个布局卡片底部的状态。如果存在多个针对全站或该分类的布局，Avada 的规则是“越具体的优先，列表中越靠下的优先”。请确保你的新模板没有被其他高优先级模板覆盖。</p>
+<h3 id="2-清理-Avada-性能缓存"><a href="#2-清理-Avada-性能缓存" class="headerlink" title="2. 清理 Avada 性能缓存"></a>2. 清理 Avada 性能缓存</h3><p>如果条件确认无误，那大概率是缓存导致的。进入 <code>/wp-admin/themes.php?page=avada_options</code>，在顶部选项卡中找到 <strong>Performance（性能）</strong> 标签，滚动到页面最底部，找到并清除 <strong>Avada Caches</strong> 和 CSS&#x2F;JS 缓存。如果使用了其他缓存插件，也请一并清理。</p>
+<h3 id="3-使用无痕模式测试"><a href="#3-使用无痕模式测试" class="headerlink" title="3. 使用无痕模式测试"></a>3. 使用无痕模式测试</h3><p>清理缓存后，建议使用浏览器的<strong>无痕模式</strong>重新打开前台产品页。这可以排除浏览器本地缓存的干扰。只要你的 Layout Section 里确实拖入了相关的 Woo 元素并保存，且条件匹配正确，前台就一定会呈现出你定制的页面效果。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Avada/">Avada</a><a class="post-meta__tags" href="/tags/WordPress/">WordPress</a><a class="post-meta__tags" href="/tags/WooCommerce/">WooCommerce</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/11/02/WordPress%E8%BF%9B%E9%98%B6%E5%AE%9E%E6%88%98%E5%9C%A8Avada%E4%B8%8EWooCommerce%E4%BA%A7%E5%93%81%E5%88%97%E8%A1%A8%E4%B8%AD%E5%AE%8C%E7%BE%8E%E5%B1%95%E7%A4%BAACF%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E6%AE%B5/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">WordPress进阶实战在Avada与WooCommerce产品列表中完美展示ACF自定义字段</div></div></a></div><div class="next-post pull-right"><a href="/2026/10/30/%E8%A7%A3%E5%86%B3Windows%E6%97%A0%E6%B3%95%E8%BF%90%E8%A1%8Cmsi%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%88%E6%9E%81%E6%8C%87%E5%8D%97/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">解决Windows无法运行msi文件的终极指南</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/11/02/WordPress%E8%BF%9B%E9%98%B6%E5%AE%9E%E6%88%98%E5%9C%A8Avada%E4%B8%8EWooCommerce%E4%BA%A7%E5%93%81%E5%88%97%E8%A1%A8%E4%B8%AD%E5%AE%8C%E7%BE%8E%E5%B1%95%E7%A4%BAACF%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E6%AE%B5/" title="WordPress进阶实战在Avada与WooCommerce产品列表中完美展示ACF自定义字段"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-11-02</div><div class="title">WordPress进阶实战在Avada与WooCommerce产品列表中完美展示ACF自定义字段</div></div></a></div><div><a href="/2026/11/03/Avada%E4%B8%BB%E9%A2%98%E5%88%9B%E5%BB%BAMegaMenu%E8%8F%9C%E5%8D%95%E6%95%99%E7%A8%8B%E4%B8%8E%E6%9C%AC%E8%B4%A8%E8%A7%A3%E6%9E%90/" title="Avada主题创建MegaMenu菜单教程与本质解析"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-11-03</div><div class="title">Avada主题创建MegaMenu菜单教程与本质解析</div></div></a></div><div><a href="/2026/11/04/Avada%E8%A1%A8%E5%8D%95Select%E5%AD%97%E6%AE%B5Label%E4%B8%8EValue%E7%9A%84%E5%B7%A7%E5%A6%99%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/" title="Avada表单Select字段Label与Value的巧妙设计与实战指南"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-11-04</div><div class="title">Avada表单Select字段Label与Value的巧妙设计与实战指南</div></div></a></div><div><a href="/2026/11/03/WordPress%E8%BF%9B%E9%98%B6%E6%95%99%E7%A8%8B%E8%A7%A3%E5%86%B3ACF%E5%AF%8C%E6%96%87%E6%9C%AC%E5%AD%97%E6%AE%B5%E4%B8%AD%E5%B5%8C%E5%A5%97%E6%8F%92%E4%BB%B6%E7%9F%AD%E4%BB%A3%E7%A0%81%E6%97%A0%E6%B3%95%E6%B8%B2%E6%9F%93%E7%9A%84%E9%97%AE%E9%A2%98-tablepress/" title="WordPress进阶教程解决ACF富文本字段中嵌套插件短代码无法渲染的问题(tablepress)"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-11-03</div><div class="title">WordPress进阶教程解决ACF富文本字段中嵌套插件短代码无法渲染的问题(tablepress)</div></div></a></div><div><a href="/2026/11/03/WordPress%E8%BF%9B%E9%98%B6%E5%AE%9E%E6%88%98%E5%BC%80%E5%8F%91%E7%8B%AC%E7%AB%8BACF%E7%9F%AD%E4%BB%A3%E7%A0%81%E5%9C%A8Avada%E4%B8%AD%E5%AE%8C%E7%BE%8E%E8%BE%93%E5%87%BA%E5%A4%9A%E5%9B%BE%E7%9B%B8%E5%86%8C/" title="WordPress进阶实战开发独立ACF短代码在Avada中完美输出多图相册"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-11-03</div><div class="title">WordPress进阶实战开发独立ACF短代码在Avada中完美输出多图相册</div></div></a></div><div><a href="/2026/10/28/%E8%A7%A3%E5%86%B3Avada%E4%B8%BB%E9%A2%98%E5%90%8E%E5%8F%B0%E7%BC%96%E8%BE%91%E5%99%A8%E6%96%87%E5%AD%97%E5%8F%98%E7%99%BD%E8%89%B2%E7%9A%84%E5%AE%9E%E7%94%A8%E6%96%B9%E6%B3%95/" title="解决Avada主题后台编辑器文字变白色的实用方法"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-10-28</div><div class="title">解决Avada主题后台编辑器文字变白色的实用方法</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/dino2.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">鸢尾花序</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">665</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2147</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">181</div></a></div><a id="card-info-btn" href="mailto:791447771@qq.com"><i class="fab fa-github"></i><span>联系我们</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:791447771@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://wa.me/+8613927440553" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E5%88%9B%E5%BB%BA%E4%BA%A7%E5%93%81%E5%86%85%E5%AE%B9%E5%8C%BA%E5%9D%97-Layout-Section"><span class="toc-number">1.</span> <span class="toc-text">第一步：创建产品内容区块 Layout Section</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%8A%A8%E6%80%81%E9%A2%84%E8%A7%88%E4%B8%8E%E6%90%AD%E5%BB%BA%E9%A1%B5%E9%9D%A2"><span class="toc-number">1.1.</span> <span class="toc-text">设置动态预览与搭建页面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%A4%96%E5%B1%82%E5%B8%83%E5%B1%80-Layout-%E5%B9%B6%E7%BB%91%E5%AE%9A%E6%9D%A1%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">第二步：创建外层布局 Layout 并绑定条件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E7%94%9F%E6%95%88%E6%9D%A1%E4%BB%B6"><span class="toc-number">2.1.</span> <span class="toc-text">设置生效条件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E6%8E%92%E6%9F%A5%E6%A8%A1%E6%9D%BF%E6%98%AF%E5%90%A6%E7%94%9F%E6%95%88%E5%8F%8A%E6%B8%85%E7%90%86%E7%BC%93%E5%AD%98"><span class="toc-number">3.</span> <span class="toc-text">第三步：排查模板是否生效及清理缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E8%A2%AB%E5%85%B6%E4%BB%96%E6%A8%A1%E6%9D%BF%E8%A6%86%E7%9B%96"><span class="toc-number">3.1.</span> <span class="toc-text">1. 检查是否被其他模板覆盖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%B8%85%E7%90%86-Avada-%E6%80%A7%E8%83%BD%E7%BC%93%E5%AD%98"><span class="toc-number">3.2.</span> <span class="toc-text">2. 清理 Avada 性能缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8%E6%97%A0%E7%97%95%E6%A8%A1%E5%BC%8F%E6%B5%8B%E8%AF%95"><span class="toc-number">3.3.</span> <span class="toc-text">3. 使用无痕模式测试</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/11/05/WordPress%E4%B8%AD%E5%88%A9%E7%94%A8%E7%9F%AD%E7%A0%81%E5%B0%86TablePress%E8%A1%A8%E6%A0%BC%E5%AF%BC%E5%87%BA%E4%B8%BA%E7%A6%BB%E7%BA%BFPDF%E7%9A%84%E5%AE%8C%E6%95%B4%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="WordPress中利用短码将TablePress表格导出为离线PDF的完整解决方案"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WordPress中利用短码将TablePress表格导出为离线PDF的完整解决方案"/></a><div class="content"><a class="title" href="/2026/11/05/WordPress%E4%B8%AD%E5%88%A9%E7%94%A8%E7%9F%AD%E7%A0%81%E5%B0%86TablePress%E8%A1%A8%E6%A0%BC%E5%AF%BC%E5%87%BA%E4%B8%BA%E7%A6%BB%E7%BA%BFPDF%E7%9A%84%E5%AE%8C%E6%95%B4%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="WordPress中利用短码将TablePress表格导出为离线PDF的完整解决方案">WordPress中利用短码将TablePress表格导出为离线PDF的完整解决方案</a><time datetime="2026-11-05T01:27:00.000Z" title="发表于 2026-11-05 09:27:00">2026-11-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/11/04/WordPress-ACF-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E6%AE%B5%E7%BB%84group%E7%B1%BB%E5%9E%8B-%E4%B8%8E%E7%9F%AD%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E4%BA%A7%E5%93%81%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E5%8D%A1%E7%89%87%E5%B1%95%E7%A4%BA%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C%E6%8C%87%E5%BC%95/" title="WordPress ACF(自定义字段组group类型)与短代码实现产品应用场景卡片展示完整操作指引"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WordPress ACF(自定义字段组group类型)与短代码实现产品应用场景卡片展示完整操作指引"/></a><div class="content"><a class="title" href="/2026/11/04/WordPress-ACF-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E6%AE%B5%E7%BB%84group%E7%B1%BB%E5%9E%8B-%E4%B8%8E%E7%9F%AD%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E4%BA%A7%E5%93%81%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E5%8D%A1%E7%89%87%E5%B1%95%E7%A4%BA%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C%E6%8C%87%E5%BC%95/" title="WordPress ACF(自定义字段组group类型)与短代码实现产品应用场景卡片展示完整操作指引">WordPress ACF(自定义字段组group类型)与短代码实现产品应用场景卡片展示完整操作指引</a><time datetime="2026-11-04T09:59:19.000Z" title="发表于 2026-11-04 17:59:19">2026-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/11/04/Avada%E8%A1%A8%E5%8D%95Select%E5%AD%97%E6%AE%B5Label%E4%B8%8EValue%E7%9A%84%E5%B7%A7%E5%A6%99%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/" title="Avada表单Select字段Label与Value的巧妙设计与实战指南"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Avada表单Select字段Label与Value的巧妙设计与实战指南"/></a><div class="content"><a class="title" href="/2026/11/04/Avada%E8%A1%A8%E5%8D%95Select%E5%AD%97%E6%AE%B5Label%E4%B8%8EValue%E7%9A%84%E5%B7%A7%E5%A6%99%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/" title="Avada表单Select字段Label与Value的巧妙设计与实战指南">Avada表单Select字段Label与Value的巧妙设计与实战指南</a><time datetime="2026-11-04T08:02:16.000Z" title="发表于 2026-11-04 16:02:16">2026-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/11/04/WordPress%E7%8B%AC%E7%AB%8B%E7%AB%99%E4%B8%A4%E7%A7%8D%E7%A4%BE%E5%AA%92%E5%8A%9F%E8%83%BD%E5%8C%BA%E5%88%AB%E4%B8%8E%E6%94%BE%E7%BD%AE%E4%BD%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3%E5%8F%8A%E6%8F%92%E4%BB%B6%E9%80%89%E6%8B%A9%E6%8C%87%E5%8D%97/" title="WordPress独立站两种社媒功能区别与放置位置详解及插件选择指南"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WordPress独立站两种社媒功能区别与放置位置详解及插件选择指南"/></a><div class="content"><a class="title" href="/2026/11/04/WordPress%E7%8B%AC%E7%AB%8B%E7%AB%99%E4%B8%A4%E7%A7%8D%E7%A4%BE%E5%AA%92%E5%8A%9F%E8%83%BD%E5%8C%BA%E5%88%AB%E4%B8%8E%E6%94%BE%E7%BD%AE%E4%BD%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3%E5%8F%8A%E6%8F%92%E4%BB%B6%E9%80%89%E6%8B%A9%E6%8C%87%E5%8D%97/" title="WordPress独立站两种社媒功能区别与放置位置详解及插件选择指南">WordPress独立站两种社媒功能区别与放置位置详解及插件选择指南</a><time datetime="2026-11-04T03:02:10.000Z" title="发表于 2026-11-04 11:02:10">2026-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/11/04/%E5%88%A9%E7%94%A8Bulk-menu-creator%E6%8F%92%E4%BB%B6%E6%89%B9%E9%87%8F%E5%88%9B%E5%BB%BA%E5%92%8C%E5%88%A0%E9%99%A4WordPress%E8%8F%9C%E5%8D%95%E9%A1%B9%E5%8F%8A%E8%87%AA%E8%A1%8C%E5%BC%80%E5%8F%91%E6%8F%92%E4%BB%B6%E7%9A%84%E5%88%86%E6%9E%90/" title="利用Bulk menu creator插件批量创建和删除WordPress菜单项及自行开发插件的分析"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="利用Bulk menu creator插件批量创建和删除WordPress菜单项及自行开发插件的分析"/></a><div class="content"><a class="title" href="/2026/11/04/%E5%88%A9%E7%94%A8Bulk-menu-creator%E6%8F%92%E4%BB%B6%E6%89%B9%E9%87%8F%E5%88%9B%E5%BB%BA%E5%92%8C%E5%88%A0%E9%99%A4WordPress%E8%8F%9C%E5%8D%95%E9%A1%B9%E5%8F%8A%E8%87%AA%E8%A1%8C%E5%BC%80%E5%8F%91%E6%8F%92%E4%BB%B6%E7%9A%84%E5%88%86%E6%9E%90/" title="利用Bulk menu creator插件批量创建和删除WordPress菜单项及自行开发插件的分析">利用Bulk menu creator插件批量创建和删除WordPress菜单项及自行开发插件的分析</a><time datetime="2026-11-04T01:50:52.000Z" title="发表于 2026-11-04 09:50:52">2026-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/11/03/%E7%8B%AC%E7%AB%8B%E7%AB%99%E8%B0%B7%E6%AD%8CSEO%E5%8D%81%E5%85%AD%E6%AD%A5%E5%85%A8%E6%B5%81%E7%A8%8B%E8%AF%A6%E8%A7%A3%E4%BB%8E%E5%85%B3%E9%94%AE%E8%AF%8D%E8%B0%83%E7%A0%94%E5%88%B0%E4%BC%98%E5%8C%96%E8%BF%AD%E4%BB%A3%E7%9A%84%E8%90%BD%E5%9C%B0%E6%89%A7%E8%A1%8C%E6%8C%87%E5%8D%97/" title="独立站谷歌SEO十六步全流程详解从关键词调研到优化迭代的落地执行指南"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="独立站谷歌SEO十六步全流程详解从关键词调研到优化迭代的落地执行指南"/></a><div class="content"><a class="title" href="/2026/11/03/%E7%8B%AC%E7%AB%8B%E7%AB%99%E8%B0%B7%E6%AD%8CSEO%E5%8D%81%E5%85%AD%E6%AD%A5%E5%85%A8%E6%B5%81%E7%A8%8B%E8%AF%A6%E8%A7%A3%E4%BB%8E%E5%85%B3%E9%94%AE%E8%AF%8D%E8%B0%83%E7%A0%94%E5%88%B0%E4%BC%98%E5%8C%96%E8%BF%AD%E4%BB%A3%E7%9A%84%E8%90%BD%E5%9C%B0%E6%89%A7%E8%A1%8C%E6%8C%87%E5%8D%97/" title="独立站谷歌SEO十六步全流程详解从关键词调研到优化迭代的落地执行指南">独立站谷歌SEO十六步全流程详解从关键词调研到优化迭代的落地执行指南</a><time datetime="2026-11-03T14:59:28.000Z" title="发表于 2026-11-03 22:59:28">2026-11-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/11/03/WordPress%E8%BF%9B%E9%98%B6%E5%AE%9E%E6%88%98%E5%BC%80%E5%8F%91%E7%8B%AC%E7%AB%8BACF%E7%9F%AD%E4%BB%A3%E7%A0%81%E5%9C%A8Avada%E4%B8%AD%E5%AE%8C%E7%BE%8E%E8%BE%93%E5%87%BA%E5%A4%9A%E5%9B%BE%E7%9B%B8%E5%86%8C/" title="WordPress进阶实战开发独立ACF短代码在Avada中完美输出多图相册"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WordPress进阶实战开发独立ACF短代码在Avada中完美输出多图相册"/></a><div class="content"><a class="title" href="/2026/11/03/WordPress%E8%BF%9B%E9%98%B6%E5%AE%9E%E6%88%98%E5%BC%80%E5%8F%91%E7%8B%AC%E7%AB%8BACF%E7%9F%AD%E4%BB%A3%E7%A0%81%E5%9C%A8Avada%E4%B8%AD%E5%AE%8C%E7%BE%8E%E8%BE%93%E5%87%BA%E5%A4%9A%E5%9B%BE%E7%9B%B8%E5%86%8C/" title="WordPress进阶实战开发独立ACF短代码在Avada中完美输出多图相册">WordPress进阶实战开发独立ACF短代码在Avada中完美输出多图相册</a><time datetime="2026-11-03T05:59:22.000Z" title="发表于 2026-11-03 13:59:22">2026-11-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/11/03/WordPress%E8%BF%9B%E9%98%B6%E6%95%99%E7%A8%8B%E8%A7%A3%E5%86%B3ACF%E5%AF%8C%E6%96%87%E6%9C%AC%E5%AD%97%E6%AE%B5%E4%B8%AD%E5%B5%8C%E5%A5%97%E6%8F%92%E4%BB%B6%E7%9F%AD%E4%BB%A3%E7%A0%81%E6%97%A0%E6%B3%95%E6%B8%B2%E6%9F%93%E7%9A%84%E9%97%AE%E9%A2%98-tablepress/" title="WordPress进阶教程解决ACF富文本字段中嵌套插件短代码无法渲染的问题(tablepress)"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WordPress进阶教程解决ACF富文本字段中嵌套插件短代码无法渲染的问题(tablepress)"/></a><div class="content"><a class="title" href="/2026/11/03/WordPress%E8%BF%9B%E9%98%B6%E6%95%99%E7%A8%8B%E8%A7%A3%E5%86%B3ACF%E5%AF%8C%E6%96%87%E6%9C%AC%E5%AD%97%E6%AE%B5%E4%B8%AD%E5%B5%8C%E5%A5%97%E6%8F%92%E4%BB%B6%E7%9F%AD%E4%BB%A3%E7%A0%81%E6%97%A0%E6%B3%95%E6%B8%B2%E6%9F%93%E7%9A%84%E9%97%AE%E9%A2%98-tablepress/" title="WordPress进阶教程解决ACF富文本字段中嵌套插件短代码无法渲染的问题(tablepress)">WordPress进阶教程解决ACF富文本字段中嵌套插件短代码无法渲染的问题(tablepress)</a><time datetime="2026-11-03T05:51:40.000Z" title="发表于 2026-11-03 13:51:40">2026-11-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2026 By 鸢尾花序</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script></div><script src="/js/custom.js"></script><script src="/js/mermaid.min.js"></script></div></body></html>
