@@ -1,0 +1,339 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Hexo Butterfly字体图标偶尔不显示的解决方案和FontAwesome本地化配置 | 仰观苍穹思环宇</title><meta name="keywords" content="Hexo字体图标不显示,Butterfly字体图标加载失败,FontAwesome本地引入,Font Awesome 7.3.1,all.min.css,fas图标,fa-shake,字体文件本地化"><meta name="author" content="鸢尾花序"><meta name="copyright" content="鸢尾花序"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="解决Hexo Butterfly博客字体图标偶尔不显示的问题。通过排查可能存在的旧版本字体图标混用问题，从Font Awesome官方仓库下载完整资源并替换主题中的CSS和字体文件，实现字体图标本地化加载。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo Butterfly字体图标偶尔不显示的解决方案和FontAwesome本地化配置">
+<meta property="og:url" content="https://feeding-engineer.com/2026/11/20/Hexo-Butterfly%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87%E5%81%B6%E5%B0%94%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%92%8CFontAwesome%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="仰观苍穹思环宇">
+<meta property="og:description" content="解决Hexo Butterfly博客字体图标偶尔不显示的问题。通过排查可能存在的旧版本字体图标混用问题，从Font Awesome官方仓库下载完整资源并替换主题中的CSS和字体文件，实现字体图标本地化加载。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2026-11-20T11:55:46.000Z">
+<meta property="article:modified_time" content="2026-11-20T12:01:55.903Z">
+<meta property="article:author" content="鸢尾花序">
+<meta property="article:tag" content="字体图标">
+<meta property="article:tag" content="Butterfly">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="FontAwesome">
+<meta property="article:tag" content="网站部署">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/logo.png"><link rel="canonical" href="https://feeding-engineer.com/2026/11/20/Hexo-Butterfly%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87%E5%81%B6%E5%B0%94%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%92%8CFontAwesome%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%85%8D%E7%BD%AE/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-Q4WSLTQE49"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Q4WSLTQE49');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hexo Butterfly字体图标偶尔不显示的解决方案和FontAwesome本地化配置',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-11-20 20:01:55'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/all.min.css"><link rel="stylesheet" href="/css/mycustom.css"><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/dino2.svg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">688</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2191</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">183</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 开发</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/"><i class="fa-fw fas fa-music"></i><span> 大前端</span></a></li><li><a class="site-page child" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><i class="fa-fw fas fa-cogs"></i><span> 人工智能</span></a></li><li><a class="site-page child" href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><i class="fa-fw fas fa-gears"></i><span> 小程序</span></a></li><li><a class="site-page child" href="/categories/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8/"><i class="fa-fw fas fa-globe"></i><span> 桌面应用</span></a></li><li><a class="site-page child" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏开发</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 服务器&amp;网络</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"><i class="fa-fw fas fa-server"></i><span> 服务器</span></a></li><li><a class="site-page child" href="/categories/%E7%BD%91%E7%BB%9C/"><i class="fa-fw fas fa-cloud"></i><span> 网络</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/contact/"><i class="fa-fw fas fa-envelope"></i><span> 联系我们</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">仰观苍穹思环宇</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 开发</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/"><i class="fa-fw fas fa-music"></i><span> 大前端</span></a></li><li><a class="site-page child" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><i class="fa-fw fas fa-cogs"></i><span> 人工智能</span></a></li><li><a class="site-page child" href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><i class="fa-fw fas fa-gears"></i><span> 小程序</span></a></li><li><a class="site-page child" href="/categories/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8/"><i class="fa-fw fas fa-globe"></i><span> 桌面应用</span></a></li><li><a class="site-page child" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏开发</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 服务器&amp;网络</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"><i class="fa-fw fas fa-server"></i><span> 服务器</span></a></li><li><a class="site-page child" href="/categories/%E7%BD%91%E7%BB%9C/"><i class="fa-fw fas fa-cloud"></i><span> 网络</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/contact/"><i class="fa-fw fas fa-envelope"></i><span> 联系我们</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Hexo Butterfly字体图标偶尔不显示的解决方案和FontAwesome本地化配置</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-11-20T11:55:46.000Z" title="发表于 2026-11-20 19:55:46">2026-11-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-11-20T12:01:55.903Z" title="更新于 2026-11-20 20:01:55">2026-11-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/hexo/">hexo</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h2><p>在使用 Hexo Butterfly 搭建个人博客的过程中，笔者遇到过一个比较奇怪的问题：博客在本地预览时，部分字体图标显示正常，但是经过生成、部署后，偶尔会出现字体图标无法显示的情况。</p>
+<p>不要去他们官网下载字体库，那边好像需要收费，你直接使用笔者下方提供的github那边web字体就可以用。</p>
+<p>具体表现为：</p>
+<ul>
+<li>网站菜单中的部分图标无法正常显示。</li>
+<li>文章中的功能图标偶尔变成空白。</li>
+<li>公告、社交媒体等位置的图标显示异常。</li>
+<li>有时候刷新页面能够恢复，有时候却依然无法显示。</li>
+</ul>
+<p>一开始，笔者怀疑是第三方 CDN 网络不稳定，导致字体文件没有正常加载。但在进一步排查的过程中，笔者注意到了一个细节：页面实际渲染的字体图标代码是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;i class=&quot;fas fa-bullhorn fa-shake&quot;&gt;&lt;/i&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码使用了 <code>fas</code>、<code>fa-bullhorn</code> 和 <code>fa-shake</code> 等 Font Awesome 图标类名。</p>
+<p>笔者由此产生了一个怀疑：<strong>当前项目中使用的字体图标资源，是否混用了不同版本的 Font Awesome 文件？</strong></p>
+<p>例如，CSS 样式文件来自一个版本，而底层字体文件却来自另一个版本。不同版本的图标名称、字体定义和兼容规则可能存在差异，如果混合使用，就可能导致部分图标无法正确渲染。</p>
+<p>当然，这只是笔者根据现象作出的排查判断，并不能直接认定所有图标异常都是版本混用导致的。</p>
+<p>为了彻底排除旧资源干扰，笔者决定不再局部修补，而是对原有字体图标资源进行一次彻底清理，重新下载一套完整的 Font Awesome 资源，将 CSS 样式文件和字体文件统一替换为同一版本，并改为本地加载。</p>
+<h2 id="二、下载Font-Awesome官方资源"><a href="#二、下载Font-Awesome官方资源" class="headerlink" title="二、下载Font Awesome官方资源"></a>二、下载Font Awesome官方资源</h2><p>本次使用的是 Font Awesome 官方发布的 Free Web 版本。</p>
+<p>首先，打开官方 GitHub Releases 页面：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/FortAwesome/Font-Awesome/releases">https://github.com/FortAwesome/Font-Awesome/releases</a></p>
+<p>找到对应的 <strong>fontawesome-free-7.3.1-web.zip</strong> 文件并下载：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/FortAwesome/Font-Awesome/releases/download/7.3.1/fontawesome-free-7.3.1-web.zip">下载 Font Awesome Free 7.3.1 Web</a></p>
+<p>下载完成后，将压缩包解压。</p>
+<p>你会看到类似下面这样的目录结构：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">fontawesome-free-7.3.1-web</span><br><span class="line">├─css</span><br><span class="line">├─js</span><br><span class="line">├─metadata</span><br><span class="line">├─scss</span><br><span class="line">├─sprites</span><br><span class="line">├─sprites-full</span><br><span class="line">├─svgs</span><br><span class="line">│  ├─brands</span><br><span class="line">│  ├─regular</span><br><span class="line">│  └─solid</span><br><span class="line">├─svgs-full</span><br><span class="line">│  ├─brands</span><br><span class="line">│  ├─regular</span><br><span class="line">│  └─solid</span><br><span class="line">└─webfonts</span><br></pre></td></tr></table></figure>
+
+<p>这是 Font Awesome 完整的 Web 资源目录，包含 CSS、JavaScript、字体文件、SVG 图标以及其他开发资源。</p>
+<p>对于本次 Butterfly 字体图标本地化需求，我们不需要全部使用，只需要关注其中的 <code>css</code> 和 <code>webfonts</code> 两个目录。</p>
+<p>进一步展开后，主要需要的文件如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fontawesome-free-7.3.1-web</span><br><span class="line">├── css</span><br><span class="line">│   └── all.min.css</span><br><span class="line">├── js</span><br><span class="line">└── webfonts</span><br><span class="line">    ├── fa-brands-400.woff2</span><br><span class="line">    ├── fa-regular-400.woff2</span><br><span class="line">    ├── fa-solid-900.woff2</span><br><span class="line">    └── fa-v4compatibility.woff2</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li><code>all.min.css</code>：Font Awesome 的核心样式文件，负责定义图标样式和字体引用。</li>
+<li><code>fa-brands-400.woff2</code>：品牌类图标字体文件。</li>
+<li><code>fa-regular-400.woff2</code>：Regular 常规样式字体文件。</li>
+<li><code>fa-solid-900.woff2</code>：Solid 实心样式字体文件。</li>
+<li><code>fa-v4compatibility.woff2</code>：旧版本兼容字体文件。</li>
+</ul>
+<p>这里建议直接使用官方压缩包中的 CSS 和字体文件，不要从不同来源分别下载，再手动拼凑到一起。</p>
+<h2 id="三、替换Butterfly主题中的字体图标资源"><a href="#三、替换Butterfly主题中的字体图标资源" class="headerlink" title="三、替换Butterfly主题中的字体图标资源"></a>三、替换Butterfly主题中的字体图标资源</h2><p>这是本次操作最关键的部分。</p>
+<p>首先，需要明确一个目录位置：<strong>我们要修改的是 Butterfly 主题目录中的</strong> <code>**source**</code><strong>，而不是 Hexo 项目根目录下的</strong> <code>**source**</code><strong>。</strong></p>
+<p>Hexo 项目通常具有类似下面的目录结构：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">blog</span><br><span class="line">├── _config.yml</span><br><span class="line">├── _config.butterfly.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── public</span><br><span class="line">├── source</span><br><span class="line">└── themes</span><br><span class="line">    └── butterfly</span><br><span class="line">        ├── _config.yml</span><br><span class="line">        ├── layout</span><br><span class="line">        ├── scripts</span><br><span class="line">        └── source</span><br></pre></td></tr></table></figure>
+
+<p>本次需要操作的位置是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">themes/butterfly/source</span><br></pre></td></tr></table></figure>
+
+<p>而不是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-1-清理旧的字体图标资源"><a href="#3-1-清理旧的字体图标资源" class="headerlink" title="3.1 清理旧的字体图标资源"></a>3.1 清理旧的字体图标资源</h3><p>进入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">themes/butterfly/source</span><br></pre></td></tr></table></figure>
+
+<p>找到原先使用的字体图标 CSS 和字体文件。</p>
+<p>如果之前已经手动引入过其他版本的 Font Awesome，建议先检查并清理旧的相关资源，避免新旧版本同时加载，造成样式冲突。</p>
+<p>这里需要注意，不要直接删除整个 Butterfly 的 <code>source</code> 目录，因为里面还可能存放主题本身需要的其他 CSS、JS、图片等静态资源。</p>
+<p>只清理需要替换的旧字体图标文件即可。</p>
+<h3 id="3-2-复制新的CSS和字体文件"><a href="#3-2-复制新的CSS和字体文件" class="headerlink" title="3.2 复制新的CSS和字体文件"></a>3.2 复制新的CSS和字体文件</h3><p>打开刚刚解压的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fontawesome-free-7.3.1-web</span><br></pre></td></tr></table></figure>
+
+<p>将其中的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">css/all.min.css</span><br></pre></td></tr></table></figure>
+
+<p>复制到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">themes/butterfly/source/css/all.min.css</span><br></pre></td></tr></table></figure>
+
+<p>然后，将整个：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webfonts</span><br></pre></td></tr></table></figure>
+
+<p>目录复制到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">themes/butterfly/source/webfonts</span><br></pre></td></tr></table></figure>
+
+<p>完成后，Butterfly 主题中的目录结构应该如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">themes</span><br><span class="line">└── butterfly</span><br><span class="line">    └── source</span><br><span class="line">        ├── css</span><br><span class="line">        │   └── all.min.css</span><br><span class="line">        ├── js</span><br><span class="line">        └── webfonts</span><br><span class="line">            ├── fa-brands-400.woff2</span><br><span class="line">            ├── fa-regular-400.woff2</span><br><span class="line">            ├── fa-solid-900.woff2</span><br><span class="line">            └── fa-v4compatibility.woff2</span><br></pre></td></tr></table></figure>
+
+<p>如果原本就存在 <code>css</code> 目录，直接将 <code>all.min.css</code> 放进去即可；如果不存在，则手动创建。</p>
+<p>同理，如果原本不存在 <code>webfonts</code> 目录，也需要手动创建。</p>
+<p><strong>特别注意：这里的</strong> <code>**css**</code> <strong>和</strong> <code>**webfonts**</code> <strong>必须保持上述目录关系，不要随意修改文件夹名称。</strong></p>
+<p>原因是 <code>all.min.css</code> 内部通常通过相对路径引用字体文件，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url(&quot;../webfonts/fa-solid-900.woff2&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>浏览器加载 CSS 后，会根据这个相对路径寻找字体文件。</p>
+<p>如果将 <code>webfonts</code> 改名为 <code>fonts</code>，或者将字体文件放到其他目录，就可能导致字体文件请求失败。</p>
+<p>因此，直接保留官方压缩包中的 <code>css</code> 和 <code>webfonts</code> 相对结构，是最简单、也最不容易出错的方式。</p>
+<h2 id="四、修改Butterfly主题配置文件"><a href="#四、修改Butterfly主题配置文件" class="headerlink" title="四、修改Butterfly主题配置文件"></a>四、修改Butterfly主题配置文件</h2><p>完成文件替换后，还需要让 Butterfly 加载新的本地 CSS。</p>
+<p>打开主题配置文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_config.butterfly.yml</span><br></pre></td></tr></table></figure>
+
+<p>找到 <code>inject</code> 配置，在 <code>head</code> 中添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">inject:</span><br><span class="line">  head:</span><br><span class="line">    - &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/all.min.css&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如果原本已经存在 <code>inject</code> 配置，不要重复创建一个新的 <code>inject</code>，只需要将 CSS 引入代码添加到现有的 <code>head</code> 列表中即可。</p>
+<p>这里引用的路径：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/css/all.min.css</span><br></pre></td></tr></table></figure>
+
+<p>对应的是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">themes/butterfly/source/css/all.min.css</span><br></pre></td></tr></table></figure>
+
+<p>Butterfly 主题的 <code>source</code> 目录中的静态资源会在 Hexo 生成时复制到最终的网站输出目录，因此不需要手动将文件复制到 <code>public</code>。</p>
+<p>另外，如果之前已经通过主题配置或其他方式加载了旧版本的 Font Awesome，建议一并检查并移除重复引用，确保最终使用的是这次替换后的样式文件。</p>
+<h2 id="五、重新生成并部署博客"><a href="#五、重新生成并部署博客" class="headerlink" title="五、重新生成并部署博客"></a>五、重新生成并部署博客</h2><p>完成资源替换和配置修改后，回到 Hexo 项目根目录，执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npx hexo clean</span><br><span class="line">npx hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li><code>hexo clean</code>：清理之前生成的静态文件。</li>
+<li><code>hexo generate</code>：重新生成博客页面及静态资源。</li>
+</ul>
+<p>生成完成后，检查项目中的 <code>public</code> 目录。</p>
+<p>正常情况下，应该能够看到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public</span><br><span class="line">├── css</span><br><span class="line">│   └── all.min.css</span><br><span class="line">├── js</span><br><span class="line">└── webfonts</span><br><span class="line">    ├── fa-brands-400.woff2</span><br><span class="line">    ├── fa-regular-400.woff2</span><br><span class="line">    ├── fa-solid-900.woff2</span><br><span class="line">    └── fa-v4compatibility.woff2</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，虽然我们操作的是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">themes/butterfly/source</span><br></pre></td></tr></table></figure>
+
+<p>但最终生成的静态资源会出现在：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public</span><br></pre></td></tr></table></figure>
+
+<p>这也是为什么不需要直接修改 <code>public</code> 目录的原因。</p>
+<p>确认文件都已经生成后，再按照原来的方式部署博客。</p>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>如果使用 GitHub Actions 或其他自动化部署方式，则需要确保最终部署的静态文件中包含这些 CSS 和字体文件。</p>
+<h2 id="六、验证字体图标是否正常加载"><a href="#六、验证字体图标是否正常加载" class="headerlink" title="六、验证字体图标是否正常加载"></a>六、验证字体图标是否正常加载</h2><p>部署完成后，打开线上博客，检查菜单、公告、社交媒体以及文章中的字体图标。</p>
+<p>如果仍然存在图标无法显示的情况，可以通过浏览器开发者工具进一步排查。</p>
+<p>按下 <code>F12</code>，打开开发者工具中的 Network 面板，刷新页面，重点检查以下资源：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/css/all.min.css</span><br><span class="line">/webfonts/fa-brands-400.woff2</span><br><span class="line">/webfonts/fa-regular-400.woff2</span><br><span class="line">/webfonts/fa-solid-900.woff2</span><br><span class="line">/webfonts/fa-v4compatibility.woff2</span><br></pre></td></tr></table></figure>
+
+<p>重点关注：</p>
+<ol>
+<li><code>all.min.css</code> 是否成功加载。</li>
+<li>字体文件是否成功加载。</li>
+<li>字体文件请求是否返回 HTTP 200。</li>
+<li>是否还存在对旧版第三方字体 CDN 的请求。</li>
+<li>是否出现 404、字体加载失败等错误。</li>
+</ol>
+<p>如果 CSS 加载成功，但字体文件返回 404，优先检查 <code>css</code> 和 <code>webfonts</code> 的目录结构，以及 CSS 内部的相对路径是否正确。</p>
+<p>如果 CSS 和字体文件都正常加载，但个别图标依然无法显示，则需要进一步检查图标类名是否受当前 Font Awesome 版本支持，以及是否存在其他 CSS 样式冲突。</p>
+<h2 id="七、总结"><a href="#七、总结" class="headerlink" title="七、总结"></a>七、总结</h2><p>这次解决 Hexo Butterfly 字体图标偶尔不显示的问题，笔者并没有只针对某一个图标进行修补，而是从实际渲染出来的 HTML 图标代码入手，怀疑原有项目可能存在不同版本 Font Awesome 资源混用的情况。</p>
+<p>为了排除旧资源干扰，笔者从 Font Awesome 官方 GitHub Releases 下载了完整的 <code>fontawesome-free-7.3.1-web.zip</code>，然后清理旧资源，将新的 <code>all.min.css</code> 和 <code>webfonts</code> 字体文件统一替换到 Butterfly 主题目录中。</p>
+<p>整个操作最重要的地方有两个：</p>
+<ul>
+<li><strong>目录位置不能弄错：</strong> 文件需要放在 <code>themes/butterfly/source</code> 中，而不是 Hexo 项目根目录下的 <code>source</code>。</li>
+<li><strong>目录结构不能弄乱：</strong> <code>css/all.min.css</code> 和 <code>webfonts</code> 必须保持正确的相对关系，否则 CSS 无法找到对应的字体文件。</li>
+</ul>
+<p>完成替换后，再通过 <code>_config.butterfly.yml</code> 引入本地 CSS，重新生成并部署博客，就可以让字体图标资源由主题统一管理，减少对第三方 CDN 的依赖。</p>
+<p>对于 Hexo Butterfly 博客来说，将字体图标 CSS 和字体文件统一本地化，是一种比较直接、方便维护的处理方式，也能有效减少第三方网络资源加载异常带来的影响。</p>
+<p>当然，本地化并不意味着以后绝对不会出现图标加载问题，仍然需要保证 CSS、字体文件和部署路径正确。但至少可以避免因第三方字体 CDN 不稳定而导致的这一类问题。</p>
+<p>补充配置文件实际路径统一说明主题资源生成位置增加旧资源排查操作</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87/">字体图标</a><a class="post-meta__tags" href="/tags/Butterfly/">Butterfly</a><a class="post-meta__tags" href="/tags/Hexo/">Hexo</a><a class="post-meta__tags" href="/tags/FontAwesome/">FontAwesome</a><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2/">网站部署</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/11/20/Hexo%E9%9F%B3%E9%A2%91%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E4%B8%8Ehexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E7%A0%81%E5%92%8CGitHub-Pages%E5%88%86%E7%A6%BB%E9%83%A8%E7%BD%B2%E5%AF%B9%E4%BB%93%E5%BA%93%E7%A9%BA%E9%97%B4%E5%A4%A7%E5%B0%8F%E8%AE%A1%E7%AE%97%E5%88%86%E6%9E%90/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Hexo音频文件存储与hexo博客源码和GitHub Pages分离部署对仓库空间大小计算分析</div></div></a></div><div class="next-post pull-right"><a href="/2026/11/20/Hexo%E5%B9%B3%E5%8F%B0%E7%9A%84Butterfly%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BE%A7%E8%BE%B9%E5%85%AC%E5%91%8A%E6%A0%8F%E6%B7%BB%E5%8A%A0%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Hexo平台的Butterfly主题的侧边公告栏添加背景音乐播放器完整操作指南</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/11/20/Hexo%E5%B9%B3%E5%8F%B0%E7%9A%84Butterfly%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BE%A7%E8%BE%B9%E5%85%AC%E5%91%8A%E6%A0%8F%E6%B7%BB%E5%8A%A0%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/" title="Hexo平台的Butterfly主题的侧边公告栏添加背景音乐播放器完整操作指南"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-11-20</div><div class="title">Hexo平台的Butterfly主题的侧边公告栏添加背景音乐播放器完整操作指南</div></div></a></div><div><a href="/2026/11/17/%E4%B8%8D%E9%9C%80%E8%A6%81%E4%BF%AE%E6%94%B9%E6%BA%90%E7%A0%81%E5%AE%9E%E7%8E%B0Hexo%E7%9A%84Butterfly%E4%B8%BB%E9%A2%98%E4%BE%A7%E8%BE%B9%E6%A0%8F%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B9%BF%E5%91%8A%E4%BD%8D%E6%B7%BB%E5%8A%A0/" title="不需要修改源码实现Hexo的Butterfly主题侧边栏自定义广告位添加"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-11-17</div><div class="title">不需要修改源码实现Hexo的Butterfly主题侧边栏自定义广告位添加</div></div></a></div><div><a href="/2026/09/14/%E5%A4%9A%E8%AE%BE%E5%A4%87Hexo%E5%AE%89%E8%A3%85Butterfly%E4%B8%BB%E9%A2%98%E9%87%8C%E9%9D%A2%E5%8D%9A%E5%AE%A2search-xml%E8%BF%87%E5%A4%A7%E5%AF%BC%E8%87%B4GitHub%E6%8E%A8%E9%80%81%E5%A4%B1%E8%B4%A5%E7%9A%84%E5%AE%8C%E6%95%B4%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E5%90%AB%E4%BA%A4%E4%BA%92%E5%BC%8F%E6%B8%85%E7%90%86%E8%84%9A%E6%9C%AC/" title="多设备Hexo安装Butterfly主题里面博客search.xml过大导致GitHub推送失败的完整解决方案(含交互式清理脚本)"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">多设备Hexo安装Butterfly主题里面博客search.xml过大导致GitHub推送失败的完整解决方案(含交互式清理脚本)</div></div></a></div><div><a href="/2024/10/16/CSS%E4%B8%AD%E4%BC%AA%E7%B1%BB%E5%85%83%E7%B4%A0%E4%BD%BF%E7%94%A8SVG%E5%9B%BE%E6%A0%87%E4%B8%8E%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87%E7%BB%93%E5%90%88%E7%9A%84%E6%8C%87%E5%8D%97/" title="CSS中伪类元素使用SVG图标与字体图标结合的指南"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-16</div><div class="title">CSS中伪类元素使用SVG图标与字体图标结合的指南</div></div></a></div><div><a href="/2026/09/14/Hexo-Butterfly%E4%B8%BB%E9%A2%98search-xml%E8%BF%87%E5%A4%A7%E5%AF%BC%E8%87%B4GitHub%E6%8E%A8%E9%80%81%E5%A4%B1%E8%B4%A5%E4%B9%8B%E5%AE%8C%E6%95%B4%E6%8E%92%E6%9F%A5%E4%B8%8E%E8%A7%A3%E5%86%B3SOP/" title="Hexo+Butterfly主题search.xml过大导致GitHub推送失败之完整排查与解决SOP"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">Hexo+Butterfly主题search.xml过大导致GitHub推送失败之完整排查与解决SOP</div></div></a></div><div><a href="/2026/09/17/Hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%81%94%E7%B3%BB%E8%A1%A8%E5%8D%95-%E7%94%A8Google-Apps-Script%E5%AE%9E%E7%8E%B0%E9%82%AE%E4%BB%B6%E7%9B%B4%E8%BE%BE/" title="Hexo静态博客添加联系表单:用Google Apps Script实现邮件直达"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-17</div><div class="title">Hexo静态博客添加联系表单:用Google Apps Script实现邮件直达</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/dino2.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">鸢尾花序</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">688</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2191</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">183</div></a></div><a id="card-info-btn" href="mailto:791447771@qq.com"><i class="fab fa-github"></i><span>联系我们</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:791447771@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://wa.me/+8613927440553" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><div class="hexo_mucis_cw_player"><div class="hexo_mucis_cw_cover"><span>♫</span></div><div class="hexo_mucis_cw_content"><div class="hexo_mucis_cw_title">闲听片刻</div><div class="hexo_mucis_cw_author">A little moment of peace</div><div class="hexo_mucis_cw_progress"><span class="hexo_mucis_cw_current">00:00</span><input class="hexo_mucis_cw_seek" type="range" min="0" max="100" value="0"><span class="hexo_mucis_cw_duration">00:00</span></div><div class="hexo_mucis_cw_controls"><button class="hexo_mucis_cw_toggle" type="button" aria-label="播放音乐">▶</button><div class="hexo_mucis_cw_volume"><span>♪</span><input class="hexo_mucis_cw_volume_range" type="range" min="0" max="1" step="0.01" value="0.35"></div><button class="hexo_mucis_cw_loop" type="button" aria-label="关闭循环播放" aria-pressed="true">↻ 循环播放</button></div></div><audio class="hexo_mucis_cw_audio" preload="none" loop><source src="/img/background.mp3" type="audio/mpeg"></audio><div class="hexo_mucis_cw_quote">日子不必总是匆忙，偶尔停下来，也是一种生活。</div></div></div></div><div class="card-widget"><div class="item-headline"><i class="fas fa-images"></i><span>伏创能源 · 发电多一点，回本快一点</span></div><div class="item-content"><div class="custom-ad-carousel" data-interval="3000">
+  <!-- 滑动轨道，由 JS 自动填充内容 -->
+  <div class="ad-track"></div>
+  <!-- 隐藏的数据列表 -->
+  <ul class="ad-data" style="display:none;">
+    <li data-img="https://voltcravepower.com/wp-content/uploads/2026/08/LF280K-3.2V-280Ah-LiFePO4-Prismatic-Cell-2.webp" data-link="https://voltcravepower.com/contact/"></li>
+    <li data-img="https://voltcravepower.com/wp-content/uploads/2026/08/LF280K-3.2V-280Ah-LiFePO4-Prismatic-Cell-1-1024x1024.webp" data-link="https://voltcravepower.com/product/lf280k-3-2v-280ah-lifepo4-prismatic-cell/"></li>
+  </ul>
+  <!-- 圆点容器 -->
+  <div class="ad-dots"></div>
+</div>
+</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%83%8C%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">问题背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%B8%8B%E8%BD%BDFont-Awesome%E5%AE%98%E6%96%B9%E8%B5%84%E6%BA%90"><span class="toc-number">2.</span> <span class="toc-text">二、下载Font Awesome官方资源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%9B%BF%E6%8D%A2Butterfly%E4%B8%BB%E9%A2%98%E4%B8%AD%E7%9A%84%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87%E8%B5%84%E6%BA%90"><span class="toc-number">3.</span> <span class="toc-text">三、替换Butterfly主题中的字体图标资源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E6%B8%85%E7%90%86%E6%97%A7%E7%9A%84%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87%E8%B5%84%E6%BA%90"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 清理旧的字体图标资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%A4%8D%E5%88%B6%E6%96%B0%E7%9A%84CSS%E5%92%8C%E5%AD%97%E4%BD%93%E6%96%87%E4%BB%B6"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 复制新的CSS和字体文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E4%BF%AE%E6%94%B9Butterfly%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">四、修改Butterfly主题配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E9%87%8D%E6%96%B0%E7%94%9F%E6%88%90%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2"><span class="toc-number">5.</span> <span class="toc-text">五、重新生成并部署博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E9%AA%8C%E8%AF%81%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87%E6%98%AF%E5%90%A6%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD"><span class="toc-number">6.</span> <span class="toc-text">六、验证字体图标是否正常加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E6%80%BB%E7%BB%93"><span class="toc-number">7.</span> <span class="toc-text">七、总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/11/20/Hexo%E9%9F%B3%E9%A2%91%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E4%B8%8Ehexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E7%A0%81%E5%92%8CGitHub-Pages%E5%88%86%E7%A6%BB%E9%83%A8%E7%BD%B2%E5%AF%B9%E4%BB%93%E5%BA%93%E7%A9%BA%E9%97%B4%E5%A4%A7%E5%B0%8F%E8%AE%A1%E7%AE%97%E5%88%86%E6%9E%90/" title="Hexo音频文件存储与hexo博客源码和GitHub Pages分离部署对仓库空间大小计算分析"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo音频文件存储与hexo博客源码和GitHub Pages分离部署对仓库空间大小计算分析"/></a><div class="content"><a class="title" href="/2026/11/20/Hexo%E9%9F%B3%E9%A2%91%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E4%B8%8Ehexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E7%A0%81%E5%92%8CGitHub-Pages%E5%88%86%E7%A6%BB%E9%83%A8%E7%BD%B2%E5%AF%B9%E4%BB%93%E5%BA%93%E7%A9%BA%E9%97%B4%E5%A4%A7%E5%B0%8F%E8%AE%A1%E7%AE%97%E5%88%86%E6%9E%90/" title="Hexo音频文件存储与hexo博客源码和GitHub Pages分离部署对仓库空间大小计算分析">Hexo音频文件存储与hexo博客源码和GitHub Pages分离部署对仓库空间大小计算分析</a><time datetime="2026-11-20T14:50:37.000Z" title="发表于 2026-11-20 22:50:37">2026-11-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/11/20/Hexo-Butterfly%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87%E5%81%B6%E5%B0%94%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%92%8CFontAwesome%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%85%8D%E7%BD%AE/" title="Hexo Butterfly字体图标偶尔不显示的解决方案和FontAwesome本地化配置"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo Butterfly字体图标偶尔不显示的解决方案和FontAwesome本地化配置"/></a><div class="content"><a class="title" href="/2026/11/20/Hexo-Butterfly%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87%E5%81%B6%E5%B0%94%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%92%8CFontAwesome%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%85%8D%E7%BD%AE/" title="Hexo Butterfly字体图标偶尔不显示的解决方案和FontAwesome本地化配置">Hexo Butterfly字体图标偶尔不显示的解决方案和FontAwesome本地化配置</a><time datetime="2026-11-20T11:55:46.000Z" title="发表于 2026-11-20 19:55:46">2026-11-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/11/20/Hexo%E5%B9%B3%E5%8F%B0%E7%9A%84Butterfly%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BE%A7%E8%BE%B9%E5%85%AC%E5%91%8A%E6%A0%8F%E6%B7%BB%E5%8A%A0%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/" title="Hexo平台的Butterfly主题的侧边公告栏添加背景音乐播放器完整操作指南"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo平台的Butterfly主题的侧边公告栏添加背景音乐播放器完整操作指南"/></a><div class="content"><a class="title" href="/2026/11/20/Hexo%E5%B9%B3%E5%8F%B0%E7%9A%84Butterfly%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BE%A7%E8%BE%B9%E5%85%AC%E5%91%8A%E6%A0%8F%E6%B7%BB%E5%8A%A0%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/" title="Hexo平台的Butterfly主题的侧边公告栏添加背景音乐播放器完整操作指南">Hexo平台的Butterfly主题的侧边公告栏添加背景音乐播放器完整操作指南</a><time datetime="2026-11-20T11:16:32.000Z" title="发表于 2026-11-20 19:16:32">2026-11-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/11/20/QQ%E9%9F%B3%E4%B9%90%E4%B8%8B%E8%BD%BD%E6%AD%8C%E6%9B%B2%E5%B9%B6%E8%BD%AC%E6%8D%A2%E4%B8%BAMP3%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97%E4%BD%8E%E7%89%88%E6%9C%AC%E5%AE%A2%E6%88%B7%E7%AB%AFOGG%E4%B8%8EMGG%E8%A7%A3%E5%AF%86%E5%8F%8AFFmpeg%E8%BD%AC%E7%A0%81/" title="QQ音乐下载歌曲并转换为MP3完整操作指南低版本客户端OGG与MGG解密及FFmpeg转码"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="QQ音乐下载歌曲并转换为MP3完整操作指南低版本客户端OGG与MGG解密及FFmpeg转码"/></a><div class="content"><a class="title" href="/2026/11/20/QQ%E9%9F%B3%E4%B9%90%E4%B8%8B%E8%BD%BD%E6%AD%8C%E6%9B%B2%E5%B9%B6%E8%BD%AC%E6%8D%A2%E4%B8%BAMP3%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97%E4%BD%8E%E7%89%88%E6%9C%AC%E5%AE%A2%E6%88%B7%E7%AB%AFOGG%E4%B8%8EMGG%E8%A7%A3%E5%AF%86%E5%8F%8AFFmpeg%E8%BD%AC%E7%A0%81/" title="QQ音乐下载歌曲并转换为MP3完整操作指南低版本客户端OGG与MGG解密及FFmpeg转码">QQ音乐下载歌曲并转换为MP3完整操作指南低版本客户端OGG与MGG解密及FFmpeg转码</a><time datetime="2026-11-20T10:29:35.000Z" title="发表于 2026-11-20 18:29:35">2026-11-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/11/19/WordPress%E6%96%B0%E9%97%BB%E4%B8%AD%E5%BF%83%E7%9F%AD%E7%A0%81%E6%A8%A1%E5%9D%97%E5%BC%80%E5%8F%91%E4%B8%8E%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%E5%AE%9E%E7%8E%B0%E6%96%B0%E9%97%BB%E5%88%97%E8%A1%A8%E7%BD%AE%E9%A1%B6%E6%8E%A8%E8%8D%90AJAX%E5%88%86%E7%B1%BB%E7%AD%9B%E9%80%89%E5%92%8C%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/" title="WordPress新闻中心短码模块开发与部署指南实现新闻列表置顶推荐AJAX分类筛选和响应式布局"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WordPress新闻中心短码模块开发与部署指南实现新闻列表置顶推荐AJAX分类筛选和响应式布局"/></a><div class="content"><a class="title" href="/2026/11/19/WordPress%E6%96%B0%E9%97%BB%E4%B8%AD%E5%BF%83%E7%9F%AD%E7%A0%81%E6%A8%A1%E5%9D%97%E5%BC%80%E5%8F%91%E4%B8%8E%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%E5%AE%9E%E7%8E%B0%E6%96%B0%E9%97%BB%E5%88%97%E8%A1%A8%E7%BD%AE%E9%A1%B6%E6%8E%A8%E8%8D%90AJAX%E5%88%86%E7%B1%BB%E7%AD%9B%E9%80%89%E5%92%8C%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/" title="WordPress新闻中心短码模块开发与部署指南实现新闻列表置顶推荐AJAX分类筛选和响应式布局">WordPress新闻中心短码模块开发与部署指南实现新闻列表置顶推荐AJAX分类筛选和响应式布局</a><time datetime="2026-11-19T07:46:58.000Z" title="发表于 2026-11-19 15:46:58">2026-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/11/19/WordPress%E7%9A%84woocommerce%E5%86%85%E7%BD%AE%E5%88%86%E7%B1%BB%E5%88%97%E8%A1%A8%E5%92%8C%E9%A1%B5%E9%9D%A2%E6%9E%84%E5%BB%BA%E5%99%A8%E4%BA%A7%E5%93%81%E5%88%86%E7%B1%BB%E5%88%97%E8%A1%A8%E6%A0%87%E9%A2%98%E4%B8%8B%E6%96%B9%E6%B7%BB%E5%8A%A0-ACF%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E6%AE%B5%E5%85%BC%E5%AE%B9%E5%88%86%E9%A1%B5%E6%87%92%E5%8A%A0%E8%BD%BD%E5%AE%9E%E6%96%BD%E6%96%B9%E6%A1%88/" title="WordPress的woocommerce内置分类列表和页面构建器产品分类列表标题下方添加 ACF自定义字段兼容分页懒加载实施方案"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WordPress的woocommerce内置分类列表和页面构建器产品分类列表标题下方添加 ACF自定义字段兼容分页懒加载实施方案"/></a><div class="content"><a class="title" href="/2026/11/19/WordPress%E7%9A%84woocommerce%E5%86%85%E7%BD%AE%E5%88%86%E7%B1%BB%E5%88%97%E8%A1%A8%E5%92%8C%E9%A1%B5%E9%9D%A2%E6%9E%84%E5%BB%BA%E5%99%A8%E4%BA%A7%E5%93%81%E5%88%86%E7%B1%BB%E5%88%97%E8%A1%A8%E6%A0%87%E9%A2%98%E4%B8%8B%E6%96%B9%E6%B7%BB%E5%8A%A0-ACF%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E6%AE%B5%E5%85%BC%E5%AE%B9%E5%88%86%E9%A1%B5%E6%87%92%E5%8A%A0%E8%BD%BD%E5%AE%9E%E6%96%BD%E6%96%B9%E6%A1%88/" title="WordPress的woocommerce内置分类列表和页面构建器产品分类列表标题下方添加 ACF自定义字段兼容分页懒加载实施方案">WordPress的woocommerce内置分类列表和页面构建器产品分类列表标题下方添加 ACF自定义字段兼容分页懒加载实施方案</a><time datetime="2026-11-19T03:36:44.000Z" title="发表于 2026-11-19 11:36:44">2026-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/11/18/GoogleAds%E6%90%9C%E7%B4%A2%E5%B9%BF%E5%91%8A%E5%8F%97%E4%BC%97%E7%BE%A4%E4%BD%93%E8%AE%BE%E7%BD%AE%E4%B8%8E%E4%BC%98%E5%8C%96%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C/" title="GoogleAds搜索广告受众群体设置与优化完整操作手册"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GoogleAds搜索广告受众群体设置与优化完整操作手册"/></a><div class="content"><a class="title" href="/2026/11/18/GoogleAds%E6%90%9C%E7%B4%A2%E5%B9%BF%E5%91%8A%E5%8F%97%E4%BC%97%E7%BE%A4%E4%BD%93%E8%AE%BE%E7%BD%AE%E4%B8%8E%E4%BC%98%E5%8C%96%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C/" title="GoogleAds搜索广告受众群体设置与优化完整操作手册">GoogleAds搜索广告受众群体设置与优化完整操作手册</a><time datetime="2026-11-18T15:32:49.000Z" title="发表于 2026-11-18 23:32:49">2026-11-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/11/18/WordPress%E5%9F%BA%E4%BA%8EACF%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E6%AE%B5%E7%BB%84%E6%9E%84%E5%BB%BA%E4%BA%A7%E5%93%81%E9%85%8D%E4%BB%B6%E6%A8%A1%E5%9D%97%E5%8F%8A%E5%A4%9A%E5%AF%8C%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%9F%AD%E4%BB%A3%E7%A0%81%E5%8A%A8%E6%80%81%E6%B8%B2%E6%9F%93%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88/" title="WordPress基于ACF自定义字段组构建产品配件模块及多富文本内容配置与短代码动态渲染实现方案"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WordPress基于ACF自定义字段组构建产品配件模块及多富文本内容配置与短代码动态渲染实现方案"/></a><div class="content"><a class="title" href="/2026/11/18/WordPress%E5%9F%BA%E4%BA%8EACF%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E6%AE%B5%E7%BB%84%E6%9E%84%E5%BB%BA%E4%BA%A7%E5%93%81%E9%85%8D%E4%BB%B6%E6%A8%A1%E5%9D%97%E5%8F%8A%E5%A4%9A%E5%AF%8C%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%9F%AD%E4%BB%A3%E7%A0%81%E5%8A%A8%E6%80%81%E6%B8%B2%E6%9F%93%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88/" title="WordPress基于ACF自定义字段组构建产品配件模块及多富文本内容配置与短代码动态渲染实现方案">WordPress基于ACF自定义字段组构建产品配件模块及多富文本内容配置与短代码动态渲染实现方案</a><time datetime="2026-11-18T11:34:04.000Z" title="发表于 2026-11-18 19:34:04">2026-11-18</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2026 By 鸢尾花序</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script></div><script src="/js/custom.js"></script><script src="/js/mermaid.min.js"></script></div></body></html>

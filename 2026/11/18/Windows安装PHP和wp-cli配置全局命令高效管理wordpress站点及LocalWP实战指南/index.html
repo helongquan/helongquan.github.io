@@ -1,0 +1,852 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Windows安装PHP和wp-cli配置全局命令高效管理wordpress站点及LocalWP实战指南 | 仰观苍穹思环宇</title><meta name="keywords" content="WP-CLI安装,wp-cli.phar,Windows安装PHP,PHP环境变量配置,WP命令全局使用,PHP扩展配置,php.ini配置,LocalWP环境隔离,WordPress命令行管理,WordPress插件管理"><meta name="author" content="鸢尾花序"><meta name="copyright" content="鸢尾花序"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="详细介绍Windows环境下PHP和WP-CLI的下载安装、环境变量配置、php.ini扩展设置，以及如何在任意目录使用php和wp命令。同时讲解LocalWP独立运行环境的特点，以及通过LocalWP Shell快速进入WordPress网站根目录并执行WP-CLI命令的实战方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows安装PHP和wp-cli配置全局命令高效管理wordpress站点及LocalWP实战指南">
+<meta property="og:url" content="https://feeding-engineer.com/2026/11/18/Windows%E5%AE%89%E8%A3%85PHP%E5%92%8Cwp-cli%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E5%91%BD%E4%BB%A4%E9%AB%98%E6%95%88%E7%AE%A1%E7%90%86wordpress%E7%AB%99%E7%82%B9%E5%8F%8ALocalWP%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="仰观苍穹思环宇">
+<meta property="og:description" content="详细介绍Windows环境下PHP和WP-CLI的下载安装、环境变量配置、php.ini扩展设置，以及如何在任意目录使用php和wp命令。同时讲解LocalWP独立运行环境的特点，以及通过LocalWP Shell快速进入WordPress网站根目录并执行WP-CLI命令的实战方法。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2026-11-18T08:14:35.000Z">
+<meta property="article:modified_time" content="2026-11-18T15:43:16.283Z">
+<meta property="article:author" content="鸢尾花序">
+<meta property="article:tag" content="WordPress">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="WP-CLI">
+<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="LocalWP">
+<meta property="article:tag" content="环境变量">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/logo.png"><link rel="canonical" href="https://feeding-engineer.com/2026/11/18/Windows%E5%AE%89%E8%A3%85PHP%E5%92%8Cwp-cli%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E5%91%BD%E4%BB%A4%E9%AB%98%E6%95%88%E7%AE%A1%E7%90%86wordpress%E7%AB%99%E7%82%B9%E5%8F%8ALocalWP%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-Q4WSLTQE49"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Q4WSLTQE49');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Windows安装PHP和wp-cli配置全局命令高效管理wordpress站点及LocalWP实战指南',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-11-18 23:43:16'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/all.min.css"><link rel="stylesheet" href="/css/mycustom.css"><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/dino2.svg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">688</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2191</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">183</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 开发</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/"><i class="fa-fw fas fa-music"></i><span> 大前端</span></a></li><li><a class="site-page child" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><i class="fa-fw fas fa-cogs"></i><span> 人工智能</span></a></li><li><a class="site-page child" href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><i class="fa-fw fas fa-gears"></i><span> 小程序</span></a></li><li><a class="site-page child" href="/categories/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8/"><i class="fa-fw fas fa-globe"></i><span> 桌面应用</span></a></li><li><a class="site-page child" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏开发</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 服务器&amp;网络</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"><i class="fa-fw fas fa-server"></i><span> 服务器</span></a></li><li><a class="site-page child" href="/categories/%E7%BD%91%E7%BB%9C/"><i class="fa-fw fas fa-cloud"></i><span> 网络</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/contact/"><i class="fa-fw fas fa-envelope"></i><span> 联系我们</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">仰观苍穹思环宇</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 开发</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/"><i class="fa-fw fas fa-music"></i><span> 大前端</span></a></li><li><a class="site-page child" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><i class="fa-fw fas fa-cogs"></i><span> 人工智能</span></a></li><li><a class="site-page child" href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><i class="fa-fw fas fa-gears"></i><span> 小程序</span></a></li><li><a class="site-page child" href="/categories/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8/"><i class="fa-fw fas fa-globe"></i><span> 桌面应用</span></a></li><li><a class="site-page child" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏开发</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 服务器&amp;网络</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"><i class="fa-fw fas fa-server"></i><span> 服务器</span></a></li><li><a class="site-page child" href="/categories/%E7%BD%91%E7%BB%9C/"><i class="fa-fw fas fa-cloud"></i><span> 网络</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/contact/"><i class="fa-fw fas fa-envelope"></i><span> 联系我们</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Windows安装PHP和wp-cli配置全局命令高效管理wordpress站点及LocalWP实战指南</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-11-18T08:14:35.000Z" title="发表于 2026-11-18 16:14:35">2026-11-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-11-18T15:43:16.283Z" title="更新于 2026-11-18 23:43:16">2026-11-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/wordpress/">wordpress</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>在日常 WordPress 开发和维护过程中，经常需要通过命令行完成一些操作，例如：</p>
+<ul>
+<li>查看 WordPress 版本。</li>
+<li>查看已安装的插件和主题。</li>
+<li>更新插件和主题。</li>
+<li>启用或停用插件。</li>
+<li>检查 WordPress 数据库。</li>
+<li>执行 WordPress 数据维护操作。</li>
+</ul>
+<p>这些操作都可以通过 WP-CLI 实现。</p>
+<p>WP-CLI 是 WordPress 官方提供的命令行管理工具，可以直接通过终端管理 WordPress，不需要每次进入 WordPress 后台进行操作。</p>
+<p>本文主要介绍如何在 Windows 电脑上独立安装 PHP 和 WP-CLI，实现以下目标：</p>
+<ol>
+<li>在 Windows 上下载并安装 PHP。</li>
+<li>配置 PHP 环境变量，使任何目录都可以执行 <code>php</code> 命令。</li>
+<li>下载并安装 <code>wp-cli.phar</code>。</li>
+<li>配置 WP-CLI 环境变量，使任何目录都可以执行 <code>wp</code> 命令。</li>
+<li>配置 PHP 的 <code>php.ini</code> 文件，启用常用扩展。</li>
+<li>不重启电脑，通过重启 Windows 资源管理器使环境变量生效。</li>
+<li>理解 LocalWP 的环境隔离机制。</li>
+<li>使用 LocalWP 自带的 Shell 管理 WordPress 网站。</li>
+<li>利用 Windows CMD 的磁盘目录记忆功能，快速切换到 WordPress 网站根目录。</li>
+</ol>
+<p>最终实现 Windows 全局 PHP 和 WP-CLI 环境，同时保留 LocalWP 自带的独立运行环境。</p>
+<h2 id="二、下载和安装PHP"><a href="#二、下载和安装PHP" class="headerlink" title="二、下载和安装PHP"></a>二、下载和安装PHP</h2><h3 id="2-1-下载PHP"><a href="#2-1-下载PHP" class="headerlink" title="2.1 下载PHP"></a>2.1 下载PHP</h3><p>首先进入 PHP 官方 Windows 下载页面：</p>
+<p><a target="_blank" rel="noopener" href="https://www.php.net/downloads.php">https://www.php.net/downloads.php</a></p>
+<p>Windows 推荐下载 PHP 8.x 的 x64 版本，笔者下载的是PHP8.5。</p>
+<p>这里需要注意 PHP 的版本类型：</p>
+<ul>
+<li>VS16、VS17 等表示对应的 Visual Studio 编译版本。</li>
+<li>x64 表示 64 位系统。</li>
+<li>Thread Safe 表示线程安全版本。</li>
+<li>Non Thread Safe 表示非线程安全版本。</li>
+</ul>
+<p>如果只是为了在 Windows 命令行中运行 PHP 和 WP-CLI，通常选择 x64 Non Thread Safe 即可。</p>
+<p>建议下载 ZIP 压缩包，不需要下载安装程序。</p>
+<h3 id="2-2-解压PHP"><a href="#2-2-解压PHP" class="headerlink" title="2.2 解压PHP"></a>2.2 解压PHP</h3><p>下载完成后，将 PHP 压缩包解压到一个固定目录。</p>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\Environment\PHP</span><br></pre></td></tr></table></figure>
+
+<p>解压完成后，目录结构大致如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">D:\Environment\PHP</span><br><span class="line">│</span><br><span class="line">├── dev</span><br><span class="line">├── ext</span><br><span class="line">├── extras</span><br><span class="line">├── php.exe</span><br><span class="line">├── php.ini-development</span><br><span class="line">├── php.ini-production</span><br><span class="line">├── php8ts.dll</span><br><span class="line">└── ...</span><br></pre></td></tr></table></figure>
+
+<p>具体文件会根据 PHP 版本有所不同。</p>
+<p>这里建议使用固定目录，不要放在下载目录或临时目录中，避免后续移动文件导致环境变量失效。</p>
+<h3 id="2-3-创建php-ini配置文件"><a href="#2-3-创建php-ini配置文件" class="headerlink" title="2.3 创建php.ini配置文件"></a>2.3 创建php.ini配置文件</h3><p>PHP 解压后，默认不会直接生成正式使用的 <code>php.ini</code> 配置文件。</p>
+<p>需要手动复制一份开发环境配置文件。</p>
+<p>找到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php.ini-development</span><br></pre></td></tr></table></figure>
+
+<p>复制一份，并将复制后的文件重命名为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php.ini</span><br></pre></td></tr></table></figure>
+
+<p>最终目录结构：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">D:\Environment\PHP</span><br><span class="line">│</span><br><span class="line">├── php.exe</span><br><span class="line">├── php.ini</span><br><span class="line">├── php.ini-development</span><br><span class="line">├── php.ini-production</span><br><span class="line">└── ext</span><br></pre></td></tr></table></figure>
+
+<p>这样 PHP 就有了自己的配置文件。</p>
+<h3 id="2-4-配置php-ini"><a href="#2-4-配置php-ini" class="headerlink" title="2.4 配置php.ini"></a>2.4 配置php.ini</h3><p>使用记事本或 VS Code 打开：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\Environment\PHP\php.ini</span><br></pre></td></tr></table></figure>
+
+<p>首先找到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">;extension_dir = &quot;ext&quot;</span><br></pre></td></tr></table></figure>
+
+<p>修改为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extension_dir = &quot;D:/Environment/PHP/ext&quot;</span><br></pre></td></tr></table></figure>
+
+<p>这样可以明确告诉 PHP，扩展文件存放在哪个目录。</p>
+<p>接下来启用常用 PHP 扩展。</p>
+<p>找到对应的扩展配置，将前面的分号 <code>;</code> 删除。</p>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">extension=curl</span><br><span class="line">extension=exif</span><br><span class="line">extension=fileinfo</span><br><span class="line">extension=gd</span><br><span class="line">extension=intl</span><br><span class="line">extension=mbstring</span><br><span class="line">extension=mysqli</span><br><span class="line">extension=openssl</span><br><span class="line">extension=pdo_mysql</span><br><span class="line">extension=soap</span><br><span class="line">extension=sockets</span><br><span class="line">extension=xml</span><br><span class="line">extension=zip</span><br></pre></td></tr></table></figure>
+
+<p>注意：不同 PHP 版本的扩展名称和可用情况可能有所不同，以实际安装包为准。</p>
+<p>对于 WordPress 和 WP-CLI，比较常用的扩展包括：</p>
+<table>
+<thead>
+<tr>
+<th>扩展</th>
+<th>主要用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>curl</td>
+<td>HTTP 请求和网络通信</td>
+</tr>
+<tr>
+<td>fileinfo</td>
+<td>文件类型识别</td>
+</tr>
+<tr>
+<td>gd</td>
+<td>图片处理</td>
+</tr>
+<tr>
+<td>intl</td>
+<td>国际化和字符处理</td>
+</tr>
+<tr>
+<td>mbstring</td>
+<td>多字节字符串处理</td>
+</tr>
+<tr>
+<td>mysqli</td>
+<td>MySQL 数据库连接</td>
+</tr>
+<tr>
+<td>openssl</td>
+<td>加密和 HTTPS 通信</td>
+</tr>
+<tr>
+<td>pdo_mysql</td>
+<td>PDO 方式连接 MySQL</td>
+</tr>
+<tr>
+<td>xml</td>
+<td>XML 数据处理</td>
+</tr>
+<tr>
+<td>zip</td>
+<td>ZIP 压缩包处理</td>
+</tr>
+</tbody></table>
+<p>这些扩展可以满足大多数 WordPress 开发和维护场景。</p>
+<p>如果以后运行其他 PHP 项目，可以根据实际需求继续启用扩展。</p>
+<h3 id="2-5-关闭不必要的错误显示"><a href="#2-5-关闭不必要的错误显示" class="headerlink" title="2.5 关闭不必要的错误显示"></a>2.5 关闭不必要的错误显示</h3><p>PHP 开发环境默认可能会显示较多警告和错误信息。</p>
+<p>如果主要使用 PHP 运行命令行工具，可以适当调整错误显示设置。</p>
+<p>在 <code>php.ini</code> 中找到以下配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">display_errors = On</span><br><span class="line">display_startup_errors = On</span><br></pre></td></tr></table></figure>
+
+<p>修改为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">display_errors = Off</span><br><span class="line">display_startup_errors = Off</span><br><span class="line">log_errors = On</span><br><span class="line">error_reporting = E_ALL</span><br></pre></td></tr></table></figure>
+
+<p>这里需要注意：</p>
+<ul>
+<li><code>display_errors = Off</code>：不直接显示 PHP 运行错误。</li>
+<li><code>display_startup_errors = Off</code>：不显示 PHP 启动阶段的错误。</li>
+<li><code>log_errors = On</code>：允许记录错误日志。</li>
+<li><code>error_reporting = E_ALL</code>：仍然保留完整的错误检测级别。</li>
+</ul>
+<p>这种方式可以减少不必要的错误信息输出，同时保留错误记录能力。</p>
+<p>注意，关闭错误显示不代表错误已经解决。如果出现 PHP 扩展缺失或程序运行异常，仍然需要检查日志和实际错误信息。</p>
+<h3 id="2-6-配置PHP环境变量"><a href="#2-6-配置PHP环境变量" class="headerlink" title="2.6 配置PHP环境变量"></a>2.6 配置PHP环境变量</h3><p>PHP 安装完成后，需要配置 Windows 环境变量。</p>
+<p>这样才能在任何目录下直接使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -v</span><br></pre></td></tr></table></figure>
+
+<p>操作步骤：</p>
+<ol>
+<li>打开 Windows 设置。</li>
+<li>搜索环境变量。</li>
+<li>点击编辑系统环境变量。</li>
+<li>点击环境变量。</li>
+<li>找到系统变量中的 <code>Path</code>。</li>
+<li>点击编辑。</li>
+<li>新增 PHP 安装目录。</li>
+</ol>
+<p>添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\Environment\PHP</span><br></pre></td></tr></table></figure>
+
+<p>保存所有设置。</p>
+<p>这里不需要单独添加 <code>php.exe</code>，只需要添加 PHP 所在目录即可。</p>
+<h3 id="2-7-验证PHP是否安装成功"><a href="#2-7-验证PHP是否安装成功" class="headerlink" title="2.7 验证PHP是否安装成功"></a>2.7 验证PHP是否安装成功</h3><p>打开一个新的 CMD 窗口，执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -v</span><br></pre></td></tr></table></figure>
+
+<p>如果配置成功，会显示 PHP 版本信息。</p>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PHP 8.x.x (cli)</span><br></pre></td></tr></table></figure>
+
+<p>继续检查 PHP 当前加载的配置文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php --ini</span><br></pre></td></tr></table></figure>
+
+<p>重点关注：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Loaded Configuration File</span><br></pre></td></tr></table></figure>
+
+<p>应该指向：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\Environment\PHP\php.ini</span><br></pre></td></tr></table></figure>
+
+<p>再检查已经启用的扩展：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -m</span><br></pre></td></tr></table></figure>
+
+<p>如果可以看到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">curl</span><br><span class="line">fileinfo</span><br><span class="line">gd</span><br><span class="line">mbstring</span><br><span class="line">mysqli</span><br><span class="line">openssl</span><br><span class="line">pdo_mysql</span><br><span class="line">xml</span><br><span class="line">zip</span><br></pre></td></tr></table></figure>
+
+<p>说明对应扩展已经成功加载。</p>
+<h2 id="三、下载和安装WP-CLI"><a href="#三、下载和安装WP-CLI" class="headerlink" title="三、下载和安装WP-CLI"></a>三、下载和安装WP-CLI</h2><h3 id="3-1-下载wp-cli-phar"><a href="#3-1-下载wp-cli-phar" class="headerlink" title="3.1 下载wp-cli.phar"></a>3.1 下载wp-cli.phar</h3><p>WP-CLI 是 WordPress 的命令行管理工具。</p>
+<p>官方项目地址：</p>
+<p><a target="_blank" rel="noopener" href="https://wp-cli.org/">https://wp-cli.org/</a></p>
+<p>官方安装说明：</p>
+<p><a target="_blank" rel="noopener" href="https://make.wordpress.org/cli/handbook/guides/installing/">https://make.wordpress.org/cli/handbook/guides/installing/</a></p>
+<p>Windows 环境可以直接下载官方提供的 PHAR 文件：</p>
+<p><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar">https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar</a></p>
+<p>下载完成后，将文件放到一个固定目录。</p>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\Environment\WP-CLI</span><br></pre></td></tr></table></figure>
+
+<p>目录结构：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">D:\Environment\WP-CLI</span><br><span class="line">│</span><br><span class="line">└── wp-cli.phar</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-创建wp-bat启动文件"><a href="#3-2-创建wp-bat启动文件" class="headerlink" title="3.2 创建wp.bat启动文件"></a>3.2 创建wp.bat启动文件</h3><p>Windows 不能直接像 Linux 一样通过 <code>wp</code> 命令自动运行 PHAR 文件，因此需要创建一个批处理启动文件。</p>
+<p>在：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\Environment\WP-CLI</span><br></pre></td></tr></table></figure>
+
+<p>目录下，新建：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp.bat</span><br></pre></td></tr></table></figure>
+
+<p>编辑文件，写入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@ECHO OFF</span><br><span class="line">php &quot;D:\Environment\WP-CLI\wp-cli.phar&quot; %*</span><br></pre></td></tr></table></figure>
+
+<p>也可以像如下这样写（使用这个变量，这样就是相当于这个bat文件在wp-cli.phar的相同目录）：</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@echo <span class="keyword">off</span></span><br><span class="line">php <span class="string">&quot;%~dp0wp-cli.phar&quot;</span> %*</span><br></pre></td></tr></table></figure>
+
+<p>保存即可。</p>
+<p>这段代码的作用：</p>
+<ul>
+<li><code>@ECHO OFF</code>：关闭命令回显。</li>
+<li><code>php</code>：调用系统全局 PHP。</li>
+<li><code>wp-cli.phar</code>：运行 WP-CLI 程序。</li>
+<li><code>%*</code>：将用户输入的全部参数传递给 WP-CLI。</li>
+</ul>
+<p>例如执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp plugin list</span><br></pre></td></tr></table></figure>
+
+<p>实际运行的就是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php D:\Environment\WP-CLI\wp-cli.phar plugin list</span><br></pre></td></tr></table></figure>
+
+<p>通过批处理文件，我们就可以直接使用熟悉的 <code>wp</code> 命令。</p>
+<h3 id="3-3-配置WP-CLI环境变量"><a href="#3-3-配置WP-CLI环境变量" class="headerlink" title="3.3 配置WP-CLI环境变量"></a>3.3 配置WP-CLI环境变量</h3><p>现在需要将 WP-CLI 所在目录添加到 Windows 环境变量。</p>
+<p>打开：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">系统设置 → 高级系统设置 → 环境变量</span><br></pre></td></tr></table></figure>
+
+<p>找到系统变量中的 <code>Path</code>，点击编辑。</p>
+<p>新增：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\Environment\WP-CLI</span><br></pre></td></tr></table></figure>
+
+<p>保存即可。</p>
+<p>现在 Windows 已经知道：</p>
+<ul>
+<li>PHP 命令在哪里。</li>
+<li>WP 命令在哪里。</li>
+</ul>
+<h3 id="3-4-验证WP-CLI是否安装成功"><a href="#3-4-验证WP-CLI是否安装成功" class="headerlink" title="3.4 验证WP-CLI是否安装成功"></a>3.4 验证WP-CLI是否安装成功</h3><p>打开 CMD，执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp --info</span><br></pre></td></tr></table></figure>
+
+<p>如果安装成功，会显示 WP-CLI 的运行信息，包括：</p>
+<ul>
+<li>OS</li>
+<li>Shell</li>
+<li>PHP binary</li>
+<li>PHP version</li>
+<li>php.ini used</li>
+<li>WP-CLI version</li>
+</ul>
+<p>再执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp cli version</span><br></pre></td></tr></table></figure>
+
+<p>可以查看 WP-CLI 版本。</p>
+<p>至此，Windows 全局 PHP 和 WP-CLI 环境已经安装完成。</p>
+<h2 id="四、不重启电脑使环境变量立即生效"><a href="#四、不重启电脑使环境变量立即生效" class="headerlink" title="四、不重启电脑使环境变量立即生效"></a>四、不重启电脑使环境变量立即生效</h2><p>修改 Windows 环境变量后，很多教程会建议重启电脑。</p>
+<p>实际上，大多数情况下没有必要。</p>
+<p>Windows 中运行的程序会继承启动时的环境变量。因此，已经打开的 CMD、PowerShell 等程序不会自动获取最新的环境变量。</p>
+<p>只需要让新的进程重新读取环境变量即可。</p>
+<h3 id="4-1-方法一重新打开终端"><a href="#4-1-方法一重新打开终端" class="headerlink" title="4.1 方法一重新打开终端"></a>4.1 方法一重新打开终端</h3><p>最简单的方法是：</p>
+<ol>
+<li>关闭当前 CMD 或 PowerShell。</li>
+<li>重新打开 CMD 或 PowerShell。</li>
+<li>执行：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -v</span><br></pre></td></tr></table></figure>
+
+<p>再执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp --info</span><br></pre></td></tr></table></figure>
+
+<p>如果能正常显示信息，说明环境变量已经生效。</p>
+<h3 id="4-2-方法二重启Windows资源管理器"><a href="#4-2-方法二重启Windows资源管理器" class="headerlink" title="4.2 方法二重启Windows资源管理器"></a>4.2 方法二重启Windows资源管理器</h3><p>如果希望不重启电脑，让桌面环境也重新加载环境变量，可以重启 Windows 资源管理器。</p>
+<p>按下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + Shift + Esc</span><br></pre></td></tr></table></figure>
+
+<p>打开任务管理器。</p>
+<p>找到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Windows 资源管理器</span><br></pre></td></tr></table></figure>
+
+<p>右键选择：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">重新启动</span><br></pre></td></tr></table></figure>
+
+<p>也可以使用 PowerShell 执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Stop-Process -Name explorer -Force</span><br><span class="line">Start-Process explorer.exe</span><br></pre></td></tr></table></figure>
+
+<p>资源管理器重新启动后，从桌面或开始菜单新启动的程序通常就可以继承更新后的环境变量。</p>
+<p>注意：重启资源管理器不会自动刷新已经打开的 CMD、PowerShell 或其他程序。它们仍然需要重新打开。</p>
+<p>另外，如果是通过 PowerShell 修改了当前用户环境变量，还可以在当前 PowerShell 会话中重新读取用户和系统 Path：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$env:Path = [Environment]::GetEnvironmentVariable(&quot;Path&quot;, &quot;Machine&quot;) + &quot;;&quot; + [Environment]::GetEnvironmentVariable(&quot;Path&quot;, &quot;User&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>这样不需要关闭当前 PowerShell，就可以刷新当前会话的 Path。</p>
+<h2 id="五、理解LocalWP的环境隔离机制"><a href="#五、理解LocalWP的环境隔离机制" class="headerlink" title="五、理解LocalWP的环境隔离机制"></a>五、理解LocalWP的环境隔离机制</h2><p>完成 Windows 全局 PHP 和 WP-CLI 安装后，还需要了解 LocalWP 的运行机制。</p>
+<p>LocalWP 是一个本地 WordPress 开发环境工具，它会为本地网站提供独立的运行环境。</p>
+<p>通常包括：</p>
+<ul>
+<li>PHP 运行环境。</li>
+<li>MySQL 数据库。</li>
+<li>Web 服务器。</li>
+<li>网站运行配置。</li>
+<li>对应的开发工具。</li>
+</ul>
+<p>这些环境由 LocalWP 自己管理，不一定使用 Windows 系统中安装的 PHP 和 MySQL。</p>
+<h3 id="5-1-Windows全局环境和LocalWP环境的区别"><a href="#5-1-Windows全局环境和LocalWP环境的区别" class="headerlink" title="5.1 Windows全局环境和LocalWP环境的区别"></a>5.1 Windows全局环境和LocalWP环境的区别</h3><p>两套环境可以理解为：</p>
+<table>
+<thead>
+<tr>
+<th>对比项目</th>
+<th>Windows全局环境</th>
+<th>LocalWP环境</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>PHP</td>
+<td>自己下载和配置</td>
+<td>LocalWP 自己管理</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>自己安装和配置</td>
+<td>LocalWP 自己管理</td>
+</tr>
+<tr>
+<td>WP-CLI</td>
+<td>自己下载配置</td>
+<td>LocalWP 提供运行环境</td>
+</tr>
+<tr>
+<td>使用范围</td>
+<td>Windows 全局终端</td>
+<td>LocalWP 对应站点</td>
+</tr>
+<tr>
+<td>环境配置</td>
+<td>自己维护</td>
+<td>LocalWP 管理</td>
+</tr>
+</tbody></table>
+<p>例如，在 Windows CMD 中执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -v</span><br></pre></td></tr></table></figure>
+
+<p>使用的是 Windows 环境变量中配置的 PHP。</p>
+<p>而在 LocalWP 自带的 Shell 中执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -v</span><br></pre></td></tr></table></figure>
+
+<p>通常使用的是 LocalWP 为站点提供的 PHP 环境。</p>
+<p>两者可能存在不同的 PHP 版本、扩展和数据库连接配置。</p>
+<p>因此，即使 Windows 全局 PHP 已经安装成功，也不代表它能够直接连接 LocalWP 的 MySQL 数据库。</p>
+<h3 id="5-2-为什么建议使用LocalWP自带的Shell"><a href="#5-2-为什么建议使用LocalWP自带的Shell" class="headerlink" title="5.2 为什么建议使用LocalWP自带的Shell"></a>5.2 为什么建议使用LocalWP自带的Shell</h3><p>如果需要查询某个 WordPress 网站的信息，例如：</p>
+<ul>
+<li>查看插件列表。</li>
+<li>查看主题列表。</li>
+<li>查看 WordPress 版本。</li>
+<li>检查数据库。</li>
+<li>更新插件。</li>
+<li>执行数据库操作。</li>
+</ul>
+<p>建议优先进入 LocalWP 对应网站的 Shell 环境。</p>
+<p>操作步骤：</p>
+<ol>
+<li>打开 LocalWP。</li>
+<li>找到需要操作的 WordPress 网站。</li>
+<li>确保网站处于 Running 状态。</li>
+<li>点击 Open Site Shell。</li>
+<li>在打开的终端中执行 WP-CLI 命令。</li>
+</ol>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp plugin list</span><br></pre></td></tr></table></figure>
+
+<p>如果正常显示插件列表，就说明 WP-CLI 已经成功连接当前网站。</p>
+<p>这种方式最大的好处是：</p>
+<p>不需要手动配置数据库地址、数据库端口、用户名和密码，也不需要担心 Windows 全局 PHP 与 LocalWP 内部 PHP 之间的环境差异。</p>
+<h2 id="六、使用LocalWP-Shell快速进入WordPress根目录"><a href="#六、使用LocalWP-Shell快速进入WordPress根目录" class="headerlink" title="六、使用LocalWP Shell快速进入WordPress根目录"></a>六、使用LocalWP Shell快速进入WordPress根目录</h2><p>在实际使用过程中，我还发现了一个比较方便的方法。</p>
+<p>LocalWP 自带的 Shell 打开后，默认可能位于 Windows 用户目录，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Zhangsan&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如果直接执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp plugin list</span><br></pre></td></tr></table></figure>
+
+<p>可能会出现：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: This does not seem to be a WordPress installation.</span><br></pre></td></tr></table></figure>
+
+<p>这是因为当前目录并不是 WordPress 网站根目录。</p>
+<p>WP-CLI 默认会从当前目录向上查找 WordPress 安装文件。</p>
+<p>因此，需要先进入正确的网站目录。</p>
+<h3 id="6-1-通过磁盘盘符快速切换"><a href="#6-1-通过磁盘盘符快速切换" class="headerlink" title="6.1 通过磁盘盘符快速切换"></a>6.1 通过磁盘盘符快速切换</h3><p>我的 WordPress 项目位于：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\project\keelear.com\app\public</span><br></pre></td></tr></table></figure>
+
+<p>在 LocalWP Shell 中，我发现直接输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:</span><br></pre></td></tr></table></figure>
+
+<p>就可以进入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\project\keelear.com\app\public&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这看起来非常方便。</p>
+<p>这里其实涉及 Windows CMD 的一个特性：</p>
+<p>Windows CMD 会分别记住不同磁盘上最近使用的工作目录。</p>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:</span><br></pre></td></tr></table></figure>
+
+<p>表示切换到 D 盘，并恢复之前在 D 盘使用的工作目录。</p>
+<p>如果之前已经在 D 盘进入过 WordPress 网站根目录，那么再次输入 <code>D:</code> 就会直接回到该目录。</p>
+<p>需要注意，这并不是 <code>D:</code> 自动识别 WordPress 根目录，而是 CMD 记住了 D 盘上次使用的目录。</p>
+<p>如果 D 盘尚未设置过对应目录，也可以手动执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /d D:\project\keelear.com\app\public</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li><code>cd</code> 表示切换目录。</li>
+<li><code>/d</code> 表示同时切换磁盘和目录。</li>
+</ul>
+<h3 id="6-2-验证当前目录"><a href="#6-2-验证当前目录" class="headerlink" title="6.2 验证当前目录"></a>6.2 验证当前目录</h3><p>进入网站根目录后，可以执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir</span><br></pre></td></tr></table></figure>
+
+<p>查看当前目录文件。</p>
+<p>正常情况下，应该能够看到类似以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wp-admin</span><br><span class="line">wp-content</span><br><span class="line">wp-includes</span><br><span class="line">wp-config.php</span><br><span class="line">index.php</span><br></pre></td></tr></table></figure>
+
+<p>其中最重要的是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp-config.php</span><br></pre></td></tr></table></figure>
+
+<p>只要当前目录下存在这个文件，基本就可以确认已经进入 WordPress 网站根目录。</p>
+<h3 id="6-3-为什么ls命令不能使用"><a href="#6-3-为什么ls命令不能使用" class="headerlink" title="6.3 为什么ls命令不能使用"></a>6.3 为什么ls命令不能使用</h3><p>在使用 LocalWP Shell 时，我还遇到过一个小问题：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br></pre></td></tr></table></figure>
+
+<p>执行后提示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;ls&#x27; 不是内部或外部命令，也不是可运行的程序</span><br></pre></td></tr></table></figure>
+
+<p>这是因为当前 Shell 实际使用的是 Windows CMD，而不是 Linux Bash 或 PowerShell。</p>
+<p>在 CMD 中，查看目录应该使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir</span><br></pre></td></tr></table></figure>
+
+<p>常见命令对照：</p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>Windows CMD</th>
+<th>Linux Bash</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>查看文件</td>
+<td>dir</td>
+<td>ls</td>
+</tr>
+<tr>
+<td>切换目录</td>
+<td>cd</td>
+<td>cd</td>
+</tr>
+<tr>
+<td>返回上级目录</td>
+<td>cd ..</td>
+<td>cd ..</td>
+</tr>
+<tr>
+<td>清屏</td>
+<td>cls</td>
+<td>clear</td>
+</tr>
+<tr>
+<td>切换磁盘</td>
+<td>D:</td>
+<td>不需要</td>
+</tr>
+<tr>
+<td>查看当前目录</td>
+<td>cd</td>
+<td>pwd</td>
+</tr>
+</tbody></table>
+<p>了解这一点后，就不会再把 Linux 命令和 Windows CMD 命令混淆。</p>
+<h2 id="七、WordPress常用WP-CLI命令实战"><a href="#七、WordPress常用WP-CLI命令实战" class="headerlink" title="七、WordPress常用WP-CLI命令实战"></a>七、WordPress常用WP-CLI命令实战</h2><p>进入 WordPress 网站根目录后，就可以直接执行 WP-CLI 命令。</p>
+<p>下面整理一些日常开发和维护中比较常用的操作。</p>
+<h3 id="7-1-查看WordPress版本"><a href="#7-1-查看WordPress版本" class="headerlink" title="7.1 查看WordPress版本"></a>7.1 查看WordPress版本</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp core version</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-2-查看所有插件"><a href="#7-2-查看所有插件" class="headerlink" title="7.2 查看所有插件"></a>7.2 查看所有插件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp plugin list</span><br></pre></td></tr></table></figure>
+
+<p>只查看已经启用的插件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp plugin list --status=active</span><br></pre></td></tr></table></figure>
+
+<p>只查看未启用的插件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp plugin list --status=inactive</span><br></pre></td></tr></table></figure>
+
+<p>查看插件名称、状态和版本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp plugin list --fields=name,status,version</span><br></pre></td></tr></table></figure>
+
+<p>以 JSON 格式输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp plugin list --format=json</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-3-更新插件"><a href="#7-3-更新插件" class="headerlink" title="7.3 更新插件"></a>7.3 更新插件</h3><p>更新指定插件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp plugin update updraftplus</span><br></pre></td></tr></table></figure>
+
+<p>更新所有插件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp plugin update --all</span><br></pre></td></tr></table></figure>
+
+<p>查看可以更新的插件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp plugin list --update=available</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-4-启用和停用插件"><a href="#7-4-启用和停用插件" class="headerlink" title="7.4 启用和停用插件"></a>7.4 启用和停用插件</h3><p>启用插件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp plugin activate plugin-name</span><br></pre></td></tr></table></figure>
+
+<p>停用插件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp plugin deactivate plugin-name</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp plugin deactivate woocommerce</span><br></pre></td></tr></table></figure>
+
+<p>注意，插件名称通常对应 <code>wp-content/plugins</code> 目录中的插件文件夹名称，而不是后台显示的插件标题。</p>
+<h3 id="7-5-查看主题"><a href="#7-5-查看主题" class="headerlink" title="7.5 查看主题"></a>7.5 查看主题</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp theme list</span><br></pre></td></tr></table></figure>
+
+<p>查看主题详细信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp theme list --fields=name,status,version</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-6-检查数据库"><a href="#7-6-检查数据库" class="headerlink" title="7.6 检查数据库"></a>7.6 检查数据库</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp db check</span><br></pre></td></tr></table></figure>
+
+<p>如果数据库连接正常，会显示数据库检查结果。</p>
+<h3 id="7-7-查看网站基本信息"><a href="#7-7-查看网站基本信息" class="headerlink" title="7.7 查看网站基本信息"></a>7.7 查看网站基本信息</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp option get siteurl</span><br></pre></td></tr></table></figure>
+
+<p>查看网站首页地址：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp option get home</span><br></pre></td></tr></table></figure>
+
+<p>查看网站名称：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp option get blogname</span><br></pre></td></tr></table></figure>
+
+<p>这些命令可以快速获取 WordPress 网站的一些基本信息。</p>
+<p>执行 <code>wp option get</code> 等数据库相关命令时，需要确保当前目录对应的 WordPress 网站能够正常连接数据库。</p>
+<h2 id="八、常见问题及解决方法"><a href="#八、常见问题及解决方法" class="headerlink" title="八、常见问题及解决方法"></a>八、常见问题及解决方法</h2><h3 id="8-1-php不是内部或外部命令"><a href="#8-1-php不是内部或外部命令" class="headerlink" title="8.1 php不是内部或外部命令"></a>8.1 php不是内部或外部命令</h3><p>错误信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;php&#x27; 不是内部或外部命令</span><br></pre></td></tr></table></figure>
+
+<p>通常说明 PHP 环境变量没有配置正确。</p>
+<p>检查系统 Path 是否包含：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\Environment\PHP</span><br></pre></td></tr></table></figure>
+
+<p>然后重新打开 CMD，再执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -v</span><br></pre></td></tr></table></figure>
+
+<p>还可以使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">where php</span><br></pre></td></tr></table></figure>
+
+<p>查看 Windows 实际调用的是哪个 PHP。</p>
+<h3 id="8-2-wp不是内部或外部命令"><a href="#8-2-wp不是内部或外部命令" class="headerlink" title="8.2 wp不是内部或外部命令"></a>8.2 wp不是内部或外部命令</h3><p>错误信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;wp&#x27; 不是内部或外部命令</span><br></pre></td></tr></table></figure>
+
+<p>检查以下内容：</p>
+<ol>
+<li>是否已经下载 <code>wp-cli.phar</code>。</li>
+<li>是否已经创建 <code>wp.bat</code>。</li>
+<li><code>wp.bat</code> 中的 PHAR 路径是否正确。</li>
+<li>WP-CLI 目录是否已经加入 Path。</li>
+</ol>
+<p>执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">where wp</span><br></pre></td></tr></table></figure>
+
+<p>如果配置成功，应该能够找到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\Environment\WP-CLI\wp.bat</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-3-Error-establishing-a-database-connection"><a href="#8-3-Error-establishing-a-database-connection" class="headerlink" title="8.3 Error establishing a database connection"></a>8.3 Error establishing a database connection</h3><p>错误信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: Error establishing a database connection.</span><br></pre></td></tr></table></figure>
+
+<p>这通常表示 WP-CLI 已经找到了 WordPress，但无法连接数据库。</p>
+<p>可能原因：</p>
+<ul>
+<li>数据库服务没有启动。</li>
+<li>数据库地址或端口不正确。</li>
+<li>数据库用户名或密码不正确。</li>
+<li>当前使用的 PHP 环境与数据库运行环境不匹配。</li>
+</ul>
+<p>如果操作的是 LocalWP 网站，建议优先使用 LocalWP 自带的 Open Site Shell。</p>
+<p>不要直接假设 Windows 全局 PHP 可以使用 LocalWP 的数据库配置。</p>
+<h3 id="8-4-This-does-not-seem-to-be-a-WordPress-installation"><a href="#8-4-This-does-not-seem-to-be-a-WordPress-installation" class="headerlink" title="8.4 This does not seem to be a WordPress installation"></a>8.4 This does not seem to be a WordPress installation</h3><p>错误信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: This does not seem to be a WordPress installation.</span><br></pre></td></tr></table></figure>
+
+<p>这通常是因为当前工作目录不是 WordPress 网站根目录。</p>
+<p>可以使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /d D:\project\keelear.com\app\public</span><br></pre></td></tr></table></figure>
+
+<p>或者直接使用 WP-CLI 的 <code>--path</code> 参数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp --path=&quot;D:/project/keelear.com/app/public&quot; plugin list</span><br></pre></td></tr></table></figure>
+
+<p>如果使用 LocalWP Shell，也可以通过切换到对应的磁盘和目录来解决。</p>
+<h2 id="九、最终效果和日常使用建议"><a href="#九、最终效果和日常使用建议" class="headerlink" title="九、最终效果和日常使用建议"></a>九、最终效果和日常使用建议</h2><p>完成以上配置后，Windows 电脑就具备了独立的 PHP 和 WP-CLI 命令行环境。</p>
+<p>最终可以实现：</p>
+<table>
+<thead>
+<tr>
+<th>操作目标</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>查看 PHP 版本</td>
+<td><code>php -v</code></td>
+</tr>
+<tr>
+<td>查看 PHP 配置</td>
+<td><code>php --ini</code></td>
+</tr>
+<tr>
+<td>查看 PHP 扩展</td>
+<td><code>php -m</code></td>
+</tr>
+<tr>
+<td>查看 WP-CLI 信息</td>
+<td><code>wp --info</code></td>
+</tr>
+<tr>
+<td>查看 WP-CLI 版本</td>
+<td><code>wp cli version</code></td>
+</tr>
+<tr>
+<td>查看插件列表</td>
+<td><code>wp plugin list</code></td>
+</tr>
+<tr>
+<td>查看主题列表</td>
+<td><code>wp theme list</code></td>
+</tr>
+<tr>
+<td>查看 WordPress 版本</td>
+<td><code>wp core version</code></td>
+</tr>
+<tr>
+<td>检查数据库</td>
+<td><code>wp db check</code></td>
+</tr>
+</tbody></table>
+<p>日常使用时，可以根据实际场景选择不同的运行环境。</p>
+<p><strong>场景一：需要在 Windows 任意目录使用 PHP 或 WP-CLI</strong></p>
+<p>使用自己安装的 PHP 和 WP-CLI。</p>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">php -v</span><br><span class="line">wp --info</span><br></pre></td></tr></table></figure>
+
+<p><strong>场景二：需要查询或管理 LocalWP 中的 WordPress 网站</strong></p>
+<p>建议使用 LocalWP 自带的 Open Site Shell。</p>
+<p>进入对应网站根目录后：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp plugin list</span><br></pre></td></tr></table></figure>
+
+<p>即可直接查看插件信息。</p>
+<p><strong>场景三：需要快速进入 WordPress 根目录</strong></p>
+<p>利用 CMD 的磁盘工作目录记忆功能：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:</span><br></pre></td></tr></table></figure>
+
+<p>如果 D 盘上次使用的目录就是 WordPress 根目录，就可以直接回到该位置。</p>
+<p>这样可以减少每次手动输入完整路径的操作。</p>
+<h2 id="十、总结"><a href="#十、总结" class="headerlink" title="十、总结"></a>十、总结</h2><p>通过本文的配置，我们完成了 Windows 环境下 PHP 和 WP-CLI 的独立安装，并实现了全局命令调用。</p>
+<p>整个方案最重要的是理解两套环境的区别：</p>
+<ul>
+<li>Windows 全局 PHP 和 WP-CLI 是自己安装和维护的。</li>
+<li>LocalWP 自带独立的 PHP、MySQL 和网站运行环境。</li>
+<li>Windows 全局环境适合执行通用 PHP 和 WP-CLI 命令。</li>
+<li>LocalWP Shell 更适合管理 LocalWP 中实际运行的 WordPress 网站。</li>
+</ul>
+<p>另外，通过 CMD 的磁盘目录记忆功能，还可以快速返回之前使用过的 WordPress 网站根目录。</p>
+<p>这样既保留了 Windows 全局命令行工具的便利性，也避免了 LocalWP 内部环境和 Windows 全局环境之间的冲突。</p>
+<p>对于经常使用 WordPress 进行开发、插件维护和网站管理的开发者来说，这是一套比较实用的 Windows 本地开发工作流。</p>
+<h3 id="额外建议"><a href="#额外建议" class="headerlink" title="额外建议"></a><strong>额外建议</strong></h3><p>文章发布前，我建议保留三个关键知识点，尤其是这三个地方比较容易被读者误解：</p>
+<ol>
+<li><strong>PHP版本选择</strong>：WP-CLI 和 WordPress 对 PHP 版本有最低要求，下载时应结合当前项目的兼容性选择，不要盲目追求最新版本。</li>
+<li><strong>LocalWP环境隔离</strong>：LocalWP Shell 的 PHP 和数据库配置不等于 Windows 全局配置，这是本文最重要的实践经验之一。</li>
+<li><strong>输入D:的原理</strong>：这是 Windows CMD 的磁盘当前目录记忆机制，而不是 LocalWP 自动识别 WordPress 项目。这样解释更准确，也更有技术参考价值。</li>
+</ol>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/WordPress/">WordPress</a><a class="post-meta__tags" href="/tags/Windows/">Windows</a><a class="post-meta__tags" href="/tags/WP-CLI/">WP-CLI</a><a class="post-meta__tags" href="/tags/PHP/">PHP</a><a class="post-meta__tags" href="/tags/LocalWP/">LocalWP</a><a class="post-meta__tags" href="/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">环境变量</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/11/18/WordPress%E5%9F%BA%E4%BA%8EACF%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E6%AE%B5%E7%BB%84%E6%9E%84%E5%BB%BA%E4%BA%A7%E5%93%81%E9%85%8D%E4%BB%B6%E6%A8%A1%E5%9D%97%E5%8F%8A%E5%A4%9A%E5%AF%8C%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%9F%AD%E4%BB%A3%E7%A0%81%E5%8A%A8%E6%80%81%E6%B8%B2%E6%9F%93%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">WordPress基于ACF自定义字段组构建产品配件模块及多富文本内容配置与短代码动态渲染实现方案</div></div></a></div><div class="next-post pull-right"><a href="/2026/11/18/WordPress%E9%99%90%E5%88%B6%E6%96%87%E7%AB%A0%E5%92%8C%E9%A1%B5%E9%9D%A2%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC%E6%95%B0%E9%87%8F%E5%B9%B6%E8%87%AA%E5%8A%A8%E6%B8%85%E7%90%86%E5%A4%9A%E4%BD%99%E4%BF%AE%E8%AE%A2%E8%AE%B0%E5%BD%95%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">WordPress限制文章和页面历史版本数量并自动清理多余修订记录完整操作手册</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/11/04/WordPress-ACF-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E6%AE%B5%E7%BB%84group%E7%B1%BB%E5%9E%8B-%E4%B8%8E%E7%9F%AD%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E4%BA%A7%E5%93%81%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E5%8D%A1%E7%89%87%E5%B1%95%E7%A4%BA%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C%E6%8C%87%E5%BC%95/" title="WordPress ACF(自定义字段组group类型)与短代码实现产品应用场景卡片展示完整操作指引"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-11-04</div><div class="title">WordPress ACF(自定义字段组group类型)与短代码实现产品应用场景卡片展示完整操作指引</div></div></a></div><div><a href="/2026/11/02/WordPress-ACF-%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E6%AE%B5%E9%87%8C%E9%9D%A2%E7%9A%84Select%E5%A4%9A%E9%80%89%E5%AD%97%E6%AE%B5%E7%9A%84%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8%E4%B9%8B%E5%90%8E%E5%8F%B0%E4%B8%AD%E6%96%87%E5%89%8D%E5%8F%B0%E8%8B%B1%E6%96%87%E5%8F%8ABootstrap%E8%83%B6%E5%9B%8A%E5%B1%95%E7%A4%BA/" title="WordPress ACF 的自定义字段里面的Select多选字段的高级应用之后台中文前台英文及Bootstrap胶囊展示"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-11-02</div><div class="title">WordPress ACF 的自定义字段里面的Select多选字段的高级应用之后台中文前台英文及Bootstrap胶囊展示</div></div></a></div><div><a href="/2026/11/11/WordPress%E5%AD%90%E4%B8%BB%E9%A2%98%E5%A4%9A%E4%B8%AA%E5%AD%90%E5%8A%9F%E8%83%BD%E6%96%87%E4%BB%B6%E5%BC%95%E5%85%A5%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8CABSPATH/" title="WordPress子主题多个子功能文件引入操作手册ABSPATH"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-11-11</div><div class="title">WordPress子主题多个子功能文件引入操作手册ABSPATH</div></div></a></div><div><a href="/2026/11/19/WordPress%E6%96%B0%E9%97%BB%E4%B8%AD%E5%BF%83%E7%9F%AD%E7%A0%81%E6%A8%A1%E5%9D%97%E5%BC%80%E5%8F%91%E4%B8%8E%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%E5%AE%9E%E7%8E%B0%E6%96%B0%E9%97%BB%E5%88%97%E8%A1%A8%E7%BD%AE%E9%A1%B6%E6%8E%A8%E8%8D%90AJAX%E5%88%86%E7%B1%BB%E7%AD%9B%E9%80%89%E5%92%8C%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/" title="WordPress新闻中心短码模块开发与部署指南实现新闻列表置顶推荐AJAX分类筛选和响应式布局"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-11-19</div><div class="title">WordPress新闻中心短码模块开发与部署指南实现新闻列表置顶推荐AJAX分类筛选和响应式布局</div></div></a></div><div><a href="/2026/11/02/WordPress%E8%BF%9B%E9%98%B6%E5%AE%9E%E6%88%98%E5%9C%A8Avada%E4%B8%8EWooCommerce%E4%BA%A7%E5%93%81%E5%88%97%E8%A1%A8%E4%B8%AD%E5%AE%8C%E7%BE%8E%E5%B1%95%E7%A4%BAACF%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E6%AE%B5/" title="WordPress进阶实战在Avada与WooCommerce产品列表中完美展示ACF自定义字段"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-11-02</div><div class="title">WordPress进阶实战在Avada与WooCommerce产品列表中完美展示ACF自定义字段</div></div></a></div><div><a href="/2026/11/03/WordPress%E8%BF%9B%E9%98%B6%E5%AE%9E%E6%88%98%E5%BC%80%E5%8F%91%E7%8B%AC%E7%AB%8BACF%E7%9F%AD%E4%BB%A3%E7%A0%81%E5%9C%A8Avada%E4%B8%AD%E5%AE%8C%E7%BE%8E%E8%BE%93%E5%87%BA%E5%A4%9A%E5%9B%BE%E7%9B%B8%E5%86%8C/" title="WordPress进阶实战开发独立ACF短代码在Avada中完美输出多图相册"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-11-03</div><div class="title">WordPress进阶实战开发独立ACF短代码在Avada中完美输出多图相册</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/dino2.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">鸢尾花序</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">688</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2191</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">183</div></a></div><a id="card-info-btn" href="mailto:791447771@qq.com"><i class="fab fa-github"></i><span>联系我们</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:791447771@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://wa.me/+8613927440553" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><div class="hexo_mucis_cw_player"><div class="hexo_mucis_cw_cover"><span>♫</span></div><div class="hexo_mucis_cw_content"><div class="hexo_mucis_cw_title">闲听片刻</div><div class="hexo_mucis_cw_author">A little moment of peace</div><div class="hexo_mucis_cw_progress"><span class="hexo_mucis_cw_current">00:00</span><input class="hexo_mucis_cw_seek" type="range" min="0" max="100" value="0"><span class="hexo_mucis_cw_duration">00:00</span></div><div class="hexo_mucis_cw_controls"><button class="hexo_mucis_cw_toggle" type="button" aria-label="播放音乐">▶</button><div class="hexo_mucis_cw_volume"><span>♪</span><input class="hexo_mucis_cw_volume_range" type="range" min="0" max="1" step="0.01" value="0.35"></div><button class="hexo_mucis_cw_loop" type="button" aria-label="关闭循环播放" aria-pressed="true">↻ 循环播放</button></div></div><audio class="hexo_mucis_cw_audio" preload="none" loop><source src="/img/background.mp3" type="audio/mpeg"></audio><div class="hexo_mucis_cw_quote">日子不必总是匆忙，偶尔停下来，也是一种生活。</div></div></div></div><div class="card-widget"><div class="item-headline"><i class="fas fa-images"></i><span>伏创能源 · 发电多一点，回本快一点</span></div><div class="item-content"><div class="custom-ad-carousel" data-interval="3000">
+  <!-- 滑动轨道，由 JS 自动填充内容 -->
+  <div class="ad-track"></div>
+  <!-- 隐藏的数据列表 -->
+  <ul class="ad-data" style="display:none;">
+    <li data-img="https://voltcravepower.com/wp-content/uploads/2026/08/LF280K-3.2V-280Ah-LiFePO4-Prismatic-Cell-2.webp" data-link="https://voltcravepower.com/contact/"></li>
+    <li data-img="https://voltcravepower.com/wp-content/uploads/2026/08/LF280K-3.2V-280Ah-LiFePO4-Prismatic-Cell-1-1024x1024.webp" data-link="https://voltcravepower.com/product/lf280k-3-2v-280ah-lifepo4-prismatic-cell/"></li>
+  </ul>
+  <!-- 圆点容器 -->
+  <div class="ad-dots"></div>
+</div>
+</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%B8%8B%E8%BD%BD%E5%92%8C%E5%AE%89%E8%A3%85PHP"><span class="toc-number">1.</span> <span class="toc-text">二、下载和安装PHP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E4%B8%8B%E8%BD%BDPHP"><span class="toc-number">1.1.</span> <span class="toc-text">2.1 下载PHP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E8%A7%A3%E5%8E%8BPHP"><span class="toc-number">1.2.</span> <span class="toc-text">2.2 解压PHP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%88%9B%E5%BB%BAphp-ini%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">2.3 创建php.ini配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E9%85%8D%E7%BD%AEphp-ini"><span class="toc-number">1.4.</span> <span class="toc-text">2.4 配置php.ini</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E5%85%B3%E9%97%AD%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E9%94%99%E8%AF%AF%E6%98%BE%E7%A4%BA"><span class="toc-number">1.5.</span> <span class="toc-text">2.5 关闭不必要的错误显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E9%85%8D%E7%BD%AEPHP%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">1.6.</span> <span class="toc-text">2.6 配置PHP环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-%E9%AA%8C%E8%AF%81PHP%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F"><span class="toc-number">1.7.</span> <span class="toc-text">2.7 验证PHP是否安装成功</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%B8%8B%E8%BD%BD%E5%92%8C%E5%AE%89%E8%A3%85WP-CLI"><span class="toc-number">2.</span> <span class="toc-text">三、下载和安装WP-CLI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E4%B8%8B%E8%BD%BDwp-cli-phar"><span class="toc-number">2.1.</span> <span class="toc-text">3.1 下载wp-cli.phar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%88%9B%E5%BB%BAwp-bat%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6"><span class="toc-number">2.2.</span> <span class="toc-text">3.2 创建wp.bat启动文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E9%85%8D%E7%BD%AEWP-CLI%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">2.3.</span> <span class="toc-text">3.3 配置WP-CLI环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E9%AA%8C%E8%AF%81WP-CLI%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F"><span class="toc-number">2.4.</span> <span class="toc-text">3.4 验证WP-CLI是否安装成功</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E4%B8%8D%E9%87%8D%E5%90%AF%E7%94%B5%E8%84%91%E4%BD%BF%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%AB%8B%E5%8D%B3%E7%94%9F%E6%95%88"><span class="toc-number">3.</span> <span class="toc-text">四、不重启电脑使环境变量立即生效</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E6%96%B9%E6%B3%95%E4%B8%80%E9%87%8D%E6%96%B0%E6%89%93%E5%BC%80%E7%BB%88%E7%AB%AF"><span class="toc-number">3.1.</span> <span class="toc-text">4.1 方法一重新打开终端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E6%96%B9%E6%B3%95%E4%BA%8C%E9%87%8D%E5%90%AFWindows%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-number">3.2.</span> <span class="toc-text">4.2 方法二重启Windows资源管理器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E7%90%86%E8%A7%A3LocalWP%E7%9A%84%E7%8E%AF%E5%A2%83%E9%9A%94%E7%A6%BB%E6%9C%BA%E5%88%B6"><span class="toc-number">4.</span> <span class="toc-text">五、理解LocalWP的环境隔离机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-Windows%E5%85%A8%E5%B1%80%E7%8E%AF%E5%A2%83%E5%92%8CLocalWP%E7%8E%AF%E5%A2%83%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">4.1.</span> <span class="toc-text">5.1 Windows全局环境和LocalWP环境的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BB%BA%E8%AE%AE%E4%BD%BF%E7%94%A8LocalWP%E8%87%AA%E5%B8%A6%E7%9A%84Shell"><span class="toc-number">4.2.</span> <span class="toc-text">5.2 为什么建议使用LocalWP自带的Shell</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E4%BD%BF%E7%94%A8LocalWP-Shell%E5%BF%AB%E9%80%9F%E8%BF%9B%E5%85%A5WordPress%E6%A0%B9%E7%9B%AE%E5%BD%95"><span class="toc-number">5.</span> <span class="toc-text">六、使用LocalWP Shell快速进入WordPress根目录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E9%80%9A%E8%BF%87%E7%A3%81%E7%9B%98%E7%9B%98%E7%AC%A6%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2"><span class="toc-number">5.1.</span> <span class="toc-text">6.1 通过磁盘盘符快速切换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E9%AA%8C%E8%AF%81%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95"><span class="toc-number">5.2.</span> <span class="toc-text">6.2 验证当前目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-%E4%B8%BA%E4%BB%80%E4%B9%88ls%E5%91%BD%E4%BB%A4%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8"><span class="toc-number">5.3.</span> <span class="toc-text">6.3 为什么ls命令不能使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81WordPress%E5%B8%B8%E7%94%A8WP-CLI%E5%91%BD%E4%BB%A4%E5%AE%9E%E6%88%98"><span class="toc-number">6.</span> <span class="toc-text">七、WordPress常用WP-CLI命令实战</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-%E6%9F%A5%E7%9C%8BWordPress%E7%89%88%E6%9C%AC"><span class="toc-number">6.1.</span> <span class="toc-text">7.1 查看WordPress版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E6%8F%92%E4%BB%B6"><span class="toc-number">6.2.</span> <span class="toc-text">7.2 查看所有插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-%E6%9B%B4%E6%96%B0%E6%8F%92%E4%BB%B6"><span class="toc-number">6.3.</span> <span class="toc-text">7.3 更新插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4-%E5%90%AF%E7%94%A8%E5%92%8C%E5%81%9C%E7%94%A8%E6%8F%92%E4%BB%B6"><span class="toc-number">6.4.</span> <span class="toc-text">7.4 启用和停用插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-5-%E6%9F%A5%E7%9C%8B%E4%B8%BB%E9%A2%98"><span class="toc-number">6.5.</span> <span class="toc-text">7.5 查看主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-6-%E6%A3%80%E6%9F%A5%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">6.6.</span> <span class="toc-text">7.6 检查数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-7-%E6%9F%A5%E7%9C%8B%E7%BD%91%E7%AB%99%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="toc-number">6.7.</span> <span class="toc-text">7.7 查看网站基本信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-number">7.</span> <span class="toc-text">八、常见问题及解决方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-php%E4%B8%8D%E6%98%AF%E5%86%85%E9%83%A8%E6%88%96%E5%A4%96%E9%83%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">7.1.</span> <span class="toc-text">8.1 php不是内部或外部命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-wp%E4%B8%8D%E6%98%AF%E5%86%85%E9%83%A8%E6%88%96%E5%A4%96%E9%83%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">7.2.</span> <span class="toc-text">8.2 wp不是内部或外部命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-Error-establishing-a-database-connection"><span class="toc-number">7.3.</span> <span class="toc-text">8.3 Error establishing a database connection</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-4-This-does-not-seem-to-be-a-WordPress-installation"><span class="toc-number">7.4.</span> <span class="toc-text">8.4 This does not seem to be a WordPress installation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C%E5%92%8C%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8%E5%BB%BA%E8%AE%AE"><span class="toc-number">8.</span> <span class="toc-text">九、最终效果和日常使用建议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E6%80%BB%E7%BB%93"><span class="toc-number">9.</span> <span class="toc-text">十、总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%9D%E5%A4%96%E5%BB%BA%E8%AE%AE"><span class="toc-number">9.1.</span> <span class="toc-text">额外建议</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/11/20/Hexo%E9%9F%B3%E9%A2%91%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E4%B8%8Ehexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E7%A0%81%E5%92%8CGitHub-Pages%E5%88%86%E7%A6%BB%E9%83%A8%E7%BD%B2%E5%AF%B9%E4%BB%93%E5%BA%93%E7%A9%BA%E9%97%B4%E5%A4%A7%E5%B0%8F%E8%AE%A1%E7%AE%97%E5%88%86%E6%9E%90/" title="Hexo音频文件存储与hexo博客源码和GitHub Pages分离部署对仓库空间大小计算分析"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo音频文件存储与hexo博客源码和GitHub Pages分离部署对仓库空间大小计算分析"/></a><div class="content"><a class="title" href="/2026/11/20/Hexo%E9%9F%B3%E9%A2%91%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E4%B8%8Ehexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E7%A0%81%E5%92%8CGitHub-Pages%E5%88%86%E7%A6%BB%E9%83%A8%E7%BD%B2%E5%AF%B9%E4%BB%93%E5%BA%93%E7%A9%BA%E9%97%B4%E5%A4%A7%E5%B0%8F%E8%AE%A1%E7%AE%97%E5%88%86%E6%9E%90/" title="Hexo音频文件存储与hexo博客源码和GitHub Pages分离部署对仓库空间大小计算分析">Hexo音频文件存储与hexo博客源码和GitHub Pages分离部署对仓库空间大小计算分析</a><time datetime="2026-11-20T14:50:37.000Z" title="发表于 2026-11-20 22:50:37">2026-11-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/11/20/Hexo-Butterfly%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87%E5%81%B6%E5%B0%94%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%92%8CFontAwesome%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%85%8D%E7%BD%AE/" title="Hexo Butterfly字体图标偶尔不显示的解决方案和FontAwesome本地化配置"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo Butterfly字体图标偶尔不显示的解决方案和FontAwesome本地化配置"/></a><div class="content"><a class="title" href="/2026/11/20/Hexo-Butterfly%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87%E5%81%B6%E5%B0%94%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%92%8CFontAwesome%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%85%8D%E7%BD%AE/" title="Hexo Butterfly字体图标偶尔不显示的解决方案和FontAwesome本地化配置">Hexo Butterfly字体图标偶尔不显示的解决方案和FontAwesome本地化配置</a><time datetime="2026-11-20T11:55:46.000Z" title="发表于 2026-11-20 19:55:46">2026-11-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/11/20/Hexo%E5%B9%B3%E5%8F%B0%E7%9A%84Butterfly%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BE%A7%E8%BE%B9%E5%85%AC%E5%91%8A%E6%A0%8F%E6%B7%BB%E5%8A%A0%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/" title="Hexo平台的Butterfly主题的侧边公告栏添加背景音乐播放器完整操作指南"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo平台的Butterfly主题的侧边公告栏添加背景音乐播放器完整操作指南"/></a><div class="content"><a class="title" href="/2026/11/20/Hexo%E5%B9%B3%E5%8F%B0%E7%9A%84Butterfly%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BE%A7%E8%BE%B9%E5%85%AC%E5%91%8A%E6%A0%8F%E6%B7%BB%E5%8A%A0%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/" title="Hexo平台的Butterfly主题的侧边公告栏添加背景音乐播放器完整操作指南">Hexo平台的Butterfly主题的侧边公告栏添加背景音乐播放器完整操作指南</a><time datetime="2026-11-20T11:16:32.000Z" title="发表于 2026-11-20 19:16:32">2026-11-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/11/20/QQ%E9%9F%B3%E4%B9%90%E4%B8%8B%E8%BD%BD%E6%AD%8C%E6%9B%B2%E5%B9%B6%E8%BD%AC%E6%8D%A2%E4%B8%BAMP3%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97%E4%BD%8E%E7%89%88%E6%9C%AC%E5%AE%A2%E6%88%B7%E7%AB%AFOGG%E4%B8%8EMGG%E8%A7%A3%E5%AF%86%E5%8F%8AFFmpeg%E8%BD%AC%E7%A0%81/" title="QQ音乐下载歌曲并转换为MP3完整操作指南低版本客户端OGG与MGG解密及FFmpeg转码"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="QQ音乐下载歌曲并转换为MP3完整操作指南低版本客户端OGG与MGG解密及FFmpeg转码"/></a><div class="content"><a class="title" href="/2026/11/20/QQ%E9%9F%B3%E4%B9%90%E4%B8%8B%E8%BD%BD%E6%AD%8C%E6%9B%B2%E5%B9%B6%E8%BD%AC%E6%8D%A2%E4%B8%BAMP3%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97%E4%BD%8E%E7%89%88%E6%9C%AC%E5%AE%A2%E6%88%B7%E7%AB%AFOGG%E4%B8%8EMGG%E8%A7%A3%E5%AF%86%E5%8F%8AFFmpeg%E8%BD%AC%E7%A0%81/" title="QQ音乐下载歌曲并转换为MP3完整操作指南低版本客户端OGG与MGG解密及FFmpeg转码">QQ音乐下载歌曲并转换为MP3完整操作指南低版本客户端OGG与MGG解密及FFmpeg转码</a><time datetime="2026-11-20T10:29:35.000Z" title="发表于 2026-11-20 18:29:35">2026-11-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/11/19/WordPress%E6%96%B0%E9%97%BB%E4%B8%AD%E5%BF%83%E7%9F%AD%E7%A0%81%E6%A8%A1%E5%9D%97%E5%BC%80%E5%8F%91%E4%B8%8E%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%E5%AE%9E%E7%8E%B0%E6%96%B0%E9%97%BB%E5%88%97%E8%A1%A8%E7%BD%AE%E9%A1%B6%E6%8E%A8%E8%8D%90AJAX%E5%88%86%E7%B1%BB%E7%AD%9B%E9%80%89%E5%92%8C%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/" title="WordPress新闻中心短码模块开发与部署指南实现新闻列表置顶推荐AJAX分类筛选和响应式布局"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WordPress新闻中心短码模块开发与部署指南实现新闻列表置顶推荐AJAX分类筛选和响应式布局"/></a><div class="content"><a class="title" href="/2026/11/19/WordPress%E6%96%B0%E9%97%BB%E4%B8%AD%E5%BF%83%E7%9F%AD%E7%A0%81%E6%A8%A1%E5%9D%97%E5%BC%80%E5%8F%91%E4%B8%8E%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%E5%AE%9E%E7%8E%B0%E6%96%B0%E9%97%BB%E5%88%97%E8%A1%A8%E7%BD%AE%E9%A1%B6%E6%8E%A8%E8%8D%90AJAX%E5%88%86%E7%B1%BB%E7%AD%9B%E9%80%89%E5%92%8C%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/" title="WordPress新闻中心短码模块开发与部署指南实现新闻列表置顶推荐AJAX分类筛选和响应式布局">WordPress新闻中心短码模块开发与部署指南实现新闻列表置顶推荐AJAX分类筛选和响应式布局</a><time datetime="2026-11-19T07:46:58.000Z" title="发表于 2026-11-19 15:46:58">2026-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/11/19/WordPress%E7%9A%84woocommerce%E5%86%85%E7%BD%AE%E5%88%86%E7%B1%BB%E5%88%97%E8%A1%A8%E5%92%8C%E9%A1%B5%E9%9D%A2%E6%9E%84%E5%BB%BA%E5%99%A8%E4%BA%A7%E5%93%81%E5%88%86%E7%B1%BB%E5%88%97%E8%A1%A8%E6%A0%87%E9%A2%98%E4%B8%8B%E6%96%B9%E6%B7%BB%E5%8A%A0-ACF%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E6%AE%B5%E5%85%BC%E5%AE%B9%E5%88%86%E9%A1%B5%E6%87%92%E5%8A%A0%E8%BD%BD%E5%AE%9E%E6%96%BD%E6%96%B9%E6%A1%88/" title="WordPress的woocommerce内置分类列表和页面构建器产品分类列表标题下方添加 ACF自定义字段兼容分页懒加载实施方案"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WordPress的woocommerce内置分类列表和页面构建器产品分类列表标题下方添加 ACF自定义字段兼容分页懒加载实施方案"/></a><div class="content"><a class="title" href="/2026/11/19/WordPress%E7%9A%84woocommerce%E5%86%85%E7%BD%AE%E5%88%86%E7%B1%BB%E5%88%97%E8%A1%A8%E5%92%8C%E9%A1%B5%E9%9D%A2%E6%9E%84%E5%BB%BA%E5%99%A8%E4%BA%A7%E5%93%81%E5%88%86%E7%B1%BB%E5%88%97%E8%A1%A8%E6%A0%87%E9%A2%98%E4%B8%8B%E6%96%B9%E6%B7%BB%E5%8A%A0-ACF%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E6%AE%B5%E5%85%BC%E5%AE%B9%E5%88%86%E9%A1%B5%E6%87%92%E5%8A%A0%E8%BD%BD%E5%AE%9E%E6%96%BD%E6%96%B9%E6%A1%88/" title="WordPress的woocommerce内置分类列表和页面构建器产品分类列表标题下方添加 ACF自定义字段兼容分页懒加载实施方案">WordPress的woocommerce内置分类列表和页面构建器产品分类列表标题下方添加 ACF自定义字段兼容分页懒加载实施方案</a><time datetime="2026-11-19T03:36:44.000Z" title="发表于 2026-11-19 11:36:44">2026-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/11/18/GoogleAds%E6%90%9C%E7%B4%A2%E5%B9%BF%E5%91%8A%E5%8F%97%E4%BC%97%E7%BE%A4%E4%BD%93%E8%AE%BE%E7%BD%AE%E4%B8%8E%E4%BC%98%E5%8C%96%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C/" title="GoogleAds搜索广告受众群体设置与优化完整操作手册"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GoogleAds搜索广告受众群体设置与优化完整操作手册"/></a><div class="content"><a class="title" href="/2026/11/18/GoogleAds%E6%90%9C%E7%B4%A2%E5%B9%BF%E5%91%8A%E5%8F%97%E4%BC%97%E7%BE%A4%E4%BD%93%E8%AE%BE%E7%BD%AE%E4%B8%8E%E4%BC%98%E5%8C%96%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C/" title="GoogleAds搜索广告受众群体设置与优化完整操作手册">GoogleAds搜索广告受众群体设置与优化完整操作手册</a><time datetime="2026-11-18T15:32:49.000Z" title="发表于 2026-11-18 23:32:49">2026-11-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/11/18/WordPress%E5%9F%BA%E4%BA%8EACF%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E6%AE%B5%E7%BB%84%E6%9E%84%E5%BB%BA%E4%BA%A7%E5%93%81%E9%85%8D%E4%BB%B6%E6%A8%A1%E5%9D%97%E5%8F%8A%E5%A4%9A%E5%AF%8C%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%9F%AD%E4%BB%A3%E7%A0%81%E5%8A%A8%E6%80%81%E6%B8%B2%E6%9F%93%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88/" title="WordPress基于ACF自定义字段组构建产品配件模块及多富文本内容配置与短代码动态渲染实现方案"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WordPress基于ACF自定义字段组构建产品配件模块及多富文本内容配置与短代码动态渲染实现方案"/></a><div class="content"><a class="title" href="/2026/11/18/WordPress%E5%9F%BA%E4%BA%8EACF%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E6%AE%B5%E7%BB%84%E6%9E%84%E5%BB%BA%E4%BA%A7%E5%93%81%E9%85%8D%E4%BB%B6%E6%A8%A1%E5%9D%97%E5%8F%8A%E5%A4%9A%E5%AF%8C%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%9F%AD%E4%BB%A3%E7%A0%81%E5%8A%A8%E6%80%81%E6%B8%B2%E6%9F%93%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88/" title="WordPress基于ACF自定义字段组构建产品配件模块及多富文本内容配置与短代码动态渲染实现方案">WordPress基于ACF自定义字段组构建产品配件模块及多富文本内容配置与短代码动态渲染实现方案</a><time datetime="2026-11-18T11:34:04.000Z" title="发表于 2026-11-18 19:34:04">2026-11-18</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2026 By 鸢尾花序</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script></div><script src="/js/custom.js"></script><script src="/js/mermaid.min.js"></script></div></body></html>
